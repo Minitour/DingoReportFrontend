@@ -1,4 +1,4 @@
-package view;
+package view.forms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -7,7 +7,7 @@ import ui.UIView;
 /**
  * Created By Tony on 14/02/2018
  */
-public class AccountFormView extends UIView {
+public class AccountFormView extends UIView implements UIForm {
 
     @FXML
     private TextField email;
@@ -25,6 +25,12 @@ public class AccountFormView extends UIView {
 
     public String getPassword() {
         return password.getText();
+    }
+
+    @Override
+    public boolean isValid() {
+        //TODO: Check fields
+        return true;
     }
 
     public void reset(){

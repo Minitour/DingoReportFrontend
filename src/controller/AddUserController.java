@@ -9,9 +9,10 @@ import model.Officer;
 import model.Volunteer;
 import ui.UIView;
 import ui.UIViewController;
-import view.AccountFormView;
-import view.OfficerFormView;
-import view.VolunteerFormView;
+import view.forms.AccountFormView;
+import view.forms.OfficerFormView;
+import view.forms.UIForm;
+import view.forms.VolunteerFormView;
 
 /**
  * Created By Tony on 14/02/2018
@@ -30,13 +31,15 @@ public class AddUserController extends UIViewController{
 
     private OfficerFormView officerFormView = new OfficerFormView();
 
-    int roleId = -1;
     private UserType type;
+
+    private UIForm[] forms;
 
     public AddUserController(UserType type) {
         super("/resources/xml/controller_add_user.fxml");
         init(type);
 
+        submit.setOnAction(event -> submit());
     }
 
     private void init(UserType type){
@@ -52,9 +55,18 @@ public class AddUserController extends UIViewController{
                 addViewToStack(officerFormView);
                 break;
         }
+
+        forms = new UIForm[]{accountFormView,officerFormView,volunteerFormView};
+
     }
 
     private void submit(){
+
+        for(UIForm form : forms){
+            if (!form.isValid())
+                return;
+        }
+
         Account account = null;
 
         //account
@@ -91,9 +103,7 @@ public class AddUserController extends UIViewController{
         onAccountReady(account);
     }
 
-    public void onAccountReady(Account account){
-
-    }
+    public void onAccountReady(Account account){ }
 
     private void addViewToStack(UIView view){
         if(view == null)
