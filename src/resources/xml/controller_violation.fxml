@@ -30,7 +30,7 @@
                 <JFXRadioButton fx:id="rd_video" text="Video Attachment" />
                 <JFXRadioButton fx:id="rd_image" text="Image Attachment" />
             </VBox>
-            <VBox fx:id="file_attach" spacing="8" visible="false">
+            <VBox fx:id="file_attach" spacing="8" visible="true">
                 <padding>
                     <Insets bottom="8" left="8" right="8" top="16" />
                 </padding>
