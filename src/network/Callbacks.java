@@ -22,7 +22,7 @@ public final class Callbacks {
 
     @FunctionalInterface
     public interface Auth {
-        void make(ServerResponse response,String id, String token, Exception exception);
+        void make(ServerResponse response,String id, String token,int roleId, Exception exception);
     }
 
     //TODO: add needed interfaces.

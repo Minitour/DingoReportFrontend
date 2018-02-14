@@ -21,5 +21,8 @@ public class AppDelegate extends Application {
         primaryStage.show();
 
         controller.setOnExit((event)-> primaryStage.close());
+        controller.setOnAuth(role -> {
+            //TODO: if role is not -1, launch the next controller.
+        });
     }
 }

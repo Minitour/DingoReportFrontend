@@ -50,12 +50,14 @@ public class APIManager {
 
         makeRequest(Constants.Routes.login(),null,data,(json, ex) -> {
             ServerResponse r = new ServerResponse(json);
-            if(ex == null){
-                String id = json.get("id").getAsString();
-                String token = json.get("sessionToken").getAsString();
-                callback.make(r,id,token,null);
+            if(ex == null && r.isOK()){
+                JsonObject d = json.get("data").getAsJsonObject();
+                String id = d.get("id").getAsString();
+                String token = d.get("sessionToken").getAsString();
+                int roleId = d.get("role").getAsInt();
+                callback.make(r,id,token,roleId,null);
             }else
-                callback.make(r,null,null,ex);
+                callback.make(r,null,null,-1,ex);
 
         });
     }
