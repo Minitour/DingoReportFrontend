@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import ui.UIView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import com.jfoenix.controls.JFXButton?>
+<UIView fx:id="root" xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        stylesheets="@../../ui/res/css/styles.css,@../css/style.css"
+        prefHeight="400.0" prefWidth="600.0">
+    <ScrollPane>
+        <content>
+            <VBox fx:id="pa" spacing="16">
+                <VBox fx:id="formHolder" spacing="8">
+
+                </VBox>
+                <JFXButton fx:id="submit" prefWidth="${pa.width}" mnemonicParsing="false" styleClass="button-raised" text="Create User" />
+            </VBox>
+
+        </content>
+    </ScrollPane>
+</UIView>

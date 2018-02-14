@@ -1,5 +1,6 @@
 package controller.masters;
 
+import controller.UpdatePasswordController;
 import ui.UIView;
 
 /**
@@ -8,7 +9,12 @@ import ui.UIView;
 public class VolunteerMasterController extends MasterMenuController{
     @Override
     public UIView viewForIndexAt(int index) {
-        return null;
+        switch (index){
+            case 2:
+                return new UpdatePasswordController().view;
+                default:
+                    return null;
+        }
     }
 
     @Override

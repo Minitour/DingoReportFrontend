@@ -1,5 +1,6 @@
 package controller.masters;
 
+import controller.AddUserController;
 import ui.UIView;
 
 /**
@@ -8,7 +9,12 @@ import ui.UIView;
 public class SecretaryMasterController extends MasterMenuController{
     @Override
     public UIView viewForIndexAt(int index) {
-        return null;
+        switch (index){
+            case 0:
+                return new AddUserController(AddUserController.UserType.VOLUNTEER).view;
+            default:
+                return null;
+        }
     }
 
     @Override

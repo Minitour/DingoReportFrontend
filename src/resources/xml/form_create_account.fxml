@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import com.jfoenix.controls.JFXTextField?>
+<fx:root stylesheets="@../../ui/res/css/styles.css,@../css/style.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Pane  fx:id="parent" styleClass="container">
+        <Pane>
+            <VBox spacing="14" styleClass="container">
+                <Label text="Account Details"></Label>
+                <padding><Insets top="8" bottom="8" left="8" right="8"/></padding>
+                <JFXTextField fx:id="email" promptText="Email"/>
+                <JFXPasswordField fx:id="password"  promptText="Password"/>
+            </VBox>
+        </Pane>
+    </Pane>
+</fx:root>

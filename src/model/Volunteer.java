@@ -16,8 +16,8 @@ public class Volunteer extends Account{
         this.phone = phone;
     }
 
-    public Volunteer(String EMAIL, int ROLE_ID, String password, String name, String phone) {
-        super(EMAIL, ROLE_ID, password);
+    public Volunteer(String ID,String EMAIL, String password, String name, String phone) {
+        super(ID,EMAIL, 4, password);
         this.name = name;
         this.phone = phone;
     }

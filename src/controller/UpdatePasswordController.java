@@ -23,7 +23,7 @@ public class UpdatePasswordController extends UIViewController {
 
     public UpdatePasswordController() {
         //TODO: create FXML
-        super("");
+        super("/resources/xml/controller_update_password.fxml");
 
         submit.setOnAction(event -> {
             String cPassword = currentPassword.getText();
@@ -37,7 +37,6 @@ public class UpdatePasswordController extends UIViewController {
                 String title;
                 String message;
                 if(response.isOK()){
-                    //TODO: show popup
                     title = "Success";
                     message = "Password successfully changed.";
 
@@ -50,7 +49,7 @@ public class UpdatePasswordController extends UIViewController {
                 dialogView.setTitle(title);
                 dialogView.setMessage(message);
                 dialogView.show(view);
-                
+
                 submit.setDisable(false);
             });
         });

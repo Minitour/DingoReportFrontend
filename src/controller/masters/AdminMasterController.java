@@ -13,6 +13,6 @@ public class AdminMasterController extends MasterMenuController{
 
     @Override
     public String[] itemsForMenu() {
-        return new String[0];
+        return new String[]{"Add User","Manage Users"};
     }
 }

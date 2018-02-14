@@ -2,6 +2,8 @@ package main;
 
 import controller.masters.HeadOfficerMasterController;
 import controller.masters.MasterMenuController;
+import controller.masters.SecretaryMasterController;
+import controller.masters.VolunteerMasterController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,7 +20,7 @@ public class AppDelegate extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        MasterMenuController menuController = new HeadOfficerMasterController();
+        MasterMenuController menuController = new SecretaryMasterController();
         primaryStage.setScene(new Scene(menuController.view));
 
 //        LoginController controller = new LoginController();

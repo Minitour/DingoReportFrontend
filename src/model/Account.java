@@ -13,7 +13,7 @@ public class Account{
     @Expose
     private Integer ROLE_ID;
 
-    @Expose(serialize = false,deserialize = false)
+    @Expose
     private String password;
 
     public Account(String ID, String EMAIL, Integer ROLE_ID) {

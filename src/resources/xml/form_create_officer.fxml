@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<fx:root stylesheets="@../../ui/res/css/styles.css,@../css/style.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Pane  fx:id="parent" styleClass="container">
+        <Pane>
+            <VBox spacing="14" styleClass="container">
+                <Label text="Officer Details"/>
+                <padding><Insets top="8" bottom="8" left="8" right="8"/></padding>
+                <JFXTextField fx:id="badgeNum" promptText="Full Name"/>
+                <JFXTextField fx:id="name" promptText="Full Name"/>
+                <JFXTextField fx:id="phoneExt" promptText="Phone Number"/>
+                <JFXTextField fx:id="rank" promptText="Rank (Number)"/>
+                <!--TODO: Add Combo box here to select rank (Officer/HighRankOfficer)-->
+            </VBox>
+        </Pane>
+    </Pane>
+</fx:root>

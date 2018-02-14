@@ -27,6 +27,14 @@ public class Officer extends Account {
         this.rank = rank;
     }
 
+    public Officer(String ID, String EMAIL, String password, String badgeNum, String name, String phoneExtension, int rank) {
+        super(ID, EMAIL, 2, password);
+        this.badgeNum = badgeNum;
+        this.name = name;
+        this.phoneExtension = phoneExtension;
+        this.rank = rank;
+    }
+
     public String getBadgeNum() {
         return badgeNum;
     }
