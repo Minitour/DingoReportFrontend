@@ -16,7 +16,7 @@ public final class Callbacks {
     private Callbacks(){}
 
     @FunctionalInterface
-    public interface Inner{
+    interface Inner{
         void make(JsonObject json, Exception exception);
     }
 
@@ -24,6 +24,10 @@ public final class Callbacks {
     public interface Auth {
         void make(ServerResponse response,String id, String token, Exception exception);
     }
+
+    //TODO: add needed interfaces.
+
+
 
 
 }

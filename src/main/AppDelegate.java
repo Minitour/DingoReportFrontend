@@ -4,7 +4,6 @@ import controller.LoginController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ui.UIView;
 
 /**
  * Created By Tony on 14/02/2018
@@ -20,5 +19,7 @@ public class AppDelegate extends Application {
         LoginController controller = new LoginController();
         primaryStage.setScene(new Scene(controller.getRoot()));
         primaryStage.show();
+
+        controller.setOnExit((event)-> primaryStage.close());
     }
 }

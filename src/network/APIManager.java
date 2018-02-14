@@ -60,6 +60,8 @@ public class APIManager {
         });
     }
 
+    //TODO: add other methods here
+
     /**
      * This method makes a post HTTP request to a url using the given params.
      *
@@ -75,7 +77,7 @@ public class APIManager {
         MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
         //create request body from params
 
-        RequestBody body = RequestBody.create(mediaType,jsonBody.getAsString());
+        RequestBody body = RequestBody.create(mediaType,jsonBody.toString());
         //create request
         Request request;
         Request.Builder builder = new Request

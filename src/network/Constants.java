@@ -35,8 +35,13 @@ final public class Constants {
         public static String login(){
             return getAddress() + "/signin";
         }
-        public static String updatePassword(){return getAddress() + "/changePassword"; }
+        public static String updatePassword(){return getAddress() + "/updatePassword"; }
         public static String getReports() { return getAddress() + "/getReports";}
+        public static String createVolunteer() { return getAddress() + "/createVolunteer";}
+        public static String makeDecision() { return getAddress() + "/makeDecision";}
+        public static String submitReport() { return getAddress() + "/submitReport";}
+        public static String uploadFile() { return getAddress() + "/uploadFile";}
+        public static String exportReports() { return getAddress() + "/exportReports";}
 
     }
     public static class Codes{
