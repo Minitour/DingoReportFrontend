@@ -21,7 +21,7 @@ import java.util.UUID;
 public class UIView extends StackPane implements Initializable, LocalizationManager.Translatable{
 
     /**
-     * The Delegate.
+     * The delegate.
      */
     private Delegate delegate;
 

@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
  *      The delegate is in charge of the business.
  *
  * `PREPARE`
- *      Call this to prepare the dialog. This will activate the `setOnHook` method in the Delegate
+ *      Call this to prepare the dialog. This will activate the `setOnHook` method in the delegate
  *
  * `SHOW`
  *      Finally the dialog is ready, all is left is to call the show function.
@@ -100,7 +100,7 @@ public class DynamicDialog extends DialogView {
      * @param callback
      * @return the instance.
      */
-    public DynamicDialog setDelegate(DialogDelegate callback){
+    public DynamicDialog delegate(DialogDelegate callback){
         delegate = callback;
         return this;
     }
@@ -202,7 +202,7 @@ public class DynamicDialog extends DialogView {
     }
 
     /**
-     * Dialog Delegate - Used to control the dialog's behavior.
+     * Dialog delegate - Used to control the dialog's behavior.
      */
     public interface DialogDelegate {
         void onHook(Map<String, Node> views, DynamicDialog dialog);

@@ -1,9 +1,7 @@
 package main;
 
-import controller.masters.HeadOfficerMasterController;
 import controller.masters.MasterMenuController;
 import controller.masters.SecretaryMasterController;
-import controller.masters.VolunteerMasterController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
