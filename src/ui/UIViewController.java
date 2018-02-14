@@ -51,6 +51,7 @@ public class UIViewController implements Initializable, UIView.Delegate, Localiz
         } catch (IOException e) {
             e.printStackTrace();
         }
+        view = root;
     }
 
     /**
@@ -63,6 +64,8 @@ public class UIViewController implements Initializable, UIView.Delegate, Localiz
      * The localization id of the controller.
      */
     private String id;
+
+    public final UIView view;
 
     @Override
     final public void initialize(URL location, ResourceBundle resources) {

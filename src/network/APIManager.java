@@ -55,11 +55,29 @@ public class APIManager {
                 String id = d.get("id").getAsString();
                 String token = d.get("sessionToken").getAsString();
                 int roleId = d.get("role").getAsInt();
+                AutoSignIn.ID = id;
+                AutoSignIn.SESSION_TOKEN = token;
+                AutoSignIn.ROLE_ID = roleId;
                 callback.make(r,id,token,roleId,null);
             }else
                 callback.make(r,null,null,-1,ex);
 
         });
+    }
+
+    public void updatePassword(String id,String token,String currentPassword,String newPassword,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.addProperty("currentPassword",currentPassword);
+        body.addProperty("newPassword",newPassword);
+
+        makeRequest(Constants.Routes.updatePassword(),null,body,(json, ex) ->
+                callback.make(new ServerResponse(json),ex));
+    }
+
+    public void updatePassword(String currentPassword,String newPassword,Callbacks.General callback){
+        updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
     }
 
     //TODO: add other methods here
