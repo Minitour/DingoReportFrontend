@@ -33,6 +33,6 @@ public class ViolationViewCell extends UIView {
 
     @Override
     public String resource() {
-        return "/resources/xml/ViolationCell.fxml";
+        return "/resources/xml/list_item_3.fxml";
     }
 }

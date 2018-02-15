@@ -77,36 +77,23 @@ public class ReportViewController extends UIViewController {
     private TextArea description;
 
     @FXML
-    private HBox violationHbox;
+    private VBox violationHbox;
 
     private CancelCallback canceCallback;
 
 
     public ReportViewController() {
-        super("");
+        super("/resources/xml/controller_report.fxml");
     }
 
-    /**
-     * inits
-     */
-    static ReportViewController instance(Vehicle vehicle){
-        try {
-            ReportViewController i =  ReportViewController.init("/resources/xml/new_report_view.fxml",ReportViewController.class.getClass());
-            i.setVehicle(vehicle);
-            return i;
-        } catch (IOException e) {
-            return null;
-        }
+    public ReportViewController(Report report){
+        this();
+        setReport(report);
     }
 
-    static ReportViewController instance(Report report){
-        try {
-            ReportViewController i =  ReportViewController.init("/resources/xml/new_report_view.fxml",ReportViewController.class.getClass());
-            i.setReport(report);
-            return i;
-        } catch (IOException e) {
-            return null;
-        }
+    public ReportViewController(Vehicle vehicle){
+        this();
+        setVehicle(vehicle);
     }
 
     @Override

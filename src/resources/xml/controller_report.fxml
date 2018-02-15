@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-
-<StackPane fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.NewReportVC">
+<?import ui.UIView?>
+<UIView fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane>
         <VBox spacing="8" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
             <padding>
                 <Insets bottom="8" left="8" right="8" top="8" />
             </padding>
-            <Label text="New Report">
+            <Label fx:id="form_title" text="New Report">
                 <font>
                     <Font name="Helvetica Bold" size="24.0" />
                 </font>
             </Label>
             <HBox fx:id="hbox_parent" VBox.vgrow="ALWAYS" spacing="8">
                 <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                <VBox minWidth="150" spacing="8" prefHeight="${hbox_parent.height}" HBox.hgrow="ALWAYS">
-                    <VBox spacing="8" styleClass="container">
+                <VBox minWidth="300" prefHeight="${hbox_parent.height}" styleClass="container">
+                    <padding><Insets left="8" right="8" top="8" /></padding>
+                    <VBox spacing="8" >
                         <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
                         <Label text="Vehicle Details">
                             <font>
@@ -39,6 +35,27 @@
                             <Label text="Car Color" fx:id="vd_carColor"/>
                         </VBox>
                     </VBox>
+                    <TextArea fx:id="description" minHeight="100" promptText="Description" />
+                    <VBox fx:id="violationHbox" spacing="8" VBox.vgrow="ALWAYS">
+                        <padding><Insets bottom="8" top="8" /></padding>
+                        <VBox>
+                            <padding><Insets bottom="8" top="8" /></padding>
+                            <Label text="Violations" HBox.hgrow="SOMETIMES">
+                                <font>
+                                    <Font name="Helvetica Bold" size="18.0" />
+                                </font>
+                            </Label>
+                            <VBox alignment="BASELINE_RIGHT">
+                                <JFXButton fx:id="violationAdd" styleClass="button-raised" text="Add Violation" />
+                            </VBox>
+
+                        </VBox>
+                        <ListView fx:id="violationListView" prefWidth="200" HBox.hgrow="ALWAYS" />
+
+                    </VBox>
+                </VBox>
+                <VBox minWidth="150" spacing="8" prefHeight="${hbox_parent.height}" HBox.hgrow="ALWAYS">
+
                     <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="container">
                         <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
                         <Label text="Car Owners">
@@ -49,24 +66,12 @@
                         <ListView fx:id="carOwnersListView" style="-fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
                     </VBox>
                 </VBox>
-                <VBox minWidth="300" prefHeight="${hbox_parent.height}" styleClass="container">
-                    <padding><Insets left="8" right="8" top="8" /></padding>
-                    <TextArea fx:id="description" minHeight="100" promptText="Description" />
-                    <HBox fx:id="violationHbox" spacing="8" VBox.vgrow="ALWAYS">
-                        <padding><Insets bottom="8" top="8" /></padding>
-                        <ListView fx:id="violationListView" prefWidth="200" HBox.hgrow="ALWAYS" />
-                        <JFXButton fx:id="violationAdd" styleClass="button-raised" text="Add Violation" />
-                    </HBox>
-                </VBox>
+
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="8">
                 <JFXButton styleClass="button-raised" text="Create" fx:id="positive"/>
                 <JFXButton styleClass="button-raised" text="Cancel" fx:id="negative"/>
             </HBox>
         </VBox>
-
     </AnchorPane>
-
-
-
-</StackPane>
+</UIView>

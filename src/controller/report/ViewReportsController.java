@@ -78,7 +78,7 @@ public class ViewReportsController extends UIViewController implements DynamicDi
     }
 
     void updateView(Report report){
-        ReportViewController vc = ReportViewController.instance(report);
+        ReportViewController vc = new ReportViewController(report);
         vc.setCanceCallback(this::cancel);
         vc.setParentView(getRootView());
         showView(vc);
@@ -183,7 +183,7 @@ public class ViewReportsController extends UIViewController implements DynamicDi
         Vehicle vehicle = new Vehicle(license, model, color);
 
         //create `New Report View Controller`
-        ReportViewController newReportVC = ReportViewController.instance(vehicle);
+        ReportViewController newReportVC = new ReportViewController(vehicle);
         newReportVC.setParentView(getRootView());
 
         newReportVC.setCanceCallback(this::cancel);
