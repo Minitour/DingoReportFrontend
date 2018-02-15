@@ -1,12 +1,19 @@
 package network;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
+import model.ImageViolation;
+import model.Report;
+import model.VideoViolation;
+import model.Violation;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
@@ -23,6 +30,14 @@ public class APIManager {
     private final static APIManager manager = new APIManager();
     private final OkHttpClient client;
     private final String TAG = "API-MANAGER";
+
+    private static Gson gson;
+
+    static {
+        GsonBuilder gsonBilder = new GsonBuilder();
+        gsonBilder.registerTypeAdapter(Violation.class, new AbstractElementAdapter());
+        gson = gsonBilder.create();
+    }
 
     /**
      * Private constructor
@@ -60,6 +75,7 @@ public class APIManager {
                 AutoSignIn.ID = id;
                 AutoSignIn.SESSION_TOKEN = token;
                 AutoSignIn.ROLE_ID = roleId;
+                AutoSignIn.EMAIL = email;
                 callback.make(r,id,token,roleId,null);
             }else
                 callback.make(r,null,null,-1,ex);
@@ -80,6 +96,37 @@ public class APIManager {
 
     public void updatePassword(String currentPassword,String newPassword,Callbacks.General callback){
         updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
+    }
+
+    public void getReports(String id,String token,Callbacks.Reports callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getReports(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Report> reports = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Report report = gson.fromJson(object, Report.class);
+                        reports.add(report);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,reports,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getReports(Callbacks.Reports callback){
+        getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
     //TODO: add other methods here
@@ -152,5 +199,17 @@ public class APIManager {
                 }
             }
         });
+    }
+
+    static class AbstractElementAdapter implements JsonDeserializer<Violation> {
+        @Override
+        public Violation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
+            JsonObject jsonObject = json.getAsJsonObject();
+            //1 = video, 0 = image
+            int type = jsonObject.get("classType").getAsInt();
+
+            return context.deserialize(json, type == 1 ? VideoViolation.class : ImageViolation.class);
+        }
     }
 }

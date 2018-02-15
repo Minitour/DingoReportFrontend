@@ -63,7 +63,7 @@ public class DynamicDialog extends DialogView {
     /**
      * The callback delegate
      */
-    private DialogDelegate delegate;
+    private DialogDelegate delegate = new DialogDelegate() {};
 
     /**
      * Create Dynamic Dialog from FXML
@@ -205,9 +205,9 @@ public class DynamicDialog extends DialogView {
      * Dialog delegate - Used to control the dialog's behavior.
      */
     public interface DialogDelegate {
-        void onHook(Map<String, Node> views, DynamicDialog dialog);
+        default void onHook(Map<String, Node> views, DynamicDialog dialog){}
 
-        boolean onDone(DynamicDialog dialog);
+        default boolean onDone(DynamicDialog dialog){ return true;}
 
         default void onCancel(DynamicDialog dialog){};
 

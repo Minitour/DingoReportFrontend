@@ -131,6 +131,10 @@ public class DialogView extends UIView {
         return negativeButton;
     }
 
+    public void close(){
+        dialog.close();
+    }
+
     public void setPostiveEventHandler(EventHandler postiveEventHandler) {
         this.postiveEventHandler = postiveEventHandler;
         positiveButton.setOnAction(postiveEventHandler);

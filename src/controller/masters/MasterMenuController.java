@@ -2,12 +2,16 @@ package controller.masters;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import network.AutoSignIn;
 import ui.UIListViewCell;
 import ui.UIView;
 import ui.UIViewController;
@@ -32,6 +36,9 @@ public abstract class MasterMenuController extends UIViewController{
     @FXML
     private Label usernameLabel;
 
+    @FXML
+    private Button logout;
+
     public MasterMenuController() {
         super("/resources/xml/controller_master.fxml");
     }
@@ -40,6 +47,8 @@ public abstract class MasterMenuController extends UIViewController{
     public void viewWillLoad(ResourceBundle bundle) {
         super.viewWillLoad(bundle);
 
+        usernameLabel.setText(AutoSignIn.EMAIL);
+
         listView.setCellFactory(param -> new Cell());
 
         listView.getItems().addAll(Arrays.asList(itemsForMenu()));
@@ -47,6 +56,10 @@ public abstract class MasterMenuController extends UIViewController{
         listView.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue)
                 -> onListItemChanged(newValue.intValue()));
 
+    }
+
+    public void setOnLogout(EventHandler<ActionEvent> eventHandler){
+        logout.setOnAction(eventHandler);
     }
 
     private void onListItemChanged(int index){

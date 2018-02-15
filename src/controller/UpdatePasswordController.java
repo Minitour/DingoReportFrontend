@@ -42,13 +42,15 @@ public class UpdatePasswordController extends UIViewController {
 
                 }else{
                     title = "Error";
-                    message = "Something went wrong.\n Error: "+exception.getMessage();
+                    message = "Something went wrong.\nError: " + (exception == null ? response.getMessage() : exception.getMessage());
                 }
 
                 DialogView dialogView = new DialogView();
                 dialogView.setTitle(title);
                 dialogView.setMessage(message);
                 dialogView.show(view);
+                dialogView.getPostiveButton().setText("Close");
+                dialogView.setPostiveEventHandler(event1 -> dialogView.close());
 
                 submit.setDisable(false);
             });

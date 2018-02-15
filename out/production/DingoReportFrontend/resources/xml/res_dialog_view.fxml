@@ -31,14 +31,14 @@
             </padding>
 
             <HBox alignment="BASELINE_LEFT"  spacing="8" HBox.hgrow="NEVER">
-                <JFXButton fx:id="naturalButton" styleClass="button-raised" text="Natural">
+                <JFXButton fx:id="naturalButton" styleClass="button-normal" text="Natural">
                 </JFXButton>
             </HBox>
 
             <HBox alignment="BASELINE_RIGHT" spacing="8" HBox.hgrow="ALWAYS">
-                <JFXButton fx:id="negativeButton" styleClass="button-raised" text="Negative">
+                <JFXButton fx:id="negativeButton" styleClass="button-normal" text="Negative">
                 </JFXButton>
-                <JFXButton fx:id="positiveButton" styleClass="button-raised" text="Positive">
+                <JFXButton fx:id="positiveButton" styleClass="button-normal" text="Positive">
                 </JFXButton>
             </HBox>
         </HBox>

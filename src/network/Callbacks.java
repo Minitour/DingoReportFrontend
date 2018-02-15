@@ -2,10 +2,12 @@ package network;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import model.Report;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,6 +33,11 @@ public final class Callbacks {
     @FunctionalInterface
     public interface Auth {
         void make(ServerResponse response,String id, String token,int roleId, Exception exception);
+    }
+
+    @FunctionalInterface
+    public interface Reports {
+        void make(ServerResponse response, List<Report> reports,Exception exception);
     }
 
     //TODO: add needed interfaces.

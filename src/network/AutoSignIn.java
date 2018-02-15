@@ -12,4 +12,13 @@ public final class AutoSignIn {
     public static String SESSION_TOKEN = null;
 
     public static int ROLE_ID = -1;
+
+    public static String EMAIL = null;
+
+    public static void reset() {
+        ID = null;
+        SESSION_TOKEN = null;
+        ROLE_ID = -1;
+        EMAIL = null;
+    }
 }

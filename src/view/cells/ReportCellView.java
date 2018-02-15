@@ -59,6 +59,6 @@ public class ReportCellView extends UIView {
 
     @Override
     public String resource() {
-        return "/resources/xml/ListItem.fxml";
+        return "/resources/xml/list_item_2.fxml";
     }
 }

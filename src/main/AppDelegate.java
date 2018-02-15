@@ -1,18 +1,12 @@
 package main;
 
-import controller.AuthenticatedWebViewController;
 import controller.LoginController;
-import controller.WebViewController;
-import controller.masters.MasterMenuController;
-import controller.masters.SecretaryMasterController;
+import controller.masters.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import network.APIManager;
-import network.Constants;
-import view.DynamicDialog;
-import view.forms.UIFormView;
-import view.forms.VideoViolationFormView;
+import network.AutoSignIn;
+import view.DialogView;
 
 /**
  * Created By Tony on 14/02/2018
@@ -23,27 +17,60 @@ public class AppDelegate extends Application {
         launch(args);
     }
 
+    private final LoginController controller = initLoginController();
+    private Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        //MasterMenuController menuController = new SecretaryMasterController();
-//        WebViewController controller = new WebViewController("https://www.youtube.com/embed/VYUQV4jMuyA?autoplay=1");
-//        primaryStage.setScene(new Scene(controller.view));
-
-        LoginController controller = new LoginController();
+        this.primaryStage = primaryStage;
         primaryStage.setScene(new Scene(controller.view));
         primaryStage.show();
+    }
 
-        controller.setOnExit((event)-> primaryStage.close());
+    public LoginController initLoginController(){
+        LoginController controller = new LoginController();
+        controller.setOnExit(event -> primaryStage.close());
         controller.setOnAuth(role -> {
-            //TODO: if role is not -1, launch the next controller.
             if(role != -1) {
-                VideoViolationFormView videoViolationFormView = new VideoViolationFormView();
-                videoViolationFormView.setFormMode(UIFormView.FormMode.READ_ONLY);
-                videoViolationFormView.setVideoFromUrl("https://www.youtube.com/embed/VYUQV4jMuyA?autoplay=1&showinfo=0&controls=0&loop=1");
-                DynamicDialog dynamicDialog = new DynamicDialog(videoViolationFormView);
-                dynamicDialog.show(controller.view);
+                onLoginSuccess(role);
+            }else{
+                DialogView dialog = new DialogView();
+                dialog.setTitle("Invalid Credentials");
+                dialog.setMessage("Incorrect email or password. Please try again.");
+                dialog.getPostiveButton().setText("Close");
+                dialog.setPostiveEventHandler(event -> dialog.close());
+                dialog.show(controller.view);
             }
         });
+        return controller;
+    }
+
+    void onLoginSuccess(int role){
+        MasterMenuController controller = null;
+        switch (role){
+            case 0:
+                controller = new AdminMasterController();
+                break;
+            case 1:
+                controller = new HeadOfficerMasterController();
+                break;
+            case 2:
+                controller = new OfficerMasterController();
+                break;
+            case 3:
+                controller = new SecretaryMasterController();
+                break;
+            case 4:
+                controller = new VolunteerMasterController();
+                break;
+        }
+
+        assert controller != null;
+        controller.setOnLogout(event -> {
+            AutoSignIn.reset();
+            primaryStage.getScene().setRoot(this.controller.view);
+        });
+
+        primaryStage.getScene().setRoot(controller.view);
+
     }
 }

@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import model.Report;
 import model.Vehicle;
 import model.VehicleModel;
+import network.APIManager;
 import ui.UIViewController;
 import view.DynamicDialog;
 import view.cells.ReportCell;
@@ -32,13 +33,9 @@ import java.util.ResourceBundle;
  * Created By Tony on 14/02/2018
  */
 public class ViewReportsController extends UIViewController implements DynamicDialog.DialogDelegate {
-    /**
-     * Create a UIViewController instance from any fxml file.
-     *
-     * @param path The path for the fxml.
-     */
-    public ViewReportsController(String path) {
-        super(path);
+
+    public ViewReportsController() {
+        super("/resources/xml/controller_report_view.fxml");
     }
 
     @FXML
@@ -63,10 +60,10 @@ public class ViewReportsController extends UIViewController implements DynamicDi
         rightPane.setStyle("-fx-background-color: white;");
         listView.setCellFactory(param -> new ReportCell());
 
-        new Thread(()->{
-            List<Report> reports = getReports();
-            Platform.runLater(()-> listView.getItems().addAll(reports));
-        }).start();
+        APIManager.getInstance().getReports((response, reports, exception) -> {
+            listView.getItems().clear();
+            listView.getItems().addAll(reports);
+        });
 
         listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null)
@@ -197,12 +194,5 @@ public class ViewReportsController extends UIViewController implements DynamicDi
         listView.getSelectionModel().clearSelection();
 
         setMenuOpen(false);
-    }
-
-    private static List<Report> getReports(){
-        List<Report> list = new ArrayList<>();
-
-        //TODO: load reports from database.
-        return list;
     }
 }

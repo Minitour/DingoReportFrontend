@@ -46,8 +46,13 @@ public class LoginController extends UIViewController {
 
             APIManager.getInstance().login(email, password, (response, id, token,roleId, exception) -> {
                 System.out.println(response + " id: "+id + ", token: "+token);
+
+                if(roleId != -1)
+                    passwordInputField.setText(null);
+
                 if(authentication != null)
                     authentication.onAuth(roleId);
+
             });
         });
     }

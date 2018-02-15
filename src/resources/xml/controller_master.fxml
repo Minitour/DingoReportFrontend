@@ -5,6 +5,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import ui.UIView?>
+<?import com.jfoenix.controls.JFXButton?>
 <UIView fx:id="root"
         stylesheets="@../../ui/res/css/styles.css,@../css/style.css"
         xmlns="http://javafx.com/javafx/8.0.112"
@@ -21,7 +22,7 @@
                        AnchorPane.rightAnchor="0"
                        AnchorPane.topAnchor="0">
                 <items>
-                    <AnchorPane  fx:id="leftMenu" minHeight="0.0" minWidth="0.0" prefWidth="100.0" SplitPane.resizableWithParent="false" >
+                    <AnchorPane  fx:id="leftMenu" minHeight="0.0" maxWidth="230"  minWidth="230" SplitPane.resizableWithParent="false" >
                         <ListView fx:id="listView"
                                   styleClass="navigation-drawer"
                                   AnchorPane.bottomAnchor="0.0"
@@ -52,6 +53,7 @@
             </HBox>
             <HBox spacing="8" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                 <Label fx:id="usernameLabel" text="Username" ></Label>
+                <JFXButton text="Logout" mnemonicParsing="false" fx:id="logout" styleClass="button-normal"/>
             </HBox>
 
         </HBox>

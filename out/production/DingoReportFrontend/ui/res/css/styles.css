@@ -37,7 +37,7 @@
 .button-normal{
     -jfx-button-type: FLAT;
     -fx-background-color: transparent;
-    -fx-text-fill: #673AB7;
+    -fx-text-fill: rgb(26, 188, 156);
     -fx-min-width: 64;
 }
 
