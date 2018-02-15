@@ -3,10 +3,7 @@ package network;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
-import model.ImageViolation;
-import model.Report;
-import model.VideoViolation;
-import model.Violation;
+import model.*;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
@@ -127,6 +124,36 @@ public class APIManager {
 
     public void getReports(Callbacks.Reports callback){
         getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    public void getViolationTypes(String id,String token, Callbacks.ViolationTypes callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getViolationTypes(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<ViolationType> types = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        ViolationType type = gson.fromJson(object, ViolationType.class);
+                        types.add(type);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,types,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+    public void getViolationTypes(Callbacks.ViolationTypes callback){
+        getViolationTypes(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
     //TODO: add other methods here

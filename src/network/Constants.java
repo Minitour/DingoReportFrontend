@@ -42,6 +42,8 @@ final public class Constants {
         public static String submitReport() { return getAddress() + "/submitReport";}
         public static String uploadFile() { return getAddress() + "/uploadFile";}
         public static String exportReports() { return getAddress() + "/exportReports";}
+        public static String getViolationTypes() {return getAddress() + "/getViolationTypes";}
+        public static String getVehicleModels() {return getAddress() + "/getVehicleModels";}
 
         public static String resource(String file){ return getAddress() + "/resources/" + AutoSignIn.ID + "/" + file; }
 

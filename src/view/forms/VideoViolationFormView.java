@@ -92,8 +92,13 @@ public class VideoViolationFormView extends UIFormView {
 
     @Override
     public void reset() {
-        player.stop();
-        player.dispose();
+        if(player != null){
+            try {
+                player.stop();
+                player.dispose();
+            }catch (NullPointerException ignored){ }
+        }
+
         file = null;
         fileName.setText("File Name");
 

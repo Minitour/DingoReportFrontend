@@ -3,6 +3,7 @@ package network;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import model.Report;
+import model.ViolationType;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
@@ -38,6 +39,11 @@ public final class Callbacks {
     @FunctionalInterface
     public interface Reports {
         void make(ServerResponse response, List<Report> reports,Exception exception);
+    }
+
+    @FunctionalInterface
+    public interface ViolationTypes {
+        void make(ServerResponse response, List<ViolationType> violationTypes, Exception exception);
     }
 
     //TODO: add needed interfaces.
