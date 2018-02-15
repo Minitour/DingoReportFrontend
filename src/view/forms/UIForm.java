@@ -14,4 +14,14 @@ public interface UIForm {
      * A function used to clear the fields and reset them.
      */
     void reset();
+
+    /**
+     * Set the form mode to read only (view) or read+write (editable)
+     * @param formMode
+     */
+    void setFormMode(FormMode formMode);
+
+    enum FormMode{
+        READ_WRITE,READ_ONLY
+    }
 }

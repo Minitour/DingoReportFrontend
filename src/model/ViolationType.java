@@ -79,4 +79,8 @@ public class ViolationType{
         this.inviteToCourt = inviteToCourt;
     }
 
+    @Override
+    public String toString() {
+        return "[#"+typeNum+"] "+name;
+    }
 }

@@ -55,4 +55,9 @@ public class OfficerFormView extends UIView implements UIForm{
         phoneExt.setText(null);
         rank.setText(null);
     }
+
+    @Override
+    public void setFormMode(FormMode formMode) {
+
+    }
 }

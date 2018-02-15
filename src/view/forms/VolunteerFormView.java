@@ -37,4 +37,9 @@ public class VolunteerFormView extends UIView implements UIForm {
         name.setText(null);
         phone.setText(null);
     }
+
+    @Override
+    public void setFormMode(FormMode formMode) {
+
+    }
 }

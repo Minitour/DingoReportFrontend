@@ -1,4 +1,4 @@
-package controller;
+package controller.report;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;

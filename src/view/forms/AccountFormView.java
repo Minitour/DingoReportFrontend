@@ -37,4 +37,9 @@ public class AccountFormView extends UIView implements UIForm {
         email.setText(null);
         password.setText(null);
     }
+
+    @Override
+    public void setFormMode(FormMode formMode) {
+
+    }
 }
