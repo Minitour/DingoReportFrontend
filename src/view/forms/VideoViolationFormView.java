@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
@@ -40,6 +41,9 @@ public class VideoViolationFormView extends UIFormView {
 
     @FXML
     private MediaView mediaView;
+
+    @FXML
+    private WebView webView;
 
     private FileChooser fileChooser;
     private MediaPlayer player;
@@ -83,19 +87,41 @@ public class VideoViolationFormView extends UIFormView {
 
     @Override
     public boolean isValid() {
-        //TODO: implement
-        return false;
+        return file != null && file.exists();
     }
 
     @Override
     public void reset() {
-        //TODO: implement
+        player.stop();
+        player.dispose();
+        file = null;
+        fileName.setText("File Name");
+
     }
 
     @Override
     public void setFormMode(FormMode formMode) {
+        boolean mode = formMode != FormMode.READ_ONLY;
+        attachFile.setVisible(mode);
+        fileName.setVisible(mode);
+        imageView.setVisible(mode);
+        mediaView.setVisible(mode);
+        startTime.setEditable(mode);
+        endTime.setEditable(mode);
+        description.setEditable(mode);
 
+        webView.setVisible(!mode);
     }
 
     //TODO: add getters/setters
+
+    public void setVideoFromUrl(String url){
+        webView.getEngine().load(url);
+    }
+
+    public File getFile(){
+        return file;
+    }
+
+
 }

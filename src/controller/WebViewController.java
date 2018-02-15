@@ -36,7 +36,7 @@ public class WebViewController extends UIViewController {
     
     //TODO: test this method.
     public void addHeader(String header,String value){
-        headers.put(header,value);
+        headers.put(header," "+value);
     }
 
 

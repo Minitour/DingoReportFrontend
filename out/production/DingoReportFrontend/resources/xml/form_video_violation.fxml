@@ -7,6 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.media.MediaView?>
+<?import javafx.scene.web.WebView?>
 <fx:root stylesheets="@../../ui/res/css/styles.css,@../css/style.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
 
     <VBox fx:id="file_attach" spacing="8" visible="true">
@@ -19,6 +20,7 @@
         </HBox>
         <AnchorPane>
 
+
             <ImageView fx:id="imageView" fitHeight="135" fitWidth="240">
                 <image>
                     <Image url="@../../resources/img/placeholder.png" />
@@ -26,6 +28,7 @@
             </ImageView>
             <MediaView fx:id="mediaView" fitHeight="135">
             </MediaView>
+            <WebView fx:id="webView" prefHeight="135" prefWidth="240" visible="false"/>
         </AnchorPane>
 
         <VBox fx:id="timestamp" spacing="8">

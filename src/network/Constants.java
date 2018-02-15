@@ -43,6 +43,8 @@ final public class Constants {
         public static String uploadFile() { return getAddress() + "/uploadFile";}
         public static String exportReports() { return getAddress() + "/exportReports";}
 
+        public static String resource(String file){ return getAddress() + "/resources/" + AutoSignIn.ID + "/" + file; }
+
     }
     public static class Codes{
         public static final int SUCCESS=200;

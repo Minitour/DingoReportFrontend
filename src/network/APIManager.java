@@ -49,7 +49,9 @@ public class APIManager {
         data.addProperty("password",password);
 
         makeRequest(Constants.Routes.login(),null,data,(json, ex) -> {
+
             ServerResponse r = new ServerResponse(json);
+
             if(ex == null && r.isOK()){
                 JsonObject d = json.get("data").getAsJsonObject();
                 String id = d.get("id").getAsString();
