@@ -1,5 +1,6 @@
 package main;
 
+import controller.WebViewController;
 import controller.masters.MasterMenuController;
 import controller.masters.SecretaryMasterController;
 import javafx.application.Application;
@@ -18,8 +19,9 @@ public class AppDelegate extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        MasterMenuController menuController = new SecretaryMasterController();
-        primaryStage.setScene(new Scene(menuController.view));
+        //MasterMenuController menuController = new SecretaryMasterController();
+        WebViewController controller = new WebViewController("https://www.youtube.com/embed/VYUQV4jMuyA?autoplay=1");
+        primaryStage.setScene(new Scene(controller.view));
 
 //        LoginController controller = new LoginController();
 //        primaryStage.setScene(new Scene(controller.view));
