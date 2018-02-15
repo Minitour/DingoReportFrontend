@@ -2,12 +2,11 @@ package view.forms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import ui.UIView;
 
 /**
  * Created By Tony on 14/02/2018
  */
-public class VolunteerFormView extends UIView implements UIForm {
+public class VolunteerFormView extends UIFormView {
 
     @FXML
     private TextField name;

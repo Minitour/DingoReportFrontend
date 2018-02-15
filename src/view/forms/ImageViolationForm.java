@@ -5,18 +5,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.FileChooser;
-import javafx.util.Duration;
-import ui.UIView;
 
 import java.io.File;
 
 /**
  * Created By Tony on 15/02/2018
  */
-public class ImageViolationForm extends UIView implements UIForm {
+public class ImageViolationForm extends UIFormView {
 
     @FXML
     private Button attachFile;

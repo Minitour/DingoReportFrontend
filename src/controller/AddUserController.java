@@ -11,7 +11,7 @@ import ui.UIView;
 import ui.UIViewController;
 import view.forms.AccountFormView;
 import view.forms.OfficerFormView;
-import view.forms.UIForm;
+import view.forms.UIFormView;
 import view.forms.VolunteerFormView;
 
 /**
@@ -33,7 +33,7 @@ public class AddUserController extends UIViewController{
 
     private UserType type;
 
-    private UIForm[] forms;
+    private UIFormView[] forms;
 
     public AddUserController(UserType type) {
         super("/resources/xml/controller_add_user.fxml");
@@ -56,13 +56,13 @@ public class AddUserController extends UIViewController{
                 break;
         }
 
-        forms = new UIForm[]{accountFormView,officerFormView,volunteerFormView};
+        forms = new UIFormView[]{accountFormView,officerFormView,volunteerFormView};
 
     }
 
     private void submit(){
 
-        for(UIForm form : forms){
+        for(UIFormView form : forms){
             if (!form.isValid())
                 return;
         }

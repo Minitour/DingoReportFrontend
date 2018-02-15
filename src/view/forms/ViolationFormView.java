@@ -6,17 +6,15 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
 import model.Violation;
 import model.ViolationType;
-import ui.UIView;
 
 import java.util.List;
 
 /**
  * Created By Tony on 15/02/2018
  */
-public class ViolationForm extends UIView implements UIForm {
+public class ViolationFormView extends UIFormView {
 
     @FXML
     private ComboBox<ViolationType> violationCombo;
@@ -30,13 +28,12 @@ public class ViolationForm extends UIView implements UIForm {
     @FXML
     private VBox file_attach;
 
-    private VideoViolationForm videoViolationForm = new VideoViolationForm();
+    private VideoViolationFormView videoViolationForm = new VideoViolationFormView();
     private ImageViolationForm imageViolationForm = new ImageViolationForm();
-    private UIForm currentForm;
-    private UIView currentView;
+    private UIFormView currentForm;
     private List<ViolationType> violationTypes;
 
-    public ViolationForm(List<ViolationType> violationTypeList) {
+    public ViolationFormView(List<ViolationType> violationTypeList) {
         super("/resources/xml/form_violation.fxml");
         violationTypes = violationTypeList;
         init();
@@ -57,11 +54,9 @@ public class ViolationForm extends UIView implements UIForm {
             if(userData == 1){
                 //video
                 currentForm = videoViolationForm;
-                currentView = videoViolationForm;
             }else {
                 //image
                 currentForm = imageViolationForm;
-                currentView = imageViolationForm;
             }
             updateView();
         });
@@ -71,10 +66,10 @@ public class ViolationForm extends UIView implements UIForm {
 
     private void updateView(){
         file_attach.getChildren().clear();
-        if(currentView != null)
+        if(currentForm != null)
             file_attach
                     .getChildren()
-                    .add(currentView);
+                    .add(currentForm);
     }
 
     @Override

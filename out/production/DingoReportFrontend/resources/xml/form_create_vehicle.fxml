@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox spacing="16">
+        <padding><Insets bottom="8" left="8" right="8" /></padding>
+        <JFXTextField fx:id="lpField" labelFloat="true" promptText="License Plate" />
+        <JFXTextField fx:id="cmField" labelFloat="true" promptText="Car Model" />
+        <JFXTextField fx:id="coField" labelFloat="true" promptText="Color" />
+        <Label fx:id="errorLabel" textFill="RED" />
+    </VBox>
+
+</fx:root>

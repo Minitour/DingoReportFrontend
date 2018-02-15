@@ -2,8 +2,7 @@ package controller.masters;
 
 import controller.AddUserController;
 import ui.UIView;
-import view.forms.VideoViolationForm;
-import view.forms.ViolationForm;
+import view.forms.ViolationFormView;
 
 import java.util.ArrayList;
 
@@ -17,7 +16,7 @@ public class SecretaryMasterController extends MasterMenuController{
             case 0:
                 return new AddUserController(AddUserController.UserType.VOLUNTEER).view;
             default:
-                return new ViolationForm(new ArrayList<>());
+                return new ViolationFormView(new ArrayList<>());
         }
     }
 

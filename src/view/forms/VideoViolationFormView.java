@@ -5,14 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
-import ui.UIView;
 
 import java.io.File;
 
@@ -20,7 +18,7 @@ import java.io.File;
 /**
  * Created By Tony on 15/02/2018
  */
-public class VideoViolationForm extends UIView implements UIForm {
+public class VideoViolationFormView extends UIFormView {
 
     @FXML
     private Button attachFile;
@@ -47,7 +45,7 @@ public class VideoViolationForm extends UIView implements UIForm {
     private MediaPlayer player;
     private File file;
 
-    public VideoViolationForm() {
+    public VideoViolationFormView() {
         super("/resources/xml/form_video_violation.fxml");
         init();
     }
