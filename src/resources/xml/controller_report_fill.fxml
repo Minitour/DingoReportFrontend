@@ -37,8 +37,8 @@
                         <VBox spacing="8">
                             <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
                             <JFXTextField fx:id="lpField" labelFloat="true" promptText="License Plate" />
-                            <JFXTextField fx:id="cmField" labelFloat="true" promptText="Car Model" />
                             <JFXTextField fx:id="coField" labelFloat="true" promptText="Color" />
+                            <ComboBox fx:id="modelCombo" minWidth="200" promptText="Violation Type" />
                         </VBox>
                     </VBox>
                     <TextArea fx:id="description" minHeight="100" maxHeight="100" promptText="Description" />
