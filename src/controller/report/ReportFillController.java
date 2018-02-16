@@ -1,12 +1,10 @@
 package controller.report;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import model.*;
 import network.APIManager;
-import network.Callbacks;
-import network.ServerResponse;
 import ui.UIViewController;
 import view.DynamicDialog;
 import view.cells.ViolationCell;
@@ -14,7 +12,6 @@ import view.forms.ViolationFormView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created By Tony on 16/02/2018
@@ -62,7 +59,18 @@ public class ReportFillController extends UIViewController {
         positive.setText("Submit");
         negative.setText("Clear");
 
+        negative.setOnAction(event -> clear());
+        positive.setOnAction(event -> submit());
+
         violationListView.setCellFactory(param -> new ViolationCell());
+
+        violationListView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue != null){
+                Violation current = violationListView.getItems().get(violationListView.getSelectionModel().getSelectedIndex());
+                createViolationViewDialog(current);
+                Platform.runLater(()->violationListView.getSelectionModel().clearSelection());
+            }
+        });
 
         violationAdd.setOnAction(event -> {
             final ViolationFormView violationFormView = new ViolationFormView(violationTypes);
@@ -79,12 +87,14 @@ public class ReportFillController extends UIViewController {
                     //add violation to listview
                     Violation violation = violationFormView.getViolation();
                     violationListView.getItems().add(violation);
+
+                    violationFormView.reset();
                     return true;
                 }
 
                 @Override
                 public void onCancel(DynamicDialog dialog) {
-
+                    violationFormView.reset();
                 }
             };
             dialog.delegate(dialogDelegate);
@@ -96,6 +106,65 @@ public class ReportFillController extends UIViewController {
 
         APIManager.getInstance().getViolationTypes((response, violationsTypes, exception) ->
                 violationTypes.addAll(violationsTypes));
+
+    }
+
+    private void clear() {
+        lpField.setText(null);
+        coField.setText(null);
+        modelCombo.getSelectionModel().clearSelection();
+        description.setText(null);
+        violationListView.getItems().clear();
+    }
+
+    private void submit(){
+        if(isValid()){
+            Report report = makeReport();
+            System.out.println(report);
+            //TODO:
+            // APIManager.getInstance().submitReport(report,(res,ex)->{
+            //      //show dialog
+            // });
+        }
+
+    }
+
+    boolean isValid(){
+        VehicleModel model = modelCombo.getSelectionModel().getSelectedItem();
+        String licensePlate = lpField.getText();
+        String color = coField.getText();
+        String desc = description.getText();
+        int count = violationListView.getItems().size();
+
+        return model != null &&
+                licensePlate.length() > 0 &&
+                color.length() > 0 &&
+                desc.length() > 0 &&
+                count > 0;
+    }
+
+    private void createViolationViewDialog(Violation violation){
+        ViolationFormView violationFormView = new ViolationFormView(violation);
+        DynamicDialog dialogView = new DynamicDialog(violationFormView);
+        dialogView.setTitle("Evidence View");
+        dialogView.setMessage("The violation");
+        dialogView.getPostiveButton().setText("Close");
+        dialogView.getNegativeButton().setText("Delete");
+        dialogView.delegate(new DynamicDialog.DialogDelegate() {
+
+            @Override
+            public boolean onDone(DynamicDialog dialog) {
+                violationFormView.reset();
+                return true;
+            }
+
+            @Override
+            public void onCancel(DynamicDialog dialog) {
+                violationListView.getItems().remove(violation);
+                violationFormView.reset();
+            }
+        });
+        dialogView.show(this.view);
 
     }
 

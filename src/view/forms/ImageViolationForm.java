@@ -99,6 +99,11 @@ public class ImageViolationForm extends UIFormView {
         });
     }
 
+    public void setImageFromLocalFile(File file){
+        Image image = new Image(file.toURI().toString());
+        imageView.setImage(image);
+    }
+
     public void removeAttachControls(){
         file_attach.getChildren().remove(attach_controls);
     }
