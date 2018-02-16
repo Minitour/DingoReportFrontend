@@ -1,39 +1,19 @@
 package controller.report;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import model.*;
-import network.APIManager;
-import ui.UIListViewCell;
-import ui.UIView;
 import ui.UIViewController;
-import view.DialogView;
 import view.DynamicDialog;
 import view.cells.CarOwnerCell;
-import view.cells.CarOwnerCellView;
 import view.cells.ViolationCell;
-import view.cells.ViolationViewCell;
 import view.forms.ViolationFormView;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 /**
@@ -54,6 +34,15 @@ public class ReportViewController extends UIViewController {
 
     @FXML
     private Label vd_carColor;
+
+    @FXML
+    private Label v_name;
+
+    @FXML
+    private Label v_email;
+
+    @FXML
+    private Label v_number;
 
     @FXML
     private ListView<VehicleOwner> carOwnersListView;
@@ -178,6 +167,13 @@ public class ReportViewController extends UIViewController {
         positive.setVisible(false);
         violationHbox.getChildren().remove(violationAdd);
         negative.setText("Close");
+
+        Volunteer volunteer = report.getVolunteer();
+        if(volunteer != null){
+            v_name.setText(volunteer.getName());
+            v_email.setText(volunteer.getEMAIL());
+            v_number.setText(volunteer.getPhone());
+        }
 
         Vehicle vehicle = report.getVehicle();
         if(vehicle != null){

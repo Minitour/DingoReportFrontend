@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import ui.UIView?>
+
 <UIView fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane>
         <VBox spacing="8" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
@@ -14,30 +19,30 @@
             </padding>
             <Label fx:id="form_title" text="New Report">
                 <font>
-                    <Font name="Helvetica Bold" size="24.0" />
+                    <Font name="System Bold" size="24.0" />
                 </font>
             </Label>
             <Label fx:id="form_subtitle" text="Subtitle">
                 <font>
-                    <Font name="Helvetica Bold" size="16.0" />
+                    <Font size="18.0" />
                 </font>
             </Label>
-            <HBox fx:id="hbox_parent" VBox.vgrow="ALWAYS" spacing="8">
+            <HBox fx:id="hbox_parent" spacing="8" VBox.vgrow="ALWAYS">
                 <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                <VBox minWidth="300" maxWidth="600" prefHeight="${hbox_parent.height}" styleClass="container" HBox.hgrow="ALWAYS">
+                <VBox maxWidth="600" minWidth="300" prefHeight="${hbox_parent.height}" styleClass="container" HBox.hgrow="ALWAYS">
                     <padding><Insets left="8" right="8" top="8" /></padding>
-                    <VBox spacing="8" >
+                    <VBox spacing="8">
                         <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
                         <Label text="Vehicle Details">
                             <font>
-                                <Font name="Helvetica Bold" size="18.0" />
+                                <Font name="System Bold" size="18.0" />
                             </font>
                         </Label>
                         <VBox spacing="8">
                             <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                            <Label text="License Plate" fx:id="vd_licensePlate"/>
-                            <Label text="Car Model" fx:id="vd_carModel"/>
-                            <Label text="Car Color" fx:id="vd_carColor"/>
+                            <Label fx:id="vd_licensePlate" text="License Plate" />
+                            <Label fx:id="vd_carModel" text="Car Model" />
+                            <Label fx:id="vd_carColor" text="Car Color" />
                         </VBox>
                     </VBox>
                     <TextArea fx:id="description" minHeight="100" promptText="Description" />
@@ -47,7 +52,7 @@
                             <padding><Insets bottom="8" top="8" /></padding>
                             <Label text="Violations" HBox.hgrow="SOMETIMES">
                                 <font>
-                                    <Font name="Helvetica Bold" size="18.0" />
+                                    <Font name="System Bold" size="18.0" />
                                 </font>
                             </Label>
                             <VBox alignment="BASELINE_RIGHT">
@@ -59,23 +64,53 @@
 
                     </VBox>
                 </VBox>
-                <VBox fx:id="car_owners_container" maxWidth="350" minWidth="350" spacing="8" prefHeight="${hbox_parent.height}" >
+                <VBox fx:id="car_owners_container" maxWidth="350" minWidth="350" prefHeight="${hbox_parent.height}" spacing="8">
 
-                    <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="container">
-                        <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                        <Label text="Car Owners">
-                            <font>
-                                <Font name="Helvetica Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <ListView fx:id="carOwnersListView" style="-fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
+
+                    <VBox spacing="8"  VBox.vgrow="ALWAYS">
+                        <!--<padding><Insets bottom="8" left="8" right="8" top="8" /></padding>-->
+
+                        <VBox spacing="8" styleClass="container">
+                            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                            <Label text="Volunteer Details">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+                            <VBox spacing="8">
+                                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                                <Label fx:id="v_name" text="Full Name">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                                <Label fx:id="v_email" text="Email">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                                <Label fx:id="v_number" text="Phone">
+                           <font>
+                              <Font size="13.0" />
+                           </font></Label>
+                            </VBox>
+                        </VBox>
+
+                        <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="container">
+                            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                            <Label text="Car Owners">
+                                <font>
+                                    <Font name="System Bold" size="18.0" />
+                                </font>
+                            </Label>
+                            <ListView fx:id="carOwnersListView" style="-fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
+                        </VBox>
+
                     </VBox>
                 </VBox>
 
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="8">
-                <JFXButton styleClass="button-raised" text="Create" fx:id="positive"/>
-                <JFXButton styleClass="button-raised" text="Cancel" fx:id="negative"/>
+                <JFXButton fx:id="positive" styleClass="button-raised" text="Create" />
+                <JFXButton fx:id="negative" styleClass="button-raised" text="Cancel" />
             </HBox>
         </VBox>
     </AnchorPane>

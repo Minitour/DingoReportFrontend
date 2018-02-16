@@ -19,14 +19,15 @@ public class WebViewController extends UIViewController {
     @FXML
     private WebView webView;
 
+
     public WebViewController() {
         super("/resources/xml/controller_web_view.fxml");
         originalAgent = webView.getEngine().getUserAgent();
     }
 
-    public WebViewController(String url){
-        this();
-        setURL(url);
+    public WebViewController(String path){
+        super(path);
+        originalAgent = webView.getEngine().getUserAgent();
     }
 
     public void setURL(String url) {

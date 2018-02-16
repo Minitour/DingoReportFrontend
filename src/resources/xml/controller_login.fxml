@@ -32,8 +32,8 @@
               </image>
           </ImageView>
 
-          <JFXTextField fx:id="userInputField"  labelFloat="true" promptText="Username" />
-          <JFXPasswordField fx:id="passwordInputField" labelFloat="true" promptText="Password">
+          <JFXTextField fx:id="userInputField"  text="tony@moodz.io" labelFloat="true" promptText="Username" />
+          <JFXPasswordField fx:id="passwordInputField" text="password" labelFloat="true" promptText="Password">
           </JFXPasswordField>
           <VBox alignment="CENTER" spacing="10">
               <padding>

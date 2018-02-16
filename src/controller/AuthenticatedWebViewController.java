@@ -12,6 +12,11 @@ public class AuthenticatedWebViewController extends WebViewController{
         init();
     }
 
+    public AuthenticatedWebViewController(String path) {
+        super(path);
+        init();
+    }
+
     private void init(){
         addHeader("id", AutoSignIn.ID);
         addHeader("sessionToken",AutoSignIn.SESSION_TOKEN);

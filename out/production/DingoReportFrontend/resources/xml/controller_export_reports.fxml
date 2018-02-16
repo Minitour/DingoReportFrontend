@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ui.UIView?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.embed.swing.SwingNode?>
+<?import javafx.scene.layout.AnchorPane?>
+<UIView fx:id="root" xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        stylesheets="@../../ui/res/css/styles.css,@../css/style.css">
+    <VBox spacing="16">
+        <padding><Insets bottom="8" left="8" right="8" top="8"/></padding>
+        <JFXDatePicker fx:id="fromDate" promptText="From Date" overLay="false" defaultColor="#2ecc71"/>
+        <JFXDatePicker fx:id="toDate" promptText="To Date" overLay="false" defaultColor="#2ecc71"/>
+        <AnchorPane fx:id="jasper_container" VBox.vgrow="ALWAYS"/>
+    </VBox>
+
+</UIView>

@@ -1,21 +1,17 @@
 package network;
 
+import com.google.common.io.ByteStreams;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
 import model.*;
+import net.sf.jasperreports.engine.JasperPrint;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
 
@@ -358,6 +354,33 @@ public class APIManager {
         s.start();
     }
 
+    public void getExportedReport(Date from, Date to, Callbacks.Jasper callback){
+        getExportedReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,from,to,callback);
+    }
+
+    public void getExportedReport(String id,String token,Date from,Date to,Callbacks.Jasper callback){
+        Map<String,String> headers = new HashMap<>();
+        headers.put("id",id);
+        headers.put("sessionToken",token);
+        headers.put("from",""+from.getTime());
+        headers.put("to",""+to.getTime());
+        requestResource(Constants.Routes.exportReports(), headers, (stream, e) -> {
+            if (e == null) {
+                try {
+                    byte[] bytes = ByteStreams.toByteArray(stream);
+                    JasperPrint print = deserialize(bytes);
+                    callback.make(print, null);
+                } catch (IOException | ClassNotFoundException e1) {
+                    e1.printStackTrace();
+                    callback.make(null, e1);
+                }
+            }else {
+                callback.make(null, e);
+            }
+
+        });
+    }
+
 
     //TODO: add other methods here
 
@@ -552,6 +575,18 @@ public class APIManager {
         public JsonElement serialize(Violation violation, Type type, JsonSerializationContext jsonSerializationContext) {
             return gson.toJsonTree(violation,violation instanceof ImageViolation ? ImageViolation.class : VideoViolation.class);
         }
+    }
+
+    public static byte[] serialize(Object obj) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        ObjectOutputStream os = new ObjectOutputStream(out);
+        os.writeObject(obj);
+        return out.toByteArray();
+    }
+    public static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
+        ByteArrayInputStream in = new ByteArrayInputStream(data);
+        ObjectInputStream is = new ObjectInputStream(in);
+        return (T)is.readObject();
     }
 
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox spacing="16">
+        <padding><Insets bottom="8" left="8" right="8" /></padding>
+        <JFXDatePicker fx:id="fromDate" promptText="From Date" overLay="false" defaultColor="#2ecc71"/>
+        <JFXDatePicker fx:id="toDate" promptText="From Date" overLay="false" defaultColor="#2ecc71"/>
+    </VBox>
+
+</fx:root>

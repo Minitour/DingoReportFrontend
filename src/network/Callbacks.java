@@ -1,18 +1,14 @@
 package network;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import model.Report;
 import model.VehicleModel;
 import model.Violation;
 import model.ViolationType;
-import okhttp3.*;
-import sun.rmi.runtime.Log;
+import net.sf.jasperreports.engine.JasperPrint;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created By Tony on 14/02/2018
@@ -58,10 +54,14 @@ public final class Callbacks {
         void make(ServerResponse response, List<VehicleModel> vehicleModels, Exception exception);
     }
 
-
-
+    @FunctionalInterface
     public interface Resource {
         void make(InputStream stream,Exception e);
+    }
+
+    @FunctionalInterface
+    public interface Jasper {
+        void make(JasperPrint print, Exception e);
     }
 
     //TODO: add needed interfaces.
