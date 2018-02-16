@@ -15,6 +15,7 @@ import network.AutoSignIn;
 import ui.UIListViewCell;
 import ui.UIView;
 import ui.UIViewController;
+import view.DialogView;
 
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -56,6 +57,15 @@ public abstract class MasterMenuController extends UIViewController{
         listView.getSelectionModel().selectedIndexProperty().addListener((observable, oldValue, newValue)
                 -> onListItemChanged(newValue.intValue()));
 
+    }
+
+    protected DialogView makeDialog(String title,String message){
+        DialogView dialogView = new DialogView();
+        dialogView.setTitle(title);
+        dialogView.setMessage(message);
+        dialogView.getPostiveButton().setText("Done");
+        dialogView.setNegativeEventHandler(null);
+        return dialogView;
     }
 
     public void setOnLogout(EventHandler<ActionEvent> eventHandler){

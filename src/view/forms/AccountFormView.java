@@ -41,4 +41,8 @@ public class AccountFormView extends UIFormView {
     public void setFormMode(FormMode formMode) {
 
     }
+
+    public TextField getPasswordField(){
+        return password;
+    }
 }

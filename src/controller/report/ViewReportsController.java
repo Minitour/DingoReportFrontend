@@ -32,7 +32,7 @@ import java.util.ResourceBundle;
 /**
  * Created By Tony on 14/02/2018
  */
-public class ViewReportsController extends UIViewController implements DynamicDialog.DialogDelegate {
+public class ViewReportsController extends UIViewController {
 
     public ViewReportsController() {
         super("/resources/xml/controller_report_view.fxml");
@@ -56,11 +56,6 @@ public class ViewReportsController extends UIViewController implements DynamicDi
         leftPane.setStyle("-fx-background-color: white;");
         rightPane.setStyle("-fx-background-color: white;");
         listView.setCellFactory(param -> new ReportCell());
-
-        APIManager.getInstance().getReports((response, reports, exception) -> {
-            listView.getItems().clear();
-            listView.getItems().addAll(reports);
-        });
 
         listView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if(newValue!=null)
@@ -88,99 +83,37 @@ public class ViewReportsController extends UIViewController implements DynamicDi
 
     }
 
+    public void refreshList(){
+        APIManager.getInstance().getReports((response, reports, exception) -> {
+            Report selectedItem = listView.getSelectionModel().getSelectedItem();
+            listView.getItems().clear();
+            listView.getItems().addAll(reports);
+            if(selectedItem != null){
+                int num = selectedItem.getReportNum();
+                listView.getSelectionModel().select(indexOfItem(num));
+            }
+
+        });
+    }
+
     @Override
     public Stage getStage() {
         return null;
     }
 
-    @Override
-    public void onHook(Map<String, Node> views, DynamicDialog dialog) {
-        dialog.getTitleLabel().setText("Create New Report");
-        dialog.getMessageLabel().setText("");
-        dialog.getPostiveButton().setText("Submit");
-        dialog.getNegativeButton().setText("Cancel");
-    }
-
-    /**
-     * This method is called when user selects `submit` in `New Report Dialog`.
-     * @param dialog The dialog object
-     * @return true to dismiss.
-     */
-    @Override
-    public boolean onDone(DynamicDialog dialog) {
-        try {
-            //create reference to fields
-            JFXTextField licensePlate = dialog.findViewById("lpField");
-            JFXTextField carModel = dialog.findViewById("cmField");
-            JFXTextField color = dialog.findViewById("coField");
-
-            //fetch data
-            String licencePlateText = licensePlate.getText();
-            String carModelText = carModel.getText();
-            String colorText = color.getText();
-
-            //Validate data length
-            if(licencePlateText.length() == 0 || carModelText.length() == 0 || colorText.length() == 0)
-                throw new Exception("Invalid Input");
-
-            //submitCarDetails(licencePlateText, carModelText, colorText);
-
-            return true;
-        }catch (Exception e){
-            Label label = dialog.findViewById("errorLabel");
-            label.setText("Error");
-            System.err.println(e.getMessage());
-            return false;
-        }
-
-    }
-
     private void cancel(){
-        setMenuOpen(true);
         showView(null);
         listView.getSelectionModel().clearSelection();
     }
 
-    private void setMenuOpen(boolean open){
-
-        double endValue = open ? 300.0 : 0.0;
-        final Timeline timelineOpenB = new Timeline();
-
-        final KeyValue kvb1 = new KeyValue(leftPane.maxWidthProperty(),endValue);
-        final KeyValue kvb2 = new KeyValue(leftPane.minWidthProperty(),endValue);
-        final KeyFrame kfb1 = new KeyFrame(Duration.valueOf("100ms"), kvb1, kvb2);
-        timelineOpenB.getKeyFrames().add(kfb1);
-        timelineOpenB.play();
+    private int indexOfItem(int reportNum){
+        List<Report> reports = listView.getItems();
+        for (int i = 0; i < reports.size(); i++) {
+            if(reports.get(i).getReportNum() == reportNum)
+                return i;
+        }
+        return 0;
     }
 
-    /**
-     * Control methods
-     */
 
-    public void createNewReport(Report report){
-        //TODO: implement report creation
-
-        //add entry to DB and get report id.
-
-        //for each violation in report
-        //add to DB where report id = id and get violation id.
-        // for each evidence in violation
-        //add to db where violation id = id.
-    }
-
-    public void submitCarDetails(String license, VehicleModel model, String color){
-        //create new vehicle from data fetched
-        Vehicle vehicle = new Vehicle(license, model, color);
-
-        //create `New Report View Controller`
-        ReportViewController newReportVC = new ReportViewController(vehicle);
-        newReportVC.setParentView(getRootView());
-
-        newReportVC.setCanceCallback(this::cancel);
-        showView(newReportVC);
-
-        listView.getSelectionModel().clearSelection();
-
-        setMenuOpen(false);
-    }
 }

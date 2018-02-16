@@ -74,36 +74,49 @@ public class AddUserController extends UIViewController{
         String password = accountFormView.getPassword();
 
         //officer
-        String badgeNum = officerFormView.getBadgeNum();
-        String phoneExt = officerFormView.getPhoneExt();
-        String officer_name = officerFormView.getName();
-        int rank = officerFormView.getRank();
+        String badgeNum;
+        String phoneExt;
+        String officer_name;
+        int rank;
 
         //volunteer
-        String volName = volunteerFormView.getName();
-        String volPhone = volunteerFormView.getPhone();
+        String volName;
+        String volPhone;
 
         switch (type){
-            case OFFICER:
-                account = new Officer(null,email,password,badgeNum,officer_name,phoneExt,rank);
-                break;
-            case HIGHRANK:
-                account = new HighRankOfficer(null,email,password,badgeNum,officer_name,phoneExt,rank);
-                break;
-            case VOLUNTEER:
-                account = new Volunteer(null,email,password,volName,volPhone);
-                break;
             case SECRETARY:
                 account = new Account(email,3,password);
                 break;
             case SUPERUSER:
                 account = new Account(email,0,password);
                 break;
+            case OFFICER:
+                badgeNum = officerFormView.getBadgeNum();
+                phoneExt = officerFormView.getPhoneExt();
+                officer_name = officerFormView.getName();
+                rank = officerFormView.getRank();
+                account = new Officer(null,email,password,badgeNum,officer_name,phoneExt,rank);
+                break;
+            case HIGHRANK:
+                badgeNum = officerFormView.getBadgeNum();
+                phoneExt = officerFormView.getPhoneExt();
+                officer_name = officerFormView.getName();
+                rank = officerFormView.getRank();
+                account = new HighRankOfficer(null,email,password,badgeNum,officer_name,phoneExt,rank);
+                break;
+            case VOLUNTEER:
+                volName = volunteerFormView.getName();
+                volPhone = volunteerFormView.getPhone();
+                account = new Volunteer(null,email,password,volName,volPhone);
+                break;
+
         }
         onAccountReady(account);
     }
 
-    public void onAccountReady(Account account){ }
+    public void onAccountReady(Account account){
+
+    }
 
     private void addViewToStack(UIView view){
         if(view == null)
@@ -115,7 +128,32 @@ public class AddUserController extends UIViewController{
         formHolder.getChildren().clear();
     }
 
+    public boolean isValid() {
+        switch (type){
+            case HIGHRANK:
+            case OFFICER:
+                return accountFormView.isValid() && officerFormView.isValid();
+            case VOLUNTEER:
+                return accountFormView.isValid() && volunteerFormView.isValid();
+            case SUPERUSER:
+            case SECRETARY:
+                return accountFormView.isValid();
+        }
+        return false;
+    }
+
+    public void reset() {
+        accountFormView.reset();
+        volunteerFormView.reset();
+        officerFormView.reset();
+    }
+
+
     public enum UserType{
         SUPERUSER,SECRETARY,OFFICER,HIGHRANK,VOLUNTEER
+    }
+
+    public AccountFormView getAccountFormView() {
+        return accountFormView;
     }
 }

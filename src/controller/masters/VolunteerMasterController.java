@@ -19,7 +19,11 @@ public class VolunteerMasterController extends MasterMenuController{
 
     @Override
     public UIView viewForIndexAt(int index) {
-        return controllers[index].view;
+        UIViewController controller = controllers[index];
+        if(controller instanceof ViewReportsController){
+            ((ViewReportsController)controller).refreshList();
+        }
+        return controller.view;
     }
 
     @Override

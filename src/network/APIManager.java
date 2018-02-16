@@ -256,7 +256,7 @@ public class APIManager {
         body.addProperty("sessionToken",token);
         body.add("volunteer", toJson(volunteer));
 
-        makeRequest(Constants.Routes.getVehicleModels(), null, body, (json, exception) -> {
+        makeRequest(Constants.Routes.createVolunteer(), null, body, (json, exception) -> {
             ServerResponse r = new ServerResponse(json);
             if (exception == null) {
                 callback.make(r,null);
@@ -266,6 +266,10 @@ public class APIManager {
             }
         });
     }
+    public void createVolunteer(Volunteer volunteer, Callbacks.General callback) {
+        createVolunteer(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,volunteer,callback);
+    }
+
 
     public void makeDecision() {
 
