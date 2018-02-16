@@ -95,7 +95,8 @@ public class VideoViolationFormView extends UIFormView {
     @Override
 
     public boolean isValid() {
-        return file != null && file.exists();
+        int from = getFrom();
+        return file != null && file.exists() && from >= 0 && getTo() > from;
     }
 
     @Override
@@ -118,7 +119,7 @@ public class VideoViolationFormView extends UIFormView {
         attachFile.setVisible(mode);
         fileName.setVisible(mode);
         imageView.setVisible(mode);
-        mediaView.setVisible(mode);
+        //mediaView.setVisible(mode);
 
 //        startTime.setEditable(mode);
 //        endTime.setEditable(mode);
@@ -134,7 +135,23 @@ public class VideoViolationFormView extends UIFormView {
     //TODO: add getters/setters
 
     public void setVideoFromUrl(String url){
+        webView.setVisible(true);
+        mediaView.setVisible(false);
         webView.getEngine().load(url);
+    }
+
+    public void setVideoFromLocalFile(File file){
+        webView.setVisible(false);
+        mediaView.setVisible(true);
+        Media media = new Media(file.toURI().toString());
+
+        if(player != null)
+            player.stop();
+
+        player = new MediaPlayer(media);
+        mediaView.setMediaPlayer(player);
+        player.play();
+        player.setOnEndOfMedia(()-> player.seek(Duration.ZERO));
     }
 
     public File getFile(){
@@ -171,6 +188,7 @@ public class VideoViolationFormView extends UIFormView {
             String[] times= stamp.split(":");
             return Integer.parseInt(times[0]) * 60 + Integer.parseInt(times[1]);
         }catch (IndexOutOfBoundsException | NumberFormatException e){
+            e.printStackTrace();
             return -1;
         }
     }

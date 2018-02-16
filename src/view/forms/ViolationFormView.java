@@ -12,6 +12,7 @@ import model.VideoViolation;
 import model.Violation;
 import model.ViolationType;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -81,6 +82,12 @@ public class ViolationFormView extends UIFormView {
             //image
             imageViolationForm.removeAttachControls();
             imageViolationForm.setFormMode(FormMode.READ_ONLY);
+            File file = new File(violation.getEvidenceLink());
+            if (file.exists())
+                imageViolationForm.setImageFromLocalFile(file);
+            else
+                imageViolationForm.setImageFromUrl(violation.getEvidenceLink());
+
         }else{
             //video
             VideoViolation v = (VideoViolation) violation;
@@ -92,21 +99,14 @@ public class ViolationFormView extends UIFormView {
             videoViolationForm.setDescription(v.getDescription());
 
             String url = violation.getEvidenceLink();
+            File file = new File(url);
             if(url.contains("youtube")){
                 videoViolationForm.setVideoFromUrl(url);
+            }else{
+                if(file.exists())
+                    videoViolationForm.setVideoFromLocalFile(file);
             }
         }
-
-
-
-
-
-
-
-
-
-
-
     }
 
     private void init(){
@@ -149,7 +149,9 @@ public class ViolationFormView extends UIFormView {
 
     @Override
     public void reset() {
-        //TODO: implement reset
+        videoViolationForm.reset();
+        imageViolationForm.reset();
+        violationCombo.getSelectionModel().clearSelection();
     }
 
     @Override
