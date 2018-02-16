@@ -141,6 +141,13 @@ public class ReportViewController extends UIViewController {
         dialogView.setMessage("The violation");
         dialogView.getPostiveButton().setText("Close");
         dialogView.remove(dialogView.getNegativeButton());
+        dialogView.delegate(new DynamicDialog.DialogDelegate() {
+            @Override
+            public boolean onDone(DynamicDialog dialog) {
+                violationFormView.reset();
+                return true;
+            }
+        });
         dialogView.show(this.view);
 
     }

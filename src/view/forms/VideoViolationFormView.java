@@ -101,7 +101,7 @@ public class VideoViolationFormView extends UIFormView {
 
     @Override
     public void reset() {
-        webView.getEngine().reload();
+        webView.getEngine().load(null);
         if(player != null){
             try {
                 player.stop();
