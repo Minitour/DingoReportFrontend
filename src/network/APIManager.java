@@ -227,6 +227,11 @@ public class APIManager {
         });
     }
 
+    public void makeDecision() {
+
+    }
+
+
     //TODO: add other methods here
 
     /**
