@@ -2,29 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="744aeb5d-3ebd-4fa5-87c6-38050abac926" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/report/ReportFillController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/list_item_4.fxml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_report.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_report.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_report_view.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_report_view.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_video_violation.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_video_violation.fxml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_violation.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_violation.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java" afterPath="$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/report/ReportViewController.java" afterPath="$PROJECT_DIR$/src/controller/report/ReportViewController.java" />
-      <change beforePath="$PROJECT_DIR$/src/controller/report/ViewReportsController.java" afterPath="$PROJECT_DIR$/src/controller/report/ViewReportsController.java" />
-      <change beforePath="$PROJECT_DIR$/src/network/APIManager.java" afterPath="$PROJECT_DIR$/src/network/APIManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/network/Callbacks.java" afterPath="$PROJECT_DIR$/src/network/Callbacks.java" />
-      <change beforePath="$PROJECT_DIR$/src/network/Constants.java" afterPath="$PROJECT_DIR$/src/network/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/src/resources/xml/controller_report.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/controller_report.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/resources/xml/controller_report_view.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/controller_report_view.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_video_violation.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_video_violation.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_violation.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_violation.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/view/cells/CarOwnerCellView.java" afterPath="$PROJECT_DIR$/src/view/cells/CarOwnerCellView.java" />
-      <change beforePath="$PROJECT_DIR$/src/view/cells/ViolationViewCell.java" afterPath="$PROJECT_DIR$/src/view/cells/ViolationViewCell.java" />
-      <change beforePath="$PROJECT_DIR$/src/view/forms/ImageViolationForm.java" afterPath="$PROJECT_DIR$/src/view/forms/ImageViolationForm.java" />
-      <change beforePath="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" afterPath="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" />
-      <change beforePath="$PROJECT_DIR$/src/view/forms/ViolationFormView.java" afterPath="$PROJECT_DIR$/src/view/forms/ViolationFormView.java" />
+      <change beforePath="$PROJECT_DIR$/src/controller/report/ReportFillController.java" afterPath="$PROJECT_DIR$/src/controller/report/ReportFillController.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/Report.java" afterPath="$PROJECT_DIR$/src/model/Report.java" />
+      <change beforePath="$PROJECT_DIR$/src/model/VehicleModel.java" afterPath="$PROJECT_DIR$/src/model/VehicleModel.java" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,82 +22,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="VolunteerMasterController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form_violation.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/xml/form_violation.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="98" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="VolunteerMasterController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReportFillController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/report/ReportFillController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="33" />
+            <state relative-caret-position="255">
+              <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#814#815#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
+                <element signature="e#609#610#0" expanded="true" />
+                <element signature="e#661#662#0" expanded="true" />
+                <element signature="e#743#744#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReportViewController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/report/ReportViewController.java">
+      <file leaf-file-name="ReportFillController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/report/ReportFillController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-951">
-              <caret line="67" column="4" lean-forward="false" selection-start-line="67" selection-start-column="4" selection-end-line="68" selection-end-column="32" />
+            <state relative-caret-position="424">
+              <caret line="54" column="8" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding>
-                <element signature="e#2113#2114#0" expanded="true" />
-                <element signature="e#2175#2176#0" expanded="true" />
-                <element signature="e#5447#5448#0" expanded="true" />
-                <element signature="e#5480#5481#0" expanded="true" />
-                <element signature="e#5535#5536#0" expanded="true" />
-                <element signature="e#5579#5580#0" expanded="true" />
-                <element signature="e#5645#5646#0" expanded="true" />
-                <element signature="e#5695#5696#0" expanded="true" />
-                <element signature="e#5740#5741#0" expanded="true" />
-                <element signature="e#5767#5768#0" expanded="true" />
-                <element signature="e#6461#6462#0" expanded="true" />
-                <element signature="e#6534#6535#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminMasterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/masters/AdminMasterController.java">
+      <file leaf-file-name="Report.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/Report.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+            <state relative-caret-position="298">
+              <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HeadOfficerMasterController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java">
+      <file leaf-file-name="VehicleModel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/VehicleModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MasterMenuController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/masters/MasterMenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="61" column="41" lean-forward="false" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
+            <state relative-caret-position="510">
+              <caret line="38" column="39" lean-forward="false" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
               <folding>
-                <element signature="method#showView#0;class#MasterMenuController#0" expanded="false" />
-                <element signature="class#Cell#0;class#MasterMenuController#0" expanded="false" />
-                <element signature="class#CellView#0;class#MasterMenuController#0" expanded="false" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -128,8 +92,8 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="38" column="56" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="56" />
+            <state relative-caret-position="520">
+              <caret line="58" column="58" lean-forward="false" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -187,8 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/ViolationViewCell.java" />
-        <option value="$PROJECT_DIR$/src/controller/ReportViewController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/form_image_violation.fxml" />
         <option value="$PROJECT_DIR$/src/controller/report/ViolationDialogAdapter.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_violation.fxml" />
@@ -235,9 +197,11 @@
         <option value="$PROJECT_DIR$/src/view/forms/ImageViolationForm.java" />
         <option value="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" />
         <option value="$PROJECT_DIR$/src/view/forms/ViolationFormView.java" />
-        <option value="$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/report/ReportFillController.java" />
         <option value="$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java" />
+        <option value="$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml" />
+        <option value="$PROJECT_DIR$/src/model/VehicleModel.java" />
+        <option value="$PROJECT_DIR$/src/model/Report.java" />
+        <option value="$PROJECT_DIR$/src/controller/report/ReportFillController.java" />
       </list>
     </option>
   </component>
@@ -509,6 +473,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -518,7 +483,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49565217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49565217" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -552,27 +517,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/forms/VolunteerFormView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/AddUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="65" column="25" lean-forward="false" selection-start-line="65" selection-start-column="25" selection-end-line="65" selection-end-column="25" />
-          <folding>
-            <element signature="method#AddUserController#0;class#AddUserController#0" expanded="false" />
-            <element signature="method#init#0;class#AddUserController#0" expanded="false" />
-            <element signature="method#addViewToStack#0;class#AddUserController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Map.java" />
     <entry file="file://$PROJECT_DIR$/src/view/forms/UIFormView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="406">
@@ -813,23 +757,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="296" column="59" lean-forward="false" selection-start-line="296" selection-start-column="59" selection-end-line="296" selection-end-column="59" />
-          <folding>
-            <element signature="method#login#0;class#APIManager#0" expanded="false" />
-            <element signature="method#updatePassword#0;class#APIManager#0" expanded="false" />
-            <element signature="method#updatePassword#1;class#APIManager#0" expanded="false" />
-            <element signature="method#getReports#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getViolationTypes#1;class#APIManager#0" expanded="false" />
-            <element signature="method#makeRequest#0;class#APIManager#0" expanded="false" />
-            <element signature="method#requestResource#0;class#APIManager#0" expanded="false" />
-            <element signature="method#makeOkHttpRequest#0;class#APIManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/network/Callbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1015,17 +942,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_report_fill.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="38" column="56" lean-forward="false" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/report/ReportViewController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-951">
@@ -1044,6 +960,14 @@
             <element signature="e#6461#6462#0" expanded="true" />
             <element signature="e#6534#6535#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,30 +999,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/masters/OfficerMasterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="41" column="52" lean-forward="true" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/report/ReportFillController.java">
+    <entry file="file://$PROJECT_DIR$/src/controller/masters/SecretaryMasterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="33" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="33" />
+        <state relative-caret-position="119">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="296" column="59" lean-forward="false" selection-start-line="296" selection-start-column="59" selection-end-line="296" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
+            <element signature="method#login#0;class#APIManager#0" expanded="false" />
+            <element signature="method#updatePassword#0;class#APIManager#0" expanded="false" />
+            <element signature="method#updatePassword#1;class#APIManager#0" expanded="false" />
+            <element signature="method#getReports#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getViolationTypes#1;class#APIManager#0" expanded="false" />
+            <element signature="method#makeRequest#0;class#APIManager#0" expanded="false" />
+            <element signature="method#requestResource#0;class#APIManager#0" expanded="false" />
+            <element signature="method#makeOkHttpRequest#0;class#APIManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+            <element signature="e#609#610#0" expanded="true" />
+            <element signature="e#661#662#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_violation.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="98" />
           <folding />
         </state>
       </provider>
