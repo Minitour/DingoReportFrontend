@@ -7,6 +7,7 @@ import model.*;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -83,6 +84,15 @@ public class APIManager {
         });
     }
 
+    /**
+     * Update password method.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param currentPassword The current password of the account.
+     * @param newPassword The new password the user wishes to set.
+     * @param callback The response callback.
+     */
     public void updatePassword(String id,String token,String currentPassword,String newPassword,Callbacks.General callback){
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -98,6 +108,13 @@ public class APIManager {
         updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
     }
 
+    /**
+     * Get reports for current user.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The callback response containing reports.
+     */
     public void getReports(String id,String token,Callbacks.Reports callback){
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -129,6 +146,13 @@ public class APIManager {
         getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
+    /**
+     * Get all violation types from the server.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback containing violation types.
+     */
     public void getViolationTypes(String id,String token, Callbacks.ViolationTypes callback){
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -160,6 +184,13 @@ public class APIManager {
         getViolationTypes(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
+    /**
+     * Get all vehicle models from the server.
+     *
+     * @param id The id of the current user.
+     * @param token The active session token.
+     * @param callback The response callback.
+     */
     public void getVehicleModels(String id,String token, Callbacks.VehicleModels callback){
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -191,6 +222,14 @@ public class APIManager {
         getVehicleModels(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
+    /**
+     * Load a resource given a link.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the current user.
+     * @param resource The resource url. must be in the format 'resource/{USER_ID}/{FILE}'
+     * @param callback The response callback - contains an input stream with the resource data if found.
+     */
     public void getResource(String id,String token,String resource,Callbacks.Resource callback){
         Map<String,String> headers = new HashMap<>();
         headers.put("id",id);
@@ -202,6 +241,15 @@ public class APIManager {
         getResource(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,resource,callback);
     }
 
+    /**
+     * Method used with context 3 (secretary).
+     * This method sends a request to the server to create an account with the given details and then attach it to a new volunteer instance.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the current user
+     * @param volunteer The volunteer object. only needs to contain the following(email,name,phone)
+     * @param callback The response callback.
+     */
     public void createVolunteer(String id, String token, Volunteer volunteer, Callbacks.General callback) {
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -241,11 +289,20 @@ public class APIManager {
             body.addProperty("id",id);
             body.addProperty("sessionToken",token);
             body.add("report", toJson(report));
-            makeRequest(Constants.Routes.submitReport(),null,body,(json,ex)->{
+            makeRequest(Constants.Routes.submitReport(),null,body,(json,ex)-> Platform.runLater(()->{
                 ServerResponse res = new ServerResponse(json);
                 callback.make(res,ex);
-            });
+            }));
         }));
+    }
+
+    /**
+     *
+     * @param report
+     * @param callback
+     */
+    public void submitReport(Report report,Callbacks.General callback){
+        submitReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,callback);
     }
 
     /**
@@ -257,7 +314,8 @@ public class APIManager {
      * @param callback the callback to be executed upon completion.
      */
     private void uploadAndModifyViolations(String id,String token,List<Violation> violations,Callbacks.ViolationsInner callback){
-        new Thread(()->{
+        Thread s;
+        s = new Thread(()->{
             for(Violation v : violations){
                 File file = new File(v.getEvidenceLink());
                 //upload to server and get file
@@ -265,7 +323,8 @@ public class APIManager {
                 v.setEvidenceLink(resourceUrl);
             }
             callback.make(violations);
-        }).start();
+        });
+        s.start();
     }
 
 
@@ -303,21 +362,23 @@ public class APIManager {
 
 
         //make request
+        System.out.println("SENDING: "+jsonBody.toString());
         makeOkHttpRequest(request,callback);
     }
 
+    /**
+     * Use this method to load images/resources from the server.
+     * @param url The url of the resource
+     * @param headers The headers for the GET request
+     * @param callback The response callback.
+     */
     private void requestResource(String url,Map<String,String> headers,final Callbacks.Resource callback){
-        MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
-        //create request body from params
-        //create request
         Request request;
 
         Request.Builder builder = new Request
                 .Builder()
                 .url(url)
-                .get()
-                .addHeader("content-type","application/json");
-
+                .get();
         //add additional headers
         if(headers != null)
             headers.forEach(builder::addHeader);
@@ -336,8 +397,7 @@ public class APIManager {
             public void onResponse(Call call, Response response) throws IOException {
                 if (callback!= null){
                     try (ResponseBody responseBody = response.body()) {
-                        InputStream res = responseBody.byteStream();
-                        System.out.println("onResponse: " + res);
+                        InputStream res = new ByteArrayInputStream(responseBody.bytes());
 
                         //make thread safe.
                         Platform.runLater(() -> {
@@ -350,7 +410,11 @@ public class APIManager {
         });
     }
 
-
+    /**
+     * Make generic OKHttpRequest
+     * @param request The request object.
+     * @param callback The callback.
+     */
     private void makeOkHttpRequest(Request request,Callbacks.Inner callback){
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -385,11 +449,25 @@ public class APIManager {
         });
     }
 
+    /**
+     * Helper method that converts a generic object into a Json Object.
+     * @param object The object you wish to convert.
+     * @param <T> The type of the object (auto-inferred)
+     * @return The json equivalent of the object.
+     */
     private <T> JsonObject toJson(T object){
         JsonElement jsonElement = gson.toJsonTree(object);
         return (JsonObject) jsonElement;
     }
 
+    /**
+     * Helper method that uploads a file to the server and returns the location in which the file was saved.
+     *
+     * @param id The id of the user.
+     * @param token The session token of the user.
+     * @param file The file you wish to upload.
+     * @return A string containing an 'in-complete' path to the resource on the server.
+     */
     private String uploadFile(String id,String token,File file){
         RequestBody body = RequestBody.create(MediaType.parse("application/json"),file);
         String ext = getFileExtension(file);
@@ -407,7 +485,7 @@ public class APIManager {
             String res =  response.body().string();
             JsonParser parser = new JsonParser();
             JsonObject o = parser.parse(res).getAsJsonObject();
-            return o.get("path").getAsString();
+            return o.get("data").getAsJsonObject().get("path").getAsString();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -415,12 +493,20 @@ public class APIManager {
 
     }
 
+    /**
+     * A helper function that returns the extension of a given file name.
+     * @param file The file of which you would like to obtain the extension.
+     * @return The extension (mp3,png,txt,etc...)
+     */
     private String getFileExtension(File file){
         String[] parts = file.getPath().split("\\.");
         return parts[parts.length - 1];
     }
 
-    static class AbstractElementAdapter implements JsonDeserializer<Violation> {
+    /**
+     * Helper class for decoding/encoding Violation instances into/onto JSONs.
+     */
+    private static class AbstractElementAdapter implements JsonDeserializer<Violation>,JsonSerializer<Violation> {
         @Override
         public Violation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
                 throws JsonParseException {
@@ -429,6 +515,11 @@ public class APIManager {
             boolean hasDescription = jsonObject.has("description");
 
             return context.deserialize(json, hasDescription ? VideoViolation.class : ImageViolation.class);
+        }
+
+        @Override
+        public JsonElement serialize(Violation violation, Type type, JsonSerializationContext jsonSerializationContext) {
+            return gson.toJsonTree(violation,violation instanceof ImageViolation ? ImageViolation.class : VideoViolation.class);
         }
     }
 

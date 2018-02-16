@@ -1,16 +1,20 @@
 package controller.report;
 
 import javafx.application.Platform;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import model.*;
 import network.APIManager;
 import ui.UIViewController;
+import view.DialogView;
 import view.DynamicDialog;
 import view.cells.ViolationCell;
 import view.forms.ViolationFormView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,6 +65,8 @@ public class ReportFillController extends UIViewController {
 
         negative.setOnAction(event -> clear());
         positive.setOnAction(event -> submit());
+
+        form_subtitle.setText(new Date().toLocaleString());
 
         violationListView.setCellFactory(param -> new ViolationCell());
 
@@ -120,11 +126,36 @@ public class ReportFillController extends UIViewController {
     private void submit(){
         if(isValid()){
             Report report = makeReport();
-            System.out.println(report);
-            //TODO:
-            // APIManager.getInstance().submitReport(report,(res,ex)->{
-            //      //show dialog
-            // });
+            DialogView dialogView = new DialogView();
+            dialogView.setTitle("Submitting Report");
+            dialogView.setMessage("Uploading files...");
+            dialogView.setPostiveEventHandler(null);
+            dialogView.setNegativeEventHandler(null);
+
+            dialogView.show(view);
+
+            APIManager.getInstance().submitReport(report,(res,ex)->{
+                if(ex == null){
+                    if(res.isOK()){
+                        //all good
+                        dialogView.setMessage("Report Successfully Submitted.");
+                        dialogView.setPostiveEventHandler(event -> {
+                            dialogView.close();
+                            clear();
+                        });
+                        dialogView.getPostiveButton().setText("Done");
+
+                    }else{
+                        dialogView.setMessage("Something went wrong: "+res.getMessage());
+                        dialogView.setPostiveEventHandler(event -> dialogView.close());
+                        dialogView.getPostiveButton().setText("Close");
+                    }
+                }else{
+                    dialogView.setMessage("Something went wrong: "+ex.getMessage());
+                    dialogView.setPostiveEventHandler(event -> dialogView.close());
+                    dialogView.getPostiveButton().setText("Close");
+                }
+            });
         }
 
     }

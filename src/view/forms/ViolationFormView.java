@@ -144,7 +144,8 @@ public class ViolationFormView extends UIFormView {
 
     @Override
     public boolean isValid() {
-        return currentForm != null && currentForm.isValid();
+        boolean didSelectType = (violationCombo.getSelectionModel().getSelectedItem() != null);
+        return didSelectType && currentForm != null && currentForm.isValid();
     }
 
     @Override
