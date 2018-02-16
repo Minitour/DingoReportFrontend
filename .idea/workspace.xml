@@ -232,7 +232,6 @@
         <option value="$PROJECT_DIR$/src/controller/UpdatePasswordController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_master.fxml" />
         <option value="$PROJECT_DIR$/src/controller/masters/MasterMenuController.java" />
-        <option value="$PROJECT_DIR$/src/main/AppDelegate.java" />
         <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/view/cells/ReportCellView.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/list_item_3.fxml" />
@@ -262,10 +261,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="32" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1440" />
+    <option name="y" value="23" />
+    <option name="width" value="1360" />
+    <option name="height" value="745" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -779,6 +778,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="72" column="40" lean-forward="false" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
+          <folding>
+            <element signature="e#1392#1393#0" expanded="false" />
+            <element signature="e#1452#1453#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -905,6 +908,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

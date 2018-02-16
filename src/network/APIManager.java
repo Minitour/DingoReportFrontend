@@ -201,6 +201,32 @@ public class APIManager {
         getResource(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,resource,callback);
     }
 
+    public void createVolunteer(String id, String token, Volunteer volunteer, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        JsonObject volunteerJSON = new JsonObject();
+        volunteerJSON.addProperty("ID", volunteer.getID());
+        volunteerJSON.addProperty("EMAIL", volunteer.getEMAIL());
+        volunteerJSON.addProperty("ROLE_ID", volunteer.getROLE_ID());
+        volunteerJSON.addProperty("password", volunteer.getPassword());
+        volunteerJSON.addProperty("name", volunteer.getName());
+        volunteerJSON.addProperty("phone", volunteer.getPhone());
+
+        body.add("volunteer", volunteerJSON);
+
+        makeRequest(Constants.Routes.getVehicleModels(), null, body, (json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if (exception == null) {
+                callback.make(r,null);
+            }
+            else {
+                callback.make(r, exception);
+            }
+        });
+    }
+
     //TODO: add other methods here
 
     /**

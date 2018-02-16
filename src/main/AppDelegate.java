@@ -5,6 +5,8 @@ import controller.masters.*;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Volunteer;
+import network.APIManager;
 import network.AutoSignIn;
 import view.DialogView;
 
@@ -15,6 +17,12 @@ public class AppDelegate extends Application {
 
     public static void main(String... args){
         launch(args);
+        Volunteer volunteer = new Volunteer("123", "fgh@fgh.com", "1234", "test1", "987654321");
+        APIManager.getInstance().createVolunteer(AutoSignIn.ID, AutoSignIn.SESSION_TOKEN, volunteer, (response, exception) -> {
+            System.out.println("response: " + response + "\n" + "exception: " + exception);
+        });
+
+        //String ID,String EMAIL, String password, String name, String phone
 
     }
 
