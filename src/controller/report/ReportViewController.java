@@ -26,7 +26,9 @@ import ui.UIView;
 import ui.UIViewController;
 import view.DialogView;
 import view.DynamicDialog;
+import view.cells.CarOwnerCell;
 import view.cells.CarOwnerCellView;
+import view.cells.ViolationCell;
 import view.cells.ViolationViewCell;
 import view.forms.ViolationFormView;
 
@@ -225,25 +227,5 @@ public class ReportViewController extends UIViewController {
             violationListView
                     .getItems()
                     .add(violation);
-    }
-
-
-    /**
-     * Custom inner Classes
-     */
-    static class CarOwnerCell extends UIListViewCell<VehicleOwner,UIView>{
-
-        @Override
-        public UIView load(VehicleOwner item) {
-            return new CarOwnerCellView().setVehicleOwner(item);
-        }
-    }
-
-    static class ViolationCell extends UIListViewCell<Violation,UIView>{
-
-        @Override
-        public UIView load(Violation item) {
-            return new ViolationViewCell().setViolation(item);
-        }
     }
 }

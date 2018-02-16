@@ -75,7 +75,7 @@ public class ImageViolationForm extends UIFormView {
     @Override
     public boolean isValid() {
         //TODO: implement
-        return false;
+        return file != null && file.exists();
     }
 
     @Override

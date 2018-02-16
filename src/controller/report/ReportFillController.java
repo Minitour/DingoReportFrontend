@@ -1,13 +1,20 @@
 package controller.report;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
-import model.Report;
-import model.Vehicle;
-import model.VehicleModel;
-import model.Violation;
+import model.*;
 import network.APIManager;
+import network.Callbacks;
+import network.ServerResponse;
 import ui.UIViewController;
+import view.DynamicDialog;
+import view.cells.ViolationCell;
+import view.forms.ViolationFormView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created By Tony on 16/02/2018
@@ -44,6 +51,8 @@ public class ReportFillController extends UIViewController {
     @FXML
     private ListView<Violation> violationListView;
 
+    private List<ViolationType> violationTypes = new ArrayList<>();
+
     public ReportFillController() {
         super("/resources/xml/controller_report_fill.fxml");
         setup();
@@ -52,7 +61,41 @@ public class ReportFillController extends UIViewController {
     private void setup(){
         positive.setText("Submit");
         negative.setText("Clear");
-        
+
+        violationListView.setCellFactory(param -> new ViolationCell());
+
+        violationAdd.setOnAction(event -> {
+            final ViolationFormView violationFormView = new ViolationFormView(violationTypes);
+            DynamicDialog dialog = new DynamicDialog(violationFormView);
+            dialog.setTitle("Add Violation");
+            dialog.setMessage("Add a new violation to the report.");
+            dialog.getPostiveButton().setText("Add");
+            dialog.getNegativeButton().setText("Cancel");
+            DynamicDialog.DialogDelegate dialogDelegate = new DynamicDialog.DialogDelegate() {
+                @Override
+                public boolean onDone(DynamicDialog dialog) {
+                    if(!violationFormView.isValid())
+                        return false;
+                    //add violation to listview
+                    Violation violation = violationFormView.getViolation();
+                    violationListView.getItems().add(violation);
+                    return true;
+                }
+
+                @Override
+                public void onCancel(DynamicDialog dialog) {
+
+                }
+            };
+            dialog.delegate(dialogDelegate);
+            dialog.show(view);
+        });
+
+        APIManager.getInstance().getVehicleModels((response, vehicleModels, exception) ->
+                modelCombo.getItems().addAll(vehicleModels));
+
+        APIManager.getInstance().getViolationTypes((response, violationsTypes, exception) ->
+                violationTypes.addAll(violationsTypes));
 
     }
 

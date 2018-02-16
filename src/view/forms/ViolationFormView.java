@@ -114,7 +114,7 @@ public class ViolationFormView extends UIFormView {
         rd_video.setToggleGroup(group);
         rd_video.setUserData(1);
         rd_image.setToggleGroup(group);
-        rd_image.setUserData(2);
+        rd_image.setUserData(0);
 
         group.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
             int userData = (int) group.getSelectedToggle().getUserData();
