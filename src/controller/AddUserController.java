@@ -2,6 +2,7 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.VBox;
 import model.Account;
 import model.HighRankOfficer;
@@ -52,6 +53,7 @@ public class AddUserController extends UIViewController{
                 addViewToStack(volunteerFormView);
                 break;
             case OFFICER:
+            case HIGHRANK:
                 addViewToStack(officerFormView);
                 break;
         }
@@ -150,7 +152,28 @@ public class AddUserController extends UIViewController{
 
 
     public enum UserType{
-        SUPERUSER,SECRETARY,OFFICER,HIGHRANK,VOLUNTEER
+        SUPERUSER("SUPERUSER",0),
+        SECRETARY("SECRETARY",3),
+        OFFICER("OFFICER",2),
+        HIGHRANK("HIGH RANK OFFICER",1),
+        VOLUNTEER("VOLUNTEER",4);
+
+        private String value;
+        private int role;
+
+        UserType(String value, int role) {
+            this.value = value;
+            this.role = role;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        public int getRole() {
+            return role;
+        }
     }
 
     public AccountFormView getAccountFormView() {

@@ -22,7 +22,6 @@ public class UpdatePasswordController extends UIViewController {
     private Button submit;
 
     public UpdatePasswordController() {
-        //TODO: create FXML
         super("/resources/xml/controller_update_password.fxml");
 
         submit.setOnAction(event -> {

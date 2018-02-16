@@ -41,12 +41,6 @@ import java.util.*;
  */
 public class ReportViewController extends UIViewController {
 
-    static Map<Integer, ViolationType> violationTypes;
-    static {
-        violationTypes = new HashMap<>();
-        //TODO: load violations from server
-    }
-
     private Vehicle vehicle;
     private Report report;
 

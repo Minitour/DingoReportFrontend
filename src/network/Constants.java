@@ -44,8 +44,11 @@ final public class Constants {
         public static String exportReports() { return getAddress() + "/exportReports";}
         public static String getViolationTypes() {return getAddress() + "/getViolationTypes";}
         public static String getVehicleModels() {return getAddress() + "/getVehicleModels";}
-
+        public static String createUser() {
+            return getAddress() + "/createUser";
+        }
         public static String resource(String resource){ return getAddress() + "/"+ resource; }
+
 
     }
     public static class Codes{

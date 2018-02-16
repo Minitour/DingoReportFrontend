@@ -33,8 +33,7 @@ public class WebViewController extends UIViewController {
         webView.getEngine().setUserAgent(prepareAgent());
         webView.getEngine().load(url);
     }
-    
-    //TODO: test this method.
+
     public void addHeader(String header,String value){
         headers.put(header," "+value);
     }

@@ -270,6 +270,33 @@ public class APIManager {
         createVolunteer(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,volunteer,callback);
     }
 
+    /**
+     * Superuser function
+     * Create any type of user.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the current user.
+     * @param account The account containing all the details of the user.
+     * @param callback The callback response.
+     */
+    public void createUser(String id, String token,Account account,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("account", toJson(account));
+        makeRequest(Constants.Routes.createUser(), null, body, (json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if (exception == null) {
+                callback.make(r,null);
+            }
+            else {
+                callback.make(r, exception);
+            }
+        });
+    }
+    public void createUser(Account account,Callbacks.General callback){
+        createUser(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,account,callback);
+    }
 
     public void makeDecision() {
 
@@ -460,7 +487,7 @@ public class APIManager {
      * @return The json equivalent of the object.
      */
     private <T> JsonObject toJson(T object){
-        JsonElement jsonElement = gson.toJsonTree(object);
+        JsonElement jsonElement = gson.toJsonTree(object,object.getClass());
         return (JsonObject) jsonElement;
     }
 
