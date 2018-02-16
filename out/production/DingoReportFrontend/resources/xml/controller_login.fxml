@@ -31,9 +31,9 @@
                   <Image url="@../img/key.png" />
               </image>
           </ImageView>
-        <!--TODO: remove login info-->
-          <JFXTextField fx:id="userInputField" text="goldfedertomer@gmail.com" labelFloat="true" promptText="Username" />
-          <JFXPasswordField fx:id="passwordInputField" text="5f1MXgqBzm" labelFloat="true" promptText="Password">
+
+          <JFXTextField fx:id="userInputField"  labelFloat="true" promptText="Username" />
+          <JFXPasswordField fx:id="passwordInputField" labelFloat="true" promptText="Password">
           </JFXPasswordField>
           <VBox alignment="CENTER" spacing="10">
               <padding>

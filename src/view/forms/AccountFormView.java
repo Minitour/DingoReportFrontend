@@ -2,6 +2,7 @@ package view.forms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import main.EmailValidator;
 
 /**
  * Created By Tony on 14/02/2018
@@ -28,8 +29,7 @@ public class AccountFormView extends UIFormView {
 
     @Override
     public boolean isValid() {
-        //TODO: Check fields
-        return true;
+        return EmailValidator.validate(getEmail()) && getPassword().length() >= 8;
     }
 
     public void reset(){

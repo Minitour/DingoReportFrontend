@@ -28,8 +28,7 @@ public class VolunteerFormView extends UIFormView {
 
     @Override
     public boolean isValid() {
-        //TODO: Check fields
-        return true;
+        return !getName().isEmpty()  && !getPhone().isEmpty();
     }
 
     public void reset(){

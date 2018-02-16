@@ -133,8 +133,6 @@ public class VideoViolationFormView extends UIFormView {
         webView.setVisible(!mode);
     }
 
-    //TODO: add getters/setters
-
     public void setVideoFromUrl(String url){
         webView.setVisible(true);
         mediaView.setVisible(false);

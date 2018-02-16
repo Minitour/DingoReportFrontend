@@ -20,8 +20,6 @@ public class OfficerFormView extends UIFormView {
     @FXML
     private TextField rank;
 
-    //TODO: add combo box for role selection.
-
     public OfficerFormView() {
         super("/resources/xml/form_create_officer.fxml");
     }
@@ -39,13 +37,19 @@ public class OfficerFormView extends UIFormView {
     }
 
     public int getRank(){
-        return Integer.parseInt(rank.getText());
+        try {
+            return Integer.parseInt(rank.getText());
+        }catch (NumberFormatException e){
+            return -1;
+        }
     }
 
     @Override
     public boolean isValid() {
-        //TODO: Check fields
-        return true;
+        return !getName().isEmpty()
+                && !getBadgeNum().isEmpty()
+                && !getPhoneExt().isEmpty()
+                && getRank() > -1;
     }
 
     public void reset(){

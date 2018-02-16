@@ -157,7 +157,6 @@ public class ViolationFormView extends UIFormView {
 
     @Override
     public void setFormMode(FormMode formMode) {
-        //TODO: implement form mode
     }
 
     private ViolationType getSelectedViolation(){

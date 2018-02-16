@@ -74,21 +74,18 @@ public class ImageViolationForm extends UIFormView {
 
     @Override
     public boolean isValid() {
-        //TODO: implement
         return file != null && file.exists();
     }
 
     @Override
     public void reset() {
-        //TODO: implement
+        imageView.setImage(null);
     }
 
     @Override
     public void setFormMode(FormMode formMode) {
 
     }
-
-    //TODO: add getters/setters
 
     public void setImageFromUrl(String resource){
         APIManager.getInstance().getResource(resource, (stream, e) -> {

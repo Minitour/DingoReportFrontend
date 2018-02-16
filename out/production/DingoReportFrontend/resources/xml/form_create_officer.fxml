@@ -11,11 +11,10 @@
             <VBox spacing="14" styleClass="container">
                 <Label text="Officer Details"/>
                 <padding><Insets top="8" bottom="8" left="8" right="8"/></padding>
-                <JFXTextField fx:id="badgeNum" promptText="Full Name"/>
+                <JFXTextField fx:id="badgeNum" promptText="Badge Number"/>
                 <JFXTextField fx:id="name" promptText="Full Name"/>
                 <JFXTextField fx:id="phoneExt" promptText="Phone Number"/>
                 <JFXTextField fx:id="rank" promptText="Rank (Number)"/>
-                <!--TODO: Add Combo box here to select rank (Officer/HighRankOfficer)-->
             </VBox>
         </Pane>
     </Pane>
