@@ -17,9 +17,14 @@
                     <Font name="Helvetica Bold" size="24.0" />
                 </font>
             </Label>
+            <Label fx:id="form_subtitle" text="Subtitle">
+                <font>
+                    <Font name="Helvetica Bold" size="16.0" />
+                </font>
+            </Label>
             <HBox fx:id="hbox_parent" VBox.vgrow="ALWAYS" spacing="8">
                 <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                <VBox minWidth="300" prefHeight="${hbox_parent.height}" styleClass="container">
+                <VBox minWidth="300" maxWidth="600" prefHeight="${hbox_parent.height}" styleClass="container" HBox.hgrow="ALWAYS">
                     <padding><Insets left="8" right="8" top="8" /></padding>
                     <VBox spacing="8" >
                         <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
@@ -54,7 +59,7 @@
 
                     </VBox>
                 </VBox>
-                <VBox minWidth="150" spacing="8" prefHeight="${hbox_parent.height}" HBox.hgrow="ALWAYS">
+                <VBox fx:id="car_owners_container" maxWidth="350" minWidth="350" spacing="8" prefHeight="${hbox_parent.height}" >
 
                     <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="container">
                         <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>

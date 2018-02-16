@@ -8,6 +8,7 @@ import okhttp3.*;
 import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -44,6 +45,10 @@ public final class Callbacks {
     @FunctionalInterface
     public interface ViolationTypes {
         void make(ServerResponse response, List<ViolationType> violationTypes, Exception exception);
+    }
+
+    public interface Resource {
+        void make(InputStream stream,Exception e);
     }
 
     //TODO: add needed interfaces.

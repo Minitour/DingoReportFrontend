@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
@@ -31,10 +32,7 @@ import view.forms.ViolationFormView;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 /**
  * Created by Antonio Zaitoun on 18/12/2017.
@@ -82,6 +80,18 @@ public class ReportViewController extends UIViewController {
     @FXML
     private VBox violationHbox;
 
+    @FXML
+    private Label form_title;
+
+    @FXML
+    private Label form_subtitle;
+
+    @FXML
+    private Pane car_owners_container;
+
+    @FXML
+    private Pane hbox_parent;
+
     private CancelCallback canceCallback;
 
 
@@ -123,12 +133,13 @@ public class ReportViewController extends UIViewController {
     }
 
     private void createDialog(Violation violation){
-        APIManager.getInstance().getViolationTypes((res,violationTypes,ex)->{
-            if(ex == null && res.isOK()){
-                DialogView dialogView = new DynamicDialog(new ViolationFormView(violationTypes));
-                dialogView.show(this.view);
-            }
-        });
+        ViolationFormView violationFormView = new ViolationFormView(violation);
+        DynamicDialog dialogView = new DynamicDialog(violationFormView);
+        dialogView.setTitle("Evidence View");
+        dialogView.setMessage("The violation");
+        dialogView.getPostiveButton().setText("Close");
+        dialogView.remove(dialogView.getNegativeButton());
+        dialogView.show(this.view);
 
     }
 
@@ -139,25 +150,7 @@ public class ReportViewController extends UIViewController {
         vd_carColor.setText(vehicle.getColorHEX());
         vd_carModel.setText(vehicle.getModel().getName());
 
-        //TODO: get vehicle owners from dingo pro
-        new Thread(()->{
-            List<VehicleOwner> owners = null;//getOwners(vehicle);
-            Platform.runLater(()->{
-                if(owners != null){
-                    for(VehicleOwner owner : owners){
-                        carOwnersListView.getItems().add(owner);
-                    }
-                }
-            });
-        }).start();
-
-//        Violation violation = new Violation();
-//        violation.setDecision(Decision.UNDETERMINED);
-//        violation.setDescription("Just testing");
-//        violation.setType(new ViolationType("testing","testing2",0,0,false));
-//        violationListView.getItems().add(violation);
-
-
+        hbox_parent.getChildren().remove(car_owners_container);
     }
 
     public void setReport(Report report) {
@@ -168,33 +161,41 @@ public class ReportViewController extends UIViewController {
         this.report = report;
         //load data from report to UI.
 
+        form_title.setText("Report #"+report.getReportNum() );
+        form_subtitle.setText(report.getIncidentDate().toLocaleString());
+
+        description.setEditable(false);
+
         String desc = report.getDescription();
         if (desc != null) {
             description.setText(desc);
             description.setWrapText(true);
         }
 
-        violationListView.getItems().addAll(report.getViolations());
-
         positive.setVisible(false);
         violationHbox.getChildren().remove(violationAdd);
         negative.setText("Close");
 
-        List<VehicleOwner> owners = null;//getOwners(report);
-        if(owners != null)
-            carOwnersListView.getItems().addAll(owners);
-
-        List<Violation> violations = null;//getViolations(report);
-        if(violations != null)
-            violationListView.getItems().addAll(violations);
-
-        Vehicle vehicle = null;//getVehicle(report);
-
+        Vehicle vehicle = report.getVehicle();
         if(vehicle != null){
             vd_licensePlate.setText(vehicle.getLicensePlate());
             vd_carColor.setText(vehicle.getColorHEX());
             vd_carModel.setText(vehicle.getModel().getName());
+
+            Collection<VehicleOwner> owners = vehicle.getOwners();
+            if(owners != null)
+                carOwnersListView.getItems().addAll(owners);
+            else
+                hbox_parent.getChildren().remove(car_owners_container);
         }
+
+        List<Violation> violations = report.getViolations();
+
+        if(violations != null)
+            violationListView.getItems().addAll(violations);
+
+        violationAdd.setVisible(false);
+
     }
 
     public StackPane getParentView() {

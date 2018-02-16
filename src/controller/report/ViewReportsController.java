@@ -42,9 +42,6 @@ public class ViewReportsController extends UIViewController implements DynamicDi
     private ListView<Report> listView;
 
     @FXML
-    private JFXButton add;
-
-    @FXML
     private AnchorPane rightPane;
 
     @FXML
@@ -69,12 +66,6 @@ public class ViewReportsController extends UIViewController implements DynamicDi
             if(newValue!=null)
                 updateView(newValue);
         });
-
-        add.setOnAction(event -> DynamicDialog.load("/resources/xml/VerifyCarDetailsView.fxml")
-                .connect()
-                .delegate(this)
-                .prepare()
-                .show(getRoot()));
     }
 
     void updateView(Report report){
@@ -145,7 +136,6 @@ public class ViewReportsController extends UIViewController implements DynamicDi
     }
 
     private void cancel(){
-        add.setVisible(true);
         setMenuOpen(true);
         showView(null);
         listView.getSelectionModel().clearSelection();
@@ -188,8 +178,6 @@ public class ViewReportsController extends UIViewController implements DynamicDi
 
         newReportVC.setCanceCallback(this::cancel);
         showView(newReportVC);
-
-        add.setVisible(false);
 
         listView.getSelectionModel().clearSelection();
 

@@ -16,7 +16,8 @@ public class ViolationViewCell extends UIView {
     private Label violation;
 
     public ViolationViewCell setViolation(Violation violation) {
-        this.violation.setText(violation.getType().getName());
+        String label = "[" + violation.getClass().getSimpleName().replace("Violation","") +"]";
+        this.violation.setText(label + " #" +violation.getType().getTypeNum() + " " + violation.getType().getName() );
         return this;
     }
 

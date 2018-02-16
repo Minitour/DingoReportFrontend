@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<fx:root stylesheets="/ui/res/css/styles.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <Pane fx:id="parent" style="-fx-background-color: #3498db;-fx-background-radius: 10 10 10 10;">
+        <VBox fx:id="vbox" prefWidth="${parent.width}" spacing="4">
+            <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+            <Label fx:id="id" text="ID">
+                <font>
+                    <Font name="Helvetica Bold" size="18.0" />
+                </font></Label>
+            <Label fx:id="licenseNumber" maxWidth="${vbox.width}" text="License Number">
+                <font>
+                    <Font name="Helvetica" size="16.0" />
+                </font></Label>
+            <Label fx:id="fullName" text="Full Name">
+                <font>
+                    <Font name="Helvetica" size="16.0" />
+                </font></Label>
+            <Label fx:id="address" text="Address">
+                <font>
+                    <Font name="Helvetica" size="12.0" />
+                </font></Label>
+        </VBox>
+    </Pane>
+
+
+</fx:root>

@@ -2,12 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.web.WebView?>
+
 <fx:root stylesheets="@../../ui/res/css/styles.css,@../css/style.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
 
     <VBox fx:id="file_attach" spacing="8" visible="true">
@@ -21,14 +27,14 @@
         <AnchorPane>
 
 
-            <ImageView fx:id="imageView" fitHeight="135" fitWidth="240">
+            <ImageView fx:id="imageView" fitHeight="164.0" fitWidth="320.0">
                 <image>
                     <Image url="@../../resources/img/placeholder.png" />
                 </image>
             </ImageView>
-            <MediaView fx:id="mediaView" fitHeight="135">
+            <MediaView fx:id="mediaView" fitHeight="164">
             </MediaView>
-            <WebView fx:id="webView" prefHeight="135" prefWidth="240" visible="false"/>
+            <WebView fx:id="webView" prefHeight="164.0" prefWidth="320" visible="false" />
         </AnchorPane>
 
         <VBox fx:id="timestamp" spacing="8">

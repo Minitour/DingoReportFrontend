@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Font?>
 <?import ui.UIView?>
 <UIView stylesheets="/ui/res/css/styles.css" fx:id="root" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
@@ -32,15 +29,6 @@
                                   AnchorPane.rightAnchor="0.0"
                                   AnchorPane.leftAnchor="0.0"
                                   AnchorPane.topAnchor="72.0"/>
-                        <JFXButton contentDisplay="CENTER"  styleClass="fab" fx:id="add" AnchorPane.rightAnchor="16" AnchorPane.bottomAnchor="16">
-                            <graphic>
-                                <VBox maxWidth="${add.width}" maxHeight="${add.height}" alignment="CENTER">
-                                    <ImageView>
-                                        <Image url="@../img/ic_add.png"/>
-                                    </ImageView>
-                                </VBox>
-                            </graphic>
-                        </JFXButton>
                     </AnchorPane>
                     <AnchorPane fx:id="rightPane" minHeight="0.0" minWidth="0.0" prefHeight="114.0" prefWidth="275.0" />
                 </items>

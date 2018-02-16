@@ -8,8 +8,10 @@ import okhttp3.*;
 import sun.rmi.runtime.Log;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -152,8 +154,20 @@ public class APIManager {
             }
         });
     }
+
     public void getViolationTypes(Callbacks.ViolationTypes callback){
         getViolationTypes(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    public void getResource(String id,String token,String resource,Callbacks.Resource callback){
+        Map<String,String> headers = new HashMap<>();
+        headers.put("id",id);
+        headers.put("sessionToken",token);
+        requestResource(Constants.Routes.resource(resource), headers, callback);
+    }
+
+    public void getResource(String resource,Callbacks.Resource callback){
+        getResource(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,resource,callback);
     }
 
     //TODO: add other methods here
@@ -191,6 +205,50 @@ public class APIManager {
 
         //make request
         makeOkHttpRequest(request,callback);
+    }
+
+    private void requestResource(String url,Map<String,String> headers,final Callbacks.Resource callback){
+        MediaType mediaType = MediaType.parse("application/json; charset=utf-8");
+        //create request body from params
+        //create request
+        Request request;
+
+        Request.Builder builder = new Request
+                .Builder()
+                .url(url)
+                .get()
+                .addHeader("content-type","application/json");
+
+        //add additional headers
+        if(headers != null)
+            headers.forEach(builder::addHeader);
+
+        request = builder.build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                if (callback != null)
+                    callback.make(null,e);
+                System.err.println( "onFailure: " + e.toString());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if (callback!= null){
+                    try (ResponseBody responseBody = response.body()) {
+                        InputStream res = responseBody.byteStream();
+                        System.out.println("onResponse: " + res);
+
+                        //make thread safe.
+                        Platform.runLater(() -> {
+                            callback.make(res,null);
+                        });
+                        responseBody.close();
+                    }
+                }
+            }
+        });
     }
 
 
@@ -234,9 +292,9 @@ public class APIManager {
                 throws JsonParseException {
             JsonObject jsonObject = json.getAsJsonObject();
             //1 = video, 0 = image
-            int type = jsonObject.get("classType").getAsInt();
+            boolean hasDescription = jsonObject.has("description");
 
-            return context.deserialize(json, type == 1 ? VideoViolation.class : ImageViolation.class);
+            return context.deserialize(json, hasDescription ? VideoViolation.class : ImageViolation.class);
         }
     }
 }

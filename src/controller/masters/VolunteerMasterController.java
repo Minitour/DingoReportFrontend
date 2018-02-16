@@ -1,6 +1,7 @@
 package controller.masters;
 
 import controller.UpdatePasswordController;
+import controller.report.ReportFillController;
 import controller.report.ViewReportsController;
 import ui.UIView;
 
@@ -13,6 +14,8 @@ public class VolunteerMasterController extends MasterMenuController{
         switch (index){
             case 0:
                 return new ViewReportsController().view;
+            case 1:
+                return new ReportFillController().view;
             case 2:
                 return new UpdatePasswordController().view;
                 default:

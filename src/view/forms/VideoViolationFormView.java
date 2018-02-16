@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -26,6 +27,12 @@ public class VideoViolationFormView extends UIFormView {
 
     @FXML
     private Label fileName;
+
+    @FXML
+    private Pane attach_controls;
+
+    @FXML
+    private Pane file_attach;
 
     @FXML
     private ImageView imageView;
@@ -86,6 +93,7 @@ public class VideoViolationFormView extends UIFormView {
     }
 
     @Override
+
     public boolean isValid() {
         return file != null && file.exists();
     }
@@ -111,9 +119,14 @@ public class VideoViolationFormView extends UIFormView {
         fileName.setVisible(mode);
         imageView.setVisible(mode);
         mediaView.setVisible(mode);
-        startTime.setEditable(mode);
-        endTime.setEditable(mode);
-        description.setEditable(mode);
+
+//        startTime.setEditable(mode);
+//        endTime.setEditable(mode);
+       description.setEditable(mode);
+
+        startTime.setDisable(!mode);
+        endTime.setDisable(!mode);
+
 
         webView.setVisible(!mode);
     }
@@ -128,5 +141,45 @@ public class VideoViolationFormView extends UIFormView {
         return file;
     }
 
+    public void removeAttachControls(){
+        file_attach.getChildren().remove(attach_controls);
+    }
 
+    public int getFrom(){
+        return stampToSeconds(startTime.getText());
+    }
+
+    public int getTo(){
+        return stampToSeconds(endTime.getText());
+    }
+
+    public void setFrom(int from){
+        startTime.setText(secondsToString(from));
+    }
+
+    public void setTo(int to){
+        endTime.setText(secondsToString(to));
+    }
+
+    private String secondsToString(int pTime) {
+        return String.format("%02d:%02d", pTime / 60, pTime % 60);
+    }
+
+
+    private int stampToSeconds(String stamp){
+        try{
+            String[] times= stamp.split(":");
+            return Integer.parseInt(times[0]) * 60 + Integer.parseInt(times[1]);
+        }catch (IndexOutOfBoundsException | NumberFormatException e){
+            return -1;
+        }
+    }
+
+    public void setDescription(String text) {
+        description.setText(text);
+    }
+
+    public String getDescription(){
+        return description.getText();
+    }
 }

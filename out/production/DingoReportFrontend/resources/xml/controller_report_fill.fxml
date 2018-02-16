@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import ui.UIView?>
+<?import com.jfoenix.controls.JFXTextField?>
 <UIView fx:id="root" stylesheets="@../../ui/res/css/styles.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <AnchorPane>
         <VBox spacing="8" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
@@ -35,12 +36,12 @@
                         </Label>
                         <VBox spacing="8">
                             <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                            <Label text="License Plate" fx:id="vd_licensePlate"/>
-                            <Label text="Car Model" fx:id="vd_carModel"/>
-                            <Label text="Car Color" fx:id="vd_carColor"/>
+                            <JFXTextField fx:id="lpField" labelFloat="true" promptText="License Plate" />
+                            <JFXTextField fx:id="cmField" labelFloat="true" promptText="Car Model" />
+                            <JFXTextField fx:id="coField" labelFloat="true" promptText="Color" />
                         </VBox>
                     </VBox>
-                    <TextArea fx:id="description" minHeight="100" promptText="Description" />
+                    <TextArea fx:id="description" minHeight="100" maxHeight="100" promptText="Description" />
                     <VBox fx:id="violationHbox" spacing="8" VBox.vgrow="ALWAYS">
                         <padding><Insets bottom="8" top="8" /></padding>
                         <VBox>
@@ -55,20 +56,8 @@
                             </VBox>
 
                         </VBox>
-                        <ListView fx:id="violationListView" prefWidth="200" HBox.hgrow="ALWAYS" />
+                        <ListView fx:id="violationListView" prefWidth="200" maxHeight="200" HBox.hgrow="ALWAYS" />
 
-                    </VBox>
-                </VBox>
-                <VBox fx:id="car_owners_container" maxWidth="350" minWidth="350" spacing="8" prefHeight="${hbox_parent.height}" >
-
-                    <VBox spacing="8" VBox.vgrow="ALWAYS" styleClass="container">
-                        <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
-                        <Label text="Car Owners">
-                            <font>
-                                <Font name="Helvetica Bold" size="18.0" />
-                            </font>
-                        </Label>
-                        <ListView fx:id="carOwnersListView" style="-fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
                     </VBox>
                 </VBox>
 

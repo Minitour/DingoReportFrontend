@@ -14,7 +14,7 @@
                 <VBox fx:id="parent" spacing="8" styleClass="container">
                     <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
                     <ComboBox fx:id="violationCombo" minWidth="200" promptText="Violation Type" />
-                    <VBox spacing="8">
+                    <VBox spacing="8" fx:id="type_selector">
                         <Label text="Evidence Attachment">
                             <font>
                                 <Font name="System Bold" size="16.0" />

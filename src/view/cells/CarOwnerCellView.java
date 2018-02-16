@@ -53,6 +53,6 @@ public class CarOwnerCellView extends UIView {
 
     @Override
     public String resource() {
-        return "/resources/xml/CarOwnerCell.fxml";
+        return "/resources/xml/list_item_4.fxml";
     }
 }
