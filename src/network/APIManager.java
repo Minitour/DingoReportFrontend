@@ -7,6 +7,7 @@ import model.*;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
@@ -205,16 +206,7 @@ public class APIManager {
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
         body.addProperty("sessionToken",token);
-
-        JsonObject volunteerJSON = new JsonObject();
-        volunteerJSON.addProperty("ID", volunteer.getID());
-        volunteerJSON.addProperty("EMAIL", volunteer.getEMAIL());
-        volunteerJSON.addProperty("ROLE_ID", volunteer.getROLE_ID());
-        volunteerJSON.addProperty("password", volunteer.getPassword());
-        volunteerJSON.addProperty("name", volunteer.getName());
-        volunteerJSON.addProperty("phone", volunteer.getPhone());
-
-        body.add("volunteer", volunteerJSON);
+        body.add("volunteer", toJson(volunteer));
 
         makeRequest(Constants.Routes.getVehicleModels(), null, body, (json, exception) -> {
             ServerResponse r = new ServerResponse(json);
@@ -229,6 +221,51 @@ public class APIManager {
 
     public void makeDecision() {
 
+    }
+
+    /**
+     * This function takes in a report object and sends it to the server.
+     * Before sending the report object it will iterate over the violations and then upload them synchronously.
+     * After all files have been uploaded the callback will be invoked.
+     *
+     * @param id The user id.
+     * @param token The user token
+     * @param report The report object (raw)
+     * @param callback The callback.
+     */
+    public void submitReport(String id, String token, Report report, Callbacks.General callback){
+        List<Violation> violations = report.getViolations();
+        uploadAndModifyViolations(id,token,violations,(violationsModified -> {
+            report.setViolations(violationsModified);
+            JsonObject body = new JsonObject();
+            body.addProperty("id",id);
+            body.addProperty("sessionToken",token);
+            body.add("report", toJson(report));
+            makeRequest(Constants.Routes.submitReport(),null,body,(json,ex)->{
+                ServerResponse res = new ServerResponse(json);
+                callback.make(res,ex);
+            });
+        }));
+    }
+
+    /**
+     * This function takes a list of violations and uploads them into the server, then updates the resource url for each violation.
+     *
+     * @param id the user id.
+     * @param token the user token.
+     * @param violations the list of violations.
+     * @param callback the callback to be executed upon completion.
+     */
+    private void uploadAndModifyViolations(String id,String token,List<Violation> violations,Callbacks.ViolationsInner callback){
+        new Thread(()->{
+            for(Violation v : violations){
+                File file = new File(v.getEvidenceLink());
+                //upload to server and get file
+                String resourceUrl = uploadFile(id,token,file);
+                v.setEvidenceLink(resourceUrl);
+            }
+            callback.make(violations);
+        }).start();
     }
 
 
@@ -348,6 +385,41 @@ public class APIManager {
         });
     }
 
+    private <T> JsonObject toJson(T object){
+        JsonElement jsonElement = gson.toJsonTree(object);
+        return (JsonObject) jsonElement;
+    }
+
+    private String uploadFile(String id,String token,File file){
+        RequestBody body = RequestBody.create(MediaType.parse("application/json"),file);
+        String ext = getFileExtension(file);
+        Request request = new Request.Builder()
+                .url(Constants.Routes.uploadFile())
+                .put(body)
+                .addHeader("content-type", "application/x-www-form-urlencoded")
+                .addHeader("id", id)
+                .addHeader("sessiontoken", token)
+                .addHeader("filetype", ext)
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            String res =  response.body().string();
+            JsonParser parser = new JsonParser();
+            JsonObject o = parser.parse(res).getAsJsonObject();
+            return o.get("path").getAsString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+    private String getFileExtension(File file){
+        String[] parts = file.getPath().split("\\.");
+        return parts[parts.length - 1];
+    }
+
     static class AbstractElementAdapter implements JsonDeserializer<Violation> {
         @Override
         public Violation deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
@@ -359,4 +431,5 @@ public class APIManager {
             return context.deserialize(json, hasDescription ? VideoViolation.class : ImageViolation.class);
         }
     }
+
 }

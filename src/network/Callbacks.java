@@ -4,6 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import model.Report;
 import model.VehicleModel;
+import model.Violation;
 import model.ViolationType;
 import okhttp3.*;
 import sun.rmi.runtime.Log;
@@ -23,6 +24,10 @@ public final class Callbacks {
     @FunctionalInterface
     interface Inner{
         void make(JsonObject json, Exception exception);
+    }
+
+    interface ViolationsInner{
+        void make(List<Violation> violations);
     }
 
     /**
@@ -52,6 +57,8 @@ public final class Callbacks {
     public interface VehicleModels {
         void make(ServerResponse response, List<VehicleModel> vehicleModels, Exception exception);
     }
+
+
 
     public interface Resource {
         void make(InputStream stream,Exception e);
