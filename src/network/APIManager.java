@@ -159,6 +159,37 @@ public class APIManager {
         getViolationTypes(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
+    public void getVehicleModels(String id,String token, Callbacks.VehicleModels callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getVehicleModels(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<VehicleModel> models = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        VehicleModel model = gson.fromJson(object, VehicleModel.class);
+                        models.add(model);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,models,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getVehicleModels(Callbacks.VehicleModels callback){
+        getVehicleModels(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
     public void getResource(String id,String token,String resource,Callbacks.Resource callback){
         Map<String,String> headers = new HashMap<>();
         headers.put("id",id);
