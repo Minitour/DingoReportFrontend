@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import ui.UIView?>
-<UIView fx:id="root" xmlns="http://javafx.com/javafx"
-        xmlns:fx="http://javafx.com/fxml"
-        stylesheets="@../../ui/res/css/styles.css,@../css/style.css"
-        prefHeight="400.0" prefWidth="600.0">
+
+<UIView fx:id="root" prefHeight="400.0" prefWidth="600.0" stylesheets="@../../ui/res/css/styles.css,@../css/style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
     <ScrollPane>
         <content>
-            <VBox fx:id="pa" spacing="16">
-                <VBox fx:id="formHolder" spacing="8">
+            <VBox spacing="16">
+                <padding><Insets top="8" /></padding>
 
+                <Label fx:id="form_title" text="Create ">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Label>
+
+                <VBox fx:id="pa" alignment="CENTER" spacing="16" styleClass="container" minWidth="200">
+                    <padding><Insets bottom="8" /></padding>
+                    <VBox fx:id="formHolder" spacing="8">
+
+                    </VBox>
+                    <JFXButton fx:id="submit" mnemonicParsing="false" styleClass="button-raised" text="Create User" />
                 </VBox>
-                <JFXButton fx:id="submit" prefWidth="${pa.width}" mnemonicParsing="false" styleClass="button-raised" text="Create User" />
             </VBox>
+
 
         </content>
     </ScrollPane>

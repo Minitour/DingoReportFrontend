@@ -3,6 +3,7 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import model.Account;
 import model.HighRankOfficer;
@@ -19,6 +20,9 @@ import view.forms.VolunteerFormView;
  * Created By Tony on 14/02/2018
  */
 public class AddUserController extends UIViewController{
+
+    @FXML
+    private Label form_title;
 
     @FXML
     private VBox formHolder;
@@ -41,6 +45,7 @@ public class AddUserController extends UIViewController{
         init(type);
 
         submit.setOnAction(event -> submit());
+        form_title.setText("Create "+type.value.charAt(0)+type.value.substring(1,type.value.length()).toLowerCase());
     }
 
     private void init(UserType type){
@@ -64,7 +69,7 @@ public class AddUserController extends UIViewController{
 
     private void submit(){
 
-        for(UIFormView form : forms){
+        for(UIFormView form : getRelevantFroms()){
             if (!form.isValid())
                 return;
         }
@@ -114,6 +119,20 @@ public class AddUserController extends UIViewController{
 
         }
         onAccountReady(account);
+    }
+
+    private UIFormView[] getRelevantFroms(){
+        switch (type){
+            case HIGHRANK:
+            case OFFICER:
+                return new UIFormView[]{officerFormView,accountFormView};
+            case SECRETARY:
+            case SUPERUSER:
+                return new UIFormView[]{accountFormView};
+            case VOLUNTEER:
+                return new UIFormView[]{volunteerFormView,accountFormView};
+        }
+        return null;
     }
 
     public void onAccountReady(Account account){

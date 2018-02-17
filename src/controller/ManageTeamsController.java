@@ -118,5 +118,9 @@ public class ManageTeamsController extends UIViewController {
         tableView.reloadData();
     }
 
+    public void refresh(){
+        tableView.reloadData();
+    }
+
 
 }

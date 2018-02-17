@@ -3,18 +3,25 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
 <fx:root stylesheets="@../../ui/res/css/styles.css,@../css/style.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
 
-    <Pane  fx:id="parent" styleClass="container">
+    <Pane fx:id="parent">
         <Pane>
-            <VBox spacing="14" styleClass="container">
-                <Label text="Officer Details"/>
-                <padding><Insets top="8" bottom="8" left="8" right="8"/></padding>
-                <JFXTextField fx:id="badgeNum" promptText="Badge Number"/>
-                <JFXTextField fx:id="name" promptText="Full Name"/>
-                <JFXTextField fx:id="phoneExt" promptText="Phone Number"/>
-                <JFXTextField fx:id="rank" promptText="Rank (Number)"/>
+            <VBox spacing="14">
+                <Label text="Officer Details">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+                <JFXTextField fx:id="badgeNum" promptText="Badge Number" />
+                <JFXTextField fx:id="name" promptText="Full Name" />
+                <JFXTextField fx:id="phoneExt" promptText="Phone Number" />
+                <JFXTextField fx:id="rank" promptText="Rank (Number)" />
+                <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
             </VBox>
         </Pane>
     </Pane>

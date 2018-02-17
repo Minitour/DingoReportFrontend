@@ -1,5 +1,8 @@
 package view.forms;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +16,9 @@ import javafx.scene.media.MediaView;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.util.Duration;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.w3c.dom.html.HTMLAnchorElement;
 
 import java.io.File;
 
@@ -59,7 +65,18 @@ public class VideoViolationFormView extends UIFormView {
     public VideoViolationFormView() {
         super("/resources/xml/form_video_violation.fxml");
         init();
+        this.webView.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
+            Document document = webView.getEngine().getDocument();
+            if(document != null) {
+                NodeList anchors = document.getElementsByTagName("a");
+                for (int i = 0; i < anchors.getLength(); i++) {
+                    HTMLAnchorElement form = (HTMLAnchorElement) anchors.item(i);
+                    form.setHref("#");
+                }
+            }
+        });
     }
+
 
     private void init() {
         fileChooser = new FileChooser();

@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  */
 public class TeamTableView extends UITableView<Team> {
 
-    final static String[] columns = {"Team ID","Team Leader","Members"};
+    final static String[] columns = {"Team ID","Team Leader","Members","Assigned Reports"};
 
     private Button button;
 
@@ -59,7 +59,9 @@ public class TeamTableView extends UITableView<Team> {
             case 1:
                 return team -> team.getLeader().getName();
             case 2:
-                return teams -> teams.getOfficers().size();
+                return team -> team.getOfficers().size();
+            case 3:
+                return team -> team.getReports().size();
         }
         return null;
     }

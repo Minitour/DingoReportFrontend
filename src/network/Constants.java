@@ -58,8 +58,16 @@ final public class Constants {
         public static String createTeam() {
             return getAddress() + "/createTeam";
         }
-        public static String resource(String resource){ return getAddress() + "/"+ resource; }
+        public static String addReportToTeam() {
+            return getAddress() + "/addReportToTeam";
+        }
+        public static String getUnassignedReports(){ return getAddress() + "/getUnassignedReports"; }
+        public static String getUnassignedOfficers(){ return getAddress() + "/getUnassignedOfficers"; }
+        public static String addOfficerToTeam() {
+            return getAddress() + "/addOfficerToTeam";
+        }
 
+        public static String resource(String resource){ return getAddress() + "/"+ resource; }
 
 
     }

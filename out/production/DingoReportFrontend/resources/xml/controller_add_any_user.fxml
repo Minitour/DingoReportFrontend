@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.VBox?>
 <?import ui.UIView?>
 <UIView fx:id="root" xmlns="http://javafx.com/javafx"
         xmlns:fx="http://javafx.com/fxml"
         stylesheets="@../../ui/res/css/styles.css,@../css/style.css">
-    <ScrollPane>
-        <content>
-            <VBox fx:id="pa" spacing="16">
-                <ComboBox fx:id="typeSelector" minWidth="200" promptText="Account Type" />
-                <VBox fx:id="formHolder" spacing="8">
+                <VBox fx:id="pa" spacing="16">
+                    <ComboBox fx:id="typeSelector" minWidth="200" promptText="Account Type" />
+                    <VBox fx:id="formHolder" spacing="8">
 
+                    </VBox>
                 </VBox>
-            </VBox>
 
-        </content>
-    </ScrollPane>
 </UIView>

@@ -2,25 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="744aeb5d-3ebd-4fa5-87c6-38050abac926" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/controller_manage_teams.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/form_officer_picker.fxml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/OfficerPicker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/TeamTableView.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/OfficerCell.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/OfficerCellView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/AddOfficerToTeamController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/controller/AddReportToTeamController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/controller_add_report_team.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/resources/xml/list_item_5.fxml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/TeamCell.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/TeamCell2.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/TeamCellView.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/view/cells/TeamCellView2.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/ui/res/xml/tableview.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/ui/res/xml/tableview.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_add_user.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/controller_add_user.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_account.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_account.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_officer.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_officer.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_volunteer.fxml" afterPath="$PROJECT_DIR$/out/production/DingoReportFrontend/resources/xml/form_create_volunteer.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AddUserController.java" afterPath="$PROJECT_DIR$/src/controller/AddUserController.java" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ManageTeamsController.java" afterPath="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
       <change beforePath="$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java" afterPath="$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java" />
       <change beforePath="$PROJECT_DIR$/src/model/Team.java" afterPath="$PROJECT_DIR$/src/model/Team.java" />
       <change beforePath="$PROJECT_DIR$/src/network/APIManager.java" afterPath="$PROJECT_DIR$/src/network/APIManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/network/Callbacks.java" afterPath="$PROJECT_DIR$/src/network/Callbacks.java" />
       <change beforePath="$PROJECT_DIR$/src/network/Constants.java" afterPath="$PROJECT_DIR$/src/network/Constants.java" />
-      <change beforePath="$PROJECT_DIR$/src/ui/UITableView.java" afterPath="$PROJECT_DIR$/src/ui/UITableView.java" />
-      <change beforePath="$PROJECT_DIR$/src/ui/UIView.java" afterPath="$PROJECT_DIR$/src/ui/UIView.java" />
-      <change beforePath="$PROJECT_DIR$/src/ui/res/xml/tableview.fxml" afterPath="$PROJECT_DIR$/src/ui/res/xml/tableview.fxml" />
-      <change beforePath="$PROJECT_DIR$/src/view/cells/ViolationCell.java" afterPath="$PROJECT_DIR$/src/view/cells/ViolationCell.java" />
-      <change beforePath="$PROJECT_DIR$/src/view/cells/ViolationViewCell.java" afterPath="$PROJECT_DIR$/src/view/cells/ViolationCellView.java" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/controller_add_user.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/controller_add_user.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_create_account.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_create_account.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_create_officer.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_create_officer.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/resources/xml/form_create_volunteer.fxml" afterPath="$PROJECT_DIR$/src/resources/xml/form_create_volunteer.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/view/TeamTableView.java" afterPath="$PROJECT_DIR$/src/view/TeamTableView.java" />
+      <change beforePath="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" afterPath="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,102 +43,7 @@
     </SUITE>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="APIManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1807">
-              <caret line="648" column="16" lean-forward="false" selection-start-line="648" selection-start-column="16" selection-end-line="648" selection-end-column="16" />
-              <folding>
-                <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
-                <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
-                <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UITableView.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ui/UITableView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="170" column="79" lean-forward="false" selection-start-line="170" selection-start-column="79" selection-end-line="170" selection-end-column="79" />
-              <folding>
-                <element signature="e#2986#2987#0" expanded="true" />
-                <element signature="e#3037#3038#0" expanded="true" />
-                <element signature="e#3410#3411#0" expanded="true" />
-                <element signature="e#3437#3438#0" expanded="true" />
-                <element signature="e#4144#4145#0" expanded="true" />
-                <element signature="e#4190#4191#0" expanded="true" />
-                <element signature="e#4243#4244#0" expanded="true" />
-                <element signature="e#4280#4281#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/network/Constants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OfficerPicker.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/OfficerPicker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TeamTableView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/TeamTableView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ManageTeamsController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/controller/ManageTeamsController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
-              <folding>
-                <element signature="method#showTeamCreationDialog#0;class#ManageTeamsController#0" expanded="false" />
-                <element signature="e#992#1710#0" expanded="true" />
-                <element signature="e#1709#1710#0" expanded="true" />
-                <element signature="e#2517#2518#0" expanded="true" />
-                <element signature="e#2564#2565#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="form_officer_picker.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/resources/xml/form_officer_picker.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -148,14 +60,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>violationCombo</find>
-      <find>header</find>
-      <find>imageView</find>
-      <find>dialog</find>
-      <find>event</find>
-      <find>General</find>
-      <find>violationHbox</find>
-      <find>CarOwners</find>
       <find>Car</find>
       <find>hbox_parent</find>
       <find>showDialog</find>
@@ -178,6 +82,14 @@
       <find>toolbar</find>
       <find>listview</find>
       <find>data =</find>
+      <find>event</find>
+      <find>class</find>
+      <find>setHref</find>
+      <find>rel</find>
+      <find>getUna</find>
+      <find>getU</find>
+      <find>getUnas</find>
+      <find>getUnassigned</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -191,23 +103,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/AppDelegate.java" />
-        <option value="$PROJECT_DIR$/src/controller/report/ReportFillController.java" />
-        <option value="$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java" />
-        <option value="$PROJECT_DIR$/src/controller/report/ViewReportsController.java" />
-        <option value="$PROJECT_DIR$/src/controller/masters/MasterMenuController.java" />
-        <option value="$PROJECT_DIR$/src/controller/masters/SecretaryMasterController.java" />
-        <option value="$PROJECT_DIR$/src/resources/xml/controller_add_user.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/masters/AdminMasterController.java" />
-        <option value="$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/AddUserController.java" />
-        <option value="$PROJECT_DIR$/src/controller/AddAnyUserController.java" />
-        <option value="$PROJECT_DIR$/src/resources/xml/form_create_officer.fxml" />
-        <option value="$PROJECT_DIR$/src/controller/UpdatePasswordController.java" />
-        <option value="$PROJECT_DIR$/src/main/EmailValidator.java" />
         <option value="$PROJECT_DIR$/src/view/forms/AccountFormView.java" />
         <option value="$PROJECT_DIR$/src/view/forms/ImageViolationForm.java" />
-        <option value="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" />
         <option value="$PROJECT_DIR$/src/view/forms/ViolationFormView.java" />
         <option value="$PROJECT_DIR$/src/view/forms/VolunteerFormView.java" />
         <option value="$PROJECT_DIR$/src/view/forms/OfficerFormView.java" />
@@ -225,7 +122,6 @@
         <option value="$PROJECT_DIR$/src/resources/xml/controller_export_reports.fxml" />
         <option value="$PROJECT_DIR$/src/controller/ExportReportsController.java" />
         <option value="$PROJECT_DIR$/src/controller/masters/OfficerMasterController.java" />
-        <option value="$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_manage_teams.fxml" />
         <option value="$PROJECT_DIR$/src/ui/res/xml/tableview.fxml" />
         <option value="$PROJECT_DIR$/src/ui/UIView.java" />
@@ -236,12 +132,28 @@
         <option value="$PROJECT_DIR$/src/view/cells/OfficerCellView.java" />
         <option value="$PROJECT_DIR$/src/view/OfficerPicker.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/form_officer_picker.fxml" />
-        <option value="$PROJECT_DIR$/src/network/Constants.java" />
-        <option value="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
-        <option value="$PROJECT_DIR$/src/network/APIManager.java" />
-        <option value="$PROJECT_DIR$/src/model/Team.java" />
         <option value="$PROJECT_DIR$/src/ui/UITableView.java" />
+        <option value="$PROJECT_DIR$/src/controller/ManageTeamsController.java" />
+        <option value="$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java" />
+        <option value="$PROJECT_DIR$/src/model/Team.java" />
         <option value="$PROJECT_DIR$/src/view/TeamTableView.java" />
+        <option value="$PROJECT_DIR$/src/resources/xml/list_item_5.fxml" />
+        <option value="$PROJECT_DIR$/src/view/cells/TeamCellView.java" />
+        <option value="$PROJECT_DIR$/src/resources/xml/controller_add_report_team.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/AddReportToTeamController.java" />
+        <option value="$PROJECT_DIR$/src/network/Constants.java" />
+        <option value="$PROJECT_DIR$/src/network/APIManager.java" />
+        <option value="$PROJECT_DIR$/src/view/cells/TeamCell.java" />
+        <option value="$PROJECT_DIR$/src/view/cells/TeamCellView2.java" />
+        <option value="$PROJECT_DIR$/src/view/cells/TeamCell2.java" />
+        <option value="$PROJECT_DIR$/src/resources/xml/form_create_account.fxml" />
+        <option value="$PROJECT_DIR$/src/resources/xml/form_create_officer.fxml" />
+        <option value="$PROJECT_DIR$/src/resources/xml/form_create_volunteer.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/AddUserController.java" />
+        <option value="$PROJECT_DIR$/src/resources/xml/controller_add_user.fxml" />
+        <option value="$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml" />
+        <option value="$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java" />
+        <option value="$PROJECT_DIR$/src/controller/AddOfficerToTeamController.java" />
       </list>
     </option>
   </component>
@@ -266,6 +178,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,7 +215,32 @@
               <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="xml" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
@@ -317,21 +255,13 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="cells" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,26 +274,27 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\xml" />
-      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\utils" />
-      <recent name="$PROJECT_DIR$/src/resources/xml" />
-      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\img" />
-      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\view" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="controller" />
-      <recent name="view" />
-      <recent name="controller.masters" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\img" />
       <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\xml" />
       <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\mobi\newsound" />
       <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\mobi\newsound\resources\xml\controller" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="view.cells" />
+      <recent name="controller" />
+      <recent name="view" />
+      <recent name="controller.masters" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\view\cells" />
+      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\xml" />
+      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\utils" />
+      <recent name="$PROJECT_DIR$/src/resources/xml" />
+      <recent name="C:\Users\Tony\Documents\Java\DingoReportFrontend\src\resources\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -467,7 +398,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19673914" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -477,25 +407,25 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3652174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36630434" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2153518" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21748401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3152174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57173914" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="UnknownFeatures">
@@ -508,398 +438,201 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/ManageTeamsController.java</url>
-          <line>117</line>
+          <url>file://$PROJECT_DIR$/src/controller/AddUserController.java</url>
+          <line>103</line>
           <properties />
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/controller/ManageTeamsController.java</url>
-          <line>97</line>
-          <properties />
-          <option name="timeStamp" value="89" />
+          <option name="timeStamp" value="90" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="90" />
+      <option name="time" value="102" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/view/forms/VolunteerFormView.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/NamedNodeMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="36" column="5" lean-forward="false" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-          <folding>
-            <element signature="e#540#541#0" expanded="false" />
-            <element signature="e#609#610#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/forms/OfficerFormView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="58" column="27" lean-forward="false" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
+        <state relative-caret-position="-2235">
+          <caret line="55" column="17" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/forms/ViolationFormView.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/events/EventTarget.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="158" column="48" lean-forward="false" selection-start-line="158" selection-start-column="48" selection-end-line="158" selection-end-column="48" />
+        <state relative-caret-position="331">
+          <caret line="79" column="16" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/Node.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="18" column="55" lean-forward="false" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        <state relative-caret-position="34">
+          <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/ManageTeamsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="753">
+          <caret line="121" column="31" lean-forward="false" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
           <folding>
-            <element signature="e#2115#2116#0" expanded="false" />
-            <element signature="e#2167#2168#0" expanded="false" />
-            <element signature="e#2327#2328#0" expanded="false" />
-            <element signature="e#2379#2380#0" expanded="false" />
+            <element signature="method#showTeamCreationDialog#0;class#ManageTeamsController#0" expanded="false" />
+            <element signature="e#2517#2518#0" expanded="false" />
+            <element signature="e#2564#2565#0" expanded="false" />
+            <element signature="e#3608#3609#0" expanded="false" />
+            <element signature="e#3646#3647#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1308">
+          <caret line="727" column="16" lean-forward="false" selection-start-line="727" selection-start-column="16" selection-end-line="727" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/Element.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3762">
+          <caret line="60" column="17" lean-forward="false" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/html/HTMLAnchorElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="41" column="22" lean-forward="true" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#3562#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/org/w3c/dom/html/HTMLLinkElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="50" column="32" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/webkit/dom/HTMLAnchorElementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/webkit/dom/HTMLElementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/webkit/dom/ElementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="37" column="38" lean-forward="false" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/webkit/dom/NodeImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/forms/VideoViolationFormView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="73" column="38" lean-forward="false" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#init#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="method#isValid#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="method#reset#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="method#setFormMode#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="method#setVideoFromLocalFile#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="e#4484#4485#0" expanded="false" />
+            <element signature="e#4511#4512#0" expanded="false" />
+            <element signature="e#4552#4553#0" expanded="false" />
+            <element signature="e#4617#4618#0" expanded="false" />
+            <element signature="e#4644#4645#0" expanded="false" />
+            <element signature="e#4702#4703#0" expanded="false" />
+            <element signature="e#4727#4728#0" expanded="false" />
+            <element signature="e#4783#4784#0" expanded="false" />
+            <element signature="e#4819#4820#0" expanded="false" />
+            <element signature="e#4875#4876#0" expanded="false" />
+            <element signature="e#4907#4908#0" expanded="false" />
+            <element signature="e#4959#4960#0" expanded="false" />
+            <element signature="e#5008#5009#0" expanded="false" />
+            <element signature="e#5081#5082#0" expanded="false" />
+            <element signature="method#stampToSeconds#0;class#VideoViolationFormView#0" expanded="false" />
+            <element signature="e#5458#5459#0" expanded="false" />
+            <element signature="e#5499#5500#0" expanded="false" />
+            <element signature="e#5536#5537#0" expanded="false" />
+            <element signature="e#5580#5581#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Team.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="e#769#770#0" expanded="false" />
+            <element signature="e#800#801#0" expanded="false" />
+            <element signature="e#947#948#0" expanded="false" />
+            <element signature="e#977#978#0" expanded="false" />
+            <element signature="e#1035#1036#0" expanded="false" />
+            <element signature="e#1073#1074#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/TeamTableView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="63" column="56" lean-forward="false" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/masters/MasterMenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="61" column="4" lean-forward="false" selection-start-line="61" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
-          <folding>
-            <element signature="method#showView#0;class#MasterMenuController#0" expanded="false" />
-            <element signature="class#Cell#0;class#MasterMenuController#0" expanded="false" />
-            <element signature="class#CellView#0;class#MasterMenuController#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="-136">
+          <caret line="25" column="22" lean-forward="false" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_login.fxml">
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_report_view.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="69" lean-forward="false" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_web_view.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="3" lean-forward="true" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/UIViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/WebViewFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/WebViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#881#882#0" expanded="false" />
-            <element signature="e#926#927#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/WebView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/PDFEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/AuthenticatedWebViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/masters/VolunteerMasterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="25" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sf/jasperreports/jasperreports/6.5.0/jasperreports-6.5.0.jar!/net/sf/jasperreports/swing/JRViewer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <marker date="1513944244993" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1513944244993" expanded="false" signature="150:732" ph="..." />
-            <marker date="1513944244993" expanded="true" signature="1236:1296" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="1368:1427" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="1469:1480" ph=" { " />
-            <marker date="1513944244993" expanded="true" signature="1508:1514" ph=" }" />
-            <marker date="1513944244993" expanded="true" signature="1602:1678" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="1765:1840" ph="{...}" />
-            <marker date="1513944244993" expanded="false" signature="1897:1908" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="1952:1958" ph=" }" />
-            <marker date="1513944244993" expanded="true" signature="2072:2180" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="2293:2400" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="2484:2576" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="2733:2932" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="3088:3281" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="3408:3599" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="3722:3925" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="3951:4029" ph="{...}" />
-            <marker date="1513944244993" expanded="false" signature="4079:4090" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="4137:4143" ph=" }" />
-            <marker date="1513944244993" expanded="true" signature="4179:4952" ph="{...}" />
-            <marker date="1513944244993" expanded="false" signature="4999:5010" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="5057:5063" ph=" }" />
-            <marker date="1513944244993" expanded="false" signature="5112:5123" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="5168:5174" ph=" }" />
-            <marker date="1513944244993" expanded="false" signature="5214:5225" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="5261:5267" ph=" }" />
-            <marker date="1513944244993" expanded="false" signature="5306:5317" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="5352:5358" ph=" }" />
-            <marker date="1513944244993" expanded="false" signature="5389:5400" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="5441:5447" ph=" }" />
-            <marker date="1513944244993" expanded="true" signature="5502:5912" ph="{...}" />
-            <marker date="1513944244993" expanded="false" signature="5959:5970" ph=" { " />
-            <marker date="1513944244993" expanded="false" signature="6013:6019" ph=" }" />
-            <marker date="1513944244993" expanded="true" signature="6051:6333" ph="{...}" />
-            <marker date="1513944244993" expanded="true" signature="6384:6607" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/embed/swing/SwingNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="127" column="13" lean-forward="false" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="13" />
+          <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_export_reports.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/controller/report/ReportFillController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ExportReportsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="753">
-          <caret line="70" column="51" lean-forward="false" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#755#756#0" expanded="false" />
-            <element signature="e#825#826#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_manage_teams.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="40" lean-forward="false" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="20" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/masters/OfficerMasterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="74" lean-forward="false" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/res/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/collections/FXCollections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="340" column="0" lean-forward="false" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/UIView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="75" column="31" lean-forward="false" selection-start-line="75" selection-start-column="31" selection-end-line="76" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/res/xml/tableview.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/TableView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="409" column="0" lean-forward="true" selection-start-line="409" selection-start-column="0" selection-end-line="409" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Callbacks.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="70" column="65" lean-forward="false" selection-start-line="70" selection-start-column="65" selection-end-line="70" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_image_violation.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_date_picker.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="14" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_report.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="103" column="28" lean-forward="false" selection-start-line="103" selection-start-column="28" selection-end-line="103" selection-end-column="125" />
-          <folding>
-            <element signature="n#VBox#0;n#VBox#0;n#VBox#1;n#HBox#0;n#VBox#0;n#AnchorPane#0;n#UIView#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item_2.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/cells/OfficerCellView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/cells/ReportCellView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/cells/CarOwnerCellView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="56" selection-end-column="5" />
+        <state relative-caret-position="119">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -907,12 +640,20 @@
     <entry file="file://$PROJECT_DIR$/src/view/cells/CarOwnerCell.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="15" selection-end-column="1" />
+          <caret line="9" column="27" lean-forward="false" selection-start-line="9" selection-start-column="27" selection-end-line="15" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item_3.fxml">
+    <entry file="file://$PROJECT_DIR$/src/view/cells/ReportCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
@@ -934,85 +675,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/cells/ViolationCellView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item_2.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/cells/OfficerCell.java">
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item_3.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/ViolationCellView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="12" column="4" lean-forward="true" selection-start-line="12" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/list_item_5.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/ReportCellView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="61" column="38" lean-forward="false" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/OfficerCellView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#274#275#0" expanded="false" />
-            <element signature="e#322#323#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_add_report_team.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/report/ViewReportsController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="65" column="35" lean-forward="true" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
+        <state relative-caret-position="135">
+          <caret line="86" column="37" lean-forward="false" selection-start-line="86" selection-start-column="37" selection-end-line="86" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/report/ReportViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-174">
-          <caret line="83" column="46" lean-forward="false" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_officer_picker.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/OfficerPicker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="44" lean-forward="false" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="26" column="19" lean-forward="false" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
-          <folding>
-            <element signature="e#409#410#0" expanded="false" />
-            <element signature="e#439#440#0" expanded="false" />
-            <element signature="e#486#487#0" expanded="false" />
-            <element signature="e#524#525#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1807">
-          <caret line="648" column="16" lean-forward="false" selection-start-line="648" selection-start-column="16" selection-end-line="648" selection-end-column="16" />
-          <folding>
-            <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
-            <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,47 +766,191 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="59" column="9" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="568">
+          <caret line="67" column="9" lean-forward="false" selection-start-line="67" selection-start-column="9" selection-end-line="67" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ui/UITableView.java">
+    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="170" column="79" lean-forward="false" selection-start-line="170" selection-start-column="79" selection-end-line="170" selection-end-column="79" />
+        <state relative-caret-position="494">
+          <caret line="694" column="71" lean-forward="false" selection-start-line="694" selection-start-column="71" selection-end-line="694" selection-end-column="71" />
           <folding>
-            <element signature="e#2986#2987#0" expanded="true" />
-            <element signature="e#3037#3038#0" expanded="true" />
-            <element signature="e#3410#3411#0" expanded="true" />
-            <element signature="e#3437#3438#0" expanded="true" />
-            <element signature="e#4144#4145#0" expanded="true" />
-            <element signature="e#4190#4191#0" expanded="true" />
-            <element signature="e#4243#4244#0" expanded="true" />
-            <element signature="e#4280#4281#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="false" />
+            <element signature="e#597#598#0" expanded="false" />
+            <element signature="e#4723#4724#0" expanded="false" />
+            <element signature="e#4798#4799#0" expanded="false" />
+            <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
+            <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getAllOfficers#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getUnassignedReports#0;class#APIManager#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/ManageTeamsController.java">
+    <entry file="file://$PROJECT_DIR$/src/view/cells/OfficerCell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="101" column="0" lean-forward="false" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/TeamCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
-            <element signature="method#showTeamCreationDialog#0;class#ManageTeamsController#0" expanded="false" />
-            <element signature="e#992#1710#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-            <element signature="e#2564#2565#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="false" />
+            <element signature="e#307#308#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/TeamTableView.java">
+    <entry file="file://$PROJECT_DIR$/src/view/cells/TeamCellView2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+        <state relative-caret-position="119">
+          <caret line="10" column="26" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/TeamCellView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/cells/TeamCell2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/UpdatePasswordController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_create_vehicle.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_create_account.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_create_officer.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/form_create_volunteer.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_add_user.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="21" column="101" lean-forward="false" selection-start-line="21" selection-start-column="101" selection-end-line="21" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddAnyUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="36" column="41" lean-forward="false" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/masters/AdminMasterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddReportToTeamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="50" column="62" lean-forward="false" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/masters/HeadOfficerMasterController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="36" column="101" lean-forward="false" selection-start-line="36" selection-start-column="101" selection-end-line="36" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/AddOfficerToTeamController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="62" column="76" lean-forward="false" selection-start-line="62" selection-start-column="76" selection-end-line="62" selection-end-column="76" />
           <folding />
         </state>
       </provider>

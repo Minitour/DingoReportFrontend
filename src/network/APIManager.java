@@ -656,6 +656,107 @@ public class APIManager {
         createTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,team, callback);
     }
 
+    /**
+     * Assign a report to a team.
+     *
+     * @param id The current user id.
+     * @param token The current session token.
+     * @param report The report object.
+     * @param team The team object
+     * @param callback The response callback.
+     */
+    public void addReportToTeam(String id,String token,Report report,Team team,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+        body.add("report",toJson(report));
+
+        makeRequest(Constants.Routes.addReportToTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void addReportToTeam(Report report,Team team,Callbacks.General callback){
+        addReportToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,team,callback);
+    }
+
+    public void addOfficerToTeam(String id,String token,Officer officer,Team team,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+        body.add("officer",toJson(officer));
+
+        makeRequest(Constants.Routes.addOfficerToTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void addOfficerToTeam(Officer officer,Team team,Callbacks.General callback){
+        addOfficerToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,officer,team,callback);
+    }
+
+    public void getUnassignedReports(String id,String token,Callbacks.Reports callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getUnassignedReports(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Report> reports = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Report report = gson.fromJson(object, Report.class);
+                        reports.add(report);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,reports,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getUnassignedReports(Callbacks.Reports callback){
+        getUnassignedReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    public void getUnassignedOfficers(String id,String token,Callbacks.Officers callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getUnassignedOfficers(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Officer> officers = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Officer officer = gson.fromJson(object, Officer.class);
+                        officers.add(officer);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,officers,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getUnassignedOfficers(Callbacks.Officers callback){
+        getUnassignedOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
 
 
 
