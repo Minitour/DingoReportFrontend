@@ -70,6 +70,9 @@ final public class Constants {
         public static String resource(String resource){ return getAddress() + "/"+ resource; }
 
 
+        public static String getAccounts() {
+            return getAddress() + "/getAccounts";
+        }
     }
     public static class Codes{
         public static final int SUCCESS=200;

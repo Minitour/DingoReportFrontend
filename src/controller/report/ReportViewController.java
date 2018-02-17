@@ -1,6 +1,9 @@
 package controller.report;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
@@ -8,12 +11,18 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.*;
+import network.APIManager;
+import network.AutoSignIn;
+import network.Callbacks;
+import network.ServerResponse;
 import ui.UIViewController;
+import view.DialogView;
 import view.DynamicDialog;
 import view.cells.CarOwnerCell;
 import view.cells.ViolationCell;
 import view.forms.ViolationFormView;
 
+import javax.security.auth.callback.Callback;
 import java.util.*;
 
 /**
@@ -131,8 +140,63 @@ public class ReportViewController extends UIViewController {
                 return true;
             }
         });
+
+
+        //If current user is officer, show "make decision" option
+        if(AutoSignIn.ROLE_ID == 1 || AutoSignIn.ROLE_ID == 2){
+            dialogView.getNaturalButton().setText("Make Decision");
+            dialogView.setNaturalEventHandler(event -> makeDecisionClicked(event,violation));
+            if(violation.getDecisions().contains(new Officer(AutoSignIn.ID,null,null,null,null,0))){
+                dialogView.getNaturalButton().setDisable(true);
+                dialogView.getNaturalButton().setText("Voted");
+            }
+        }
+
         dialogView.show(this.view);
 
+    }
+
+    private void makeDecisionClicked(Event event1,Violation violation){
+
+        Button button = (Button) event1.getTarget();
+
+
+        DialogView dialogView = new DialogView();
+        dialogView.setTitle("Make Decision");
+        dialogView.setMessage("Do you find this violation to be valid?");
+
+        Decision decision = new Decision(0);
+        decision.setViolation(violation);
+        Callbacks.General callback = (response, exception) -> {
+            button.setDisable(true);
+            dialogView.close();
+        };
+
+        dialogView.setPostiveEventHandler(event -> {
+            decision.setDecision(1);
+            APIManager.getInstance().makeDecision(decision,callback);
+            dialogView.getNaturalButton().setDisable(true);
+            dialogView.getPostiveButton().setDisable(true);
+            dialogView.getNegativeButton().setDisable(true);
+        });
+
+        dialogView.setNegativeEventHandler(event -> {
+            decision.setDecision(0);
+            APIManager.getInstance().makeDecision(decision,callback);
+            dialogView.getNaturalButton().setDisable(true);
+            dialogView.getPostiveButton().setDisable(true);
+            dialogView.getNegativeButton().setDisable(true);
+        });
+
+        dialogView.setNaturalEventHandler(event -> {
+            dialogView.close();
+        });
+
+        dialogView.getPostiveButton().setText("Yes");
+        dialogView.getNegativeButton().setText("No");
+        dialogView.getNaturalButton().setText("Cancel");
+
+        dialogView.show(this.view);
     }
 
     public void setVehicle(Vehicle vehicle) {

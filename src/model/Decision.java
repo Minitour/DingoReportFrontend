@@ -15,6 +15,9 @@ public class Decision{
     @Expose
     private int decision;
 
+    public Decision(int decision) {
+        this.decision = decision;
+    }
 
     public Officer getOfficer() {
         return officer;

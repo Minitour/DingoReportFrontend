@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import model.Account;
 import model.Volunteer;
@@ -62,6 +63,7 @@ public class AddAnyUserController extends UIViewController {
                 });
             }
         };
+        VBox.setVgrow(controller.view, Priority.ALWAYS);
         formHolder.getChildren().add(controller.view);
     }
 

@@ -295,8 +295,12 @@ public class APIManager {
         createUser(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,account,callback);
     }
 
-    public void makeDecision() {
+    public void makeDecision(String id,String token,Decision decision,Callbacks.General callback) {
 
+    }
+
+    public void makeDecision(Decision decision,Callbacks.General callback) {
+        makeDecision(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,decision,callback);
     }
 
     /**
@@ -435,6 +439,38 @@ public class APIManager {
             }
         });
     }
+
+    public void getAccounts(String id,String token,Callbacks.Accounts callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getAccounts(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Account> accounts = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Account account = gson.fromJson(object, Account.class);
+                        accounts.add(account);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,accounts,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getAccounts(Callbacks.Accounts callback){
+        getAccounts(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
 
     //TODO: add other methods here
 

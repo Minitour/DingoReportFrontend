@@ -68,4 +68,10 @@ public class Account{
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Account && ((Account) obj).ID.equals(this.ID);
+
+    }
 }

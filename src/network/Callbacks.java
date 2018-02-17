@@ -1,6 +1,7 @@
 package network;
 
 import com.google.gson.JsonObject;
+import javafx.fxml.FXML;
 import model.*;
 import net.sf.jasperreports.engine.JasperPrint;
 
@@ -69,6 +70,11 @@ public final class Callbacks {
     @FunctionalInterface
     public interface Officers {
         void make(ServerResponse response, List<Officer> officers,Exception ex);
+    }
+
+    @FunctionalInterface
+    public interface Accounts {
+        void make(ServerResponse response,List<Account> accounts,Exception ex);
     }
 
     //TODO: add needed interfaces.
