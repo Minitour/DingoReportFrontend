@@ -8,14 +8,14 @@ import ui.UIView;
 
 import java.util.ResourceBundle;
 
-public class ViolationViewCell extends UIView {
+public class ViolationCellView extends UIView {
 
     private VehicleOwner vehicleOwner;
 
     @FXML
     private Label violation;
 
-    public ViolationViewCell setViolation(Violation violation) {
+    public ViolationCellView setViolation(Violation violation) {
         String label = "[" + violation.getClass().getSimpleName().replace("Violation","") +"]";
         this.violation.setText(label + " #" +violation.getType().getTypeNum() + " " + violation.getType().getName() );
         return this;
