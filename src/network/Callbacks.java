@@ -77,9 +77,4 @@ public final class Callbacks {
         void make(ServerResponse response,List<Account> accounts,Exception ex);
     }
 
-    //TODO: add needed interfaces.
-
-
-
-
 }

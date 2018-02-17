@@ -295,6 +295,14 @@ public class APIManager {
         createUser(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,account,callback);
     }
 
+    /**
+     * Use this method to vote on a violation. context level 1 and 2.
+     *
+     * @param id The id of the current user.
+     * @param token The session token.
+     * @param decision The decision to vote on containing the voting officer.
+     * @param callback The response callback.
+     */
     public void makeDecision(String id,String token,Decision decision,Callbacks.General callback) {
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -374,9 +382,9 @@ public class APIManager {
 
     /**
      *
-     * @param from
-     * @param to
-     * @param callback
+     * @param id The current user id.
+     * @param token The current session token.
+     * @param callback The callback response.
      */
     public void getExportedReport(Date from, Date to, Callbacks.Jasper callback){
         getExportedReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,from,to,callback);
@@ -420,7 +428,7 @@ public class APIManager {
     }
 
     /**
-     * Get all teams from database.
+     * Get all teams from database. Context level 1
      *
      * @param id The current user id.
      * @param token The current session token.
@@ -453,6 +461,197 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all officers, context level 1.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+    public void getAllOfficers(String id,String token, Callbacks.Officers callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getAllOfficers(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Officer> officers = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Officer officer = gson.fromJson(object, Officer.class);
+                        officers.add(officer);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,officers,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getAllOfficers(Callbacks.Officers callback) {
+        getAllOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    /**
+     * Use this method to create a new team with a team leader. context level 1.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param team The team, containing the team leader.
+     * @param callback The response callback.
+     */
+    public void createTeam(String id,String token,Team team, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+
+        makeRequest(Constants.Routes.createTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void createTeam(Team team, Callbacks.General callback) {
+        createTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,team, callback);
+    }
+
+    /**
+     * Assign a report to a team.
+     *
+     * @param id The current user id.
+     * @param token The current session token.
+     * @param report The report object.
+     * @param team The team object
+     * @param callback The response callback.
+     */
+    public void addReportToTeam(String id,String token,Report report,Team team,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+        body.add("report",toJson(report));
+
+        makeRequest(Constants.Routes.addReportToTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void addReportToTeam(Report report,Team team,Callbacks.General callback){
+        addReportToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,team,callback);
+    }
+
+    /**
+     * Use this method to assign an officer to a team. context level 1.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param officer The officer to assign.
+     * @param team The team to assign the officer to.
+     * @param callback The response callback.
+     */
+    public void addOfficerToTeam(String id,String token,Officer officer,Team team,Callbacks.General callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+        body.add("officer",toJson(officer));
+
+        makeRequest(Constants.Routes.addOfficerToTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void addOfficerToTeam(Officer officer,Team team,Callbacks.General callback){
+        addOfficerToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,officer,team,callback);
+    }
+
+    /**
+     * Get all reports that were not assigned to a team (context level 1)
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+    public void getUnassignedReports(String id,String token,Callbacks.Reports callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getUnassignedReports(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Report> reports = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Report report = gson.fromJson(object, Report.class);
+                        reports.add(report);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,reports,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getUnassignedReports(Callbacks.Reports callback){
+        getUnassignedReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    /**
+     * Get all un-assigned officers. (context level 1)
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
+    public void getUnassignedOfficers(String id,String token,Callbacks.Officers callback){
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getUnassignedOfficers(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Officer> officers = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Officer officer = gson.fromJson(object, Officer.class);
+                        officers.add(officer);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,officers,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getUnassignedOfficers(Callbacks.Officers callback){
+        getUnassignedOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    /**
+     * Use this method to get all existing accounts (ID,Email,ROLE). context level 0.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param callback The response callback.
+     */
     public void getAccounts(String id,String token,Callbacks.Accounts callback){
         JsonObject body = new JsonObject();
         body.addProperty("id",id);
@@ -484,8 +683,6 @@ public class APIManager {
         getAccounts(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
 
-
-    //TODO: add other methods here
 
     /**
      * This method makes a post HTTP request to a url using the given params.
@@ -660,151 +857,7 @@ public class APIManager {
         return parts[parts.length - 1];
     }
 
-    public void getAllOfficers(String id,String token, Callbacks.Officers callback) {
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
 
-        makeRequest(Constants.Routes.getAllOfficers(),null,body,(json, exception) -> {
-            ServerResponse r = new ServerResponse(json);
-            if(exception == null){
-                List<Officer> officers = new ArrayList<>();
-                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
-
-                for(JsonElement object : array){
-                    try {
-                        Officer officer = gson.fromJson(object, Officer.class);
-                        officers.add(officer);
-                    }catch (Exception e){
-                        System.err.println(e.getMessage());
-                    }
-                }
-
-                callback.make(r,officers,null);
-            }else{
-                callback.make(r,null,exception);
-            }
-        });
-    }
-
-    public void getAllOfficers(Callbacks.Officers callback) {
-        getAllOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
-    }
-
-    public void createTeam(String id,String token,Team team, Callbacks.General callback) {
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
-        body.add("team",toJson(team));
-
-        makeRequest(Constants.Routes.createTeam(),null,body,(json, exception) ->
-                callback.make(new ServerResponse(json),exception));
-    }
-
-    public void createTeam(Team team, Callbacks.General callback) {
-        createTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,team, callback);
-    }
-
-    /**
-     * Assign a report to a team.
-     *
-     * @param id The current user id.
-     * @param token The current session token.
-     * @param report The report object.
-     * @param team The team object
-     * @param callback The response callback.
-     */
-    public void addReportToTeam(String id,String token,Report report,Team team,Callbacks.General callback){
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
-        body.add("team",toJson(team));
-        body.add("report",toJson(report));
-
-        makeRequest(Constants.Routes.addReportToTeam(),null,body,(json, exception) ->
-                callback.make(new ServerResponse(json),exception));
-    }
-
-    public void addReportToTeam(Report report,Team team,Callbacks.General callback){
-        addReportToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,team,callback);
-    }
-
-    public void addOfficerToTeam(String id,String token,Officer officer,Team team,Callbacks.General callback){
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
-        body.add("team",toJson(team));
-        body.add("officer",toJson(officer));
-
-        makeRequest(Constants.Routes.addOfficerToTeam(),null,body,(json, exception) ->
-                callback.make(new ServerResponse(json),exception));
-    }
-
-    public void addOfficerToTeam(Officer officer,Team team,Callbacks.General callback){
-        addOfficerToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,officer,team,callback);
-    }
-
-    public void getUnassignedReports(String id,String token,Callbacks.Reports callback){
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
-
-        makeRequest(Constants.Routes.getUnassignedReports(),null,body,(json, exception) -> {
-            ServerResponse r = new ServerResponse(json);
-            if(exception == null){
-                List<Report> reports = new ArrayList<>();
-                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
-
-                for(JsonElement object : array){
-                    try {
-                        Report report = gson.fromJson(object, Report.class);
-                        reports.add(report);
-                    }catch (Exception e){
-                        System.err.println(e.getMessage());
-                    }
-                }
-
-                callback.make(r,reports,null);
-            }else{
-                callback.make(r,null,exception);
-            }
-        });
-    }
-
-    public void getUnassignedReports(Callbacks.Reports callback){
-        getUnassignedReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
-    }
-
-    public void getUnassignedOfficers(String id,String token,Callbacks.Officers callback){
-        JsonObject body = new JsonObject();
-        body.addProperty("id",id);
-        body.addProperty("sessionToken",token);
-
-        makeRequest(Constants.Routes.getUnassignedOfficers(),null,body,(json, exception) -> {
-            ServerResponse r = new ServerResponse(json);
-            if(exception == null){
-                List<Officer> officers = new ArrayList<>();
-                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
-
-                for(JsonElement object : array){
-                    try {
-                        Officer officer = gson.fromJson(object, Officer.class);
-                        officers.add(officer);
-                    }catch (Exception e){
-                        System.err.println(e.getMessage());
-                    }
-                }
-
-                callback.make(r,officers,null);
-            }else{
-                callback.make(r,null,exception);
-            }
-        });
-    }
-
-    public void getUnassignedOfficers(Callbacks.Officers callback){
-        getUnassignedOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
-    }
 
 
 

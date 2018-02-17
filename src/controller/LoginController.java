@@ -44,8 +44,7 @@ public class LoginController extends UIViewController {
         loginButton.setOnAction(event -> {
             String email = userInputField.getText();
             String password = passwordInputField.getText();
-
-            //TODO check email regex and password.length > x
+            
             if(EmailValidator.validate(email) && password.length() >= 8) {
                 APIManager.getInstance().login(email, password, (response, id, token, roleId, exception) -> {
                     System.out.println(response + " id: " + id + ", token: " + token);
