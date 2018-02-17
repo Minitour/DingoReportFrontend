@@ -3,6 +3,7 @@ package controller;
 import com.jfoenix.controls.JFXSnackbar;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Pane;
 import model.Report;
@@ -28,11 +29,15 @@ public class AddReportToTeamController extends UIViewController {
     @FXML
     private Button assign;
 
+    @FXML
+    private Label titleLabel;
+
     public AddReportToTeamController() {
         super("/resources/xml/controller_add_report_team.fxml");
 
         from.setCellFactory(param -> new ReportCell());
         to.setCellFactory(param -> new TeamCell());
+        titleLabel.setText("Assign Report to Team");
     }
 
     public void refresh(){

@@ -52,7 +52,7 @@ public class ViewReportsController extends UIViewController {
 
     @Override
     public void viewWillLoad(ResourceBundle bundle) {
-        splitPane.setStyle("-fx-background-color: white;");
+        //splitPane.setStyle("-fx-background-color: white;");
         leftPane.setStyle("-fx-background-color: white;");
         rightPane.setStyle("-fx-background-color: white;");
         listView.setCellFactory(param -> new ReportCell());
@@ -85,14 +85,15 @@ public class ViewReportsController extends UIViewController {
 
     public void refreshList(){
         APIManager.getInstance().getReports((response, reports, exception) -> {
-            Report selectedItem = listView.getSelectionModel().getSelectedItem();
-            listView.getItems().clear();
-            listView.getItems().addAll(reports);
-            if(selectedItem != null){
-                int num = selectedItem.getReportNum();
-                listView.getSelectionModel().select(indexOfItem(num));
+            if(exception == null && response.isOK()){
+                Report selectedItem = listView.getSelectionModel().getSelectedItem();
+                listView.getItems().clear();
+                listView.getItems().addAll(reports);
+                if(selectedItem != null){
+                    int num = selectedItem.getReportNum();
+                    listView.getSelectionModel().select(indexOfItem(num));
+                }
             }
-
         });
     }
 

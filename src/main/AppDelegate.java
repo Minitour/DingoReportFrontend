@@ -3,6 +3,7 @@ package main;
 import controller.LoginController;
 import controller.masters.*;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import network.AutoSignIn;
@@ -28,6 +29,10 @@ public class AppDelegate extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setScene(new Scene(controller.view));
         primaryStage.show();
+        primaryStage.setOnCloseRequest((ae) -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
 
     public LoginController initLoginController(){

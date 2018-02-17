@@ -10,7 +10,7 @@ import ui.UIViewController;
  */
 public class OfficerMasterController extends MasterMenuController{
 
-    private UIViewController[] controllers = {new ViewReportsController(),null,new UpdatePasswordController()};
+    private UIViewController[] controllers = {new ViewReportsController(),new UpdatePasswordController()};
 
     @Override
     public UIView viewForIndexAt(int index) {
@@ -23,6 +23,6 @@ public class OfficerMasterController extends MasterMenuController{
 
     @Override
     public String[] itemsForMenu() {
-        return new String[]{"View Reports","Review Violations","Update Password"};
+        return new String[]{"View Reports","Update Password"};
     }
 }

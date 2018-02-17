@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="18.0" />
                </font></Label>
 
-                <VBox fx:id="pa" alignment="CENTER" spacing="16" styleClass="container" minWidth="200">
+                <VBox fx:id="pa" alignment="CENTER" spacing="16" styleClass="container" minWidth="256">
                     <padding><Insets bottom="8" /></padding>
                     <VBox fx:id="formHolder" spacing="8">
 
