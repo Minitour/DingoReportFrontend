@@ -18,7 +18,7 @@
         <VBox alignment="TOP_CENTER" prefHeight="${backgroundPane.height}" prefWidth="${backgroundPane.width}">
             <Pane prefHeight="150" style="-fx-background-color: #16a085;"/>
         </VBox>
-        <Label fx:id="copyright" prefWidth="${backgroundPane.width}" alignment="BOTTOM_LEFT" style="-fx-text-fill: #808080;">
+        <Label fx:id="copyright" prefWidth="${backgroundPane.width}" text="Copyright © 2018, Antonio Zaitoun, Tomer Goldfeder" alignment="BOTTOM_LEFT" style="-fx-text-fill: #808080;">
             <padding ><Insets bottom="8" left="8" right="8" top="8" /></padding>
         </Label>
     </VBox>
@@ -32,8 +32,8 @@
               </image>
           </ImageView>
 
-          <JFXTextField fx:id="userInputField"  text="tony@moodz.io" labelFloat="true" promptText="Username" />
-          <JFXPasswordField fx:id="passwordInputField" text="password" labelFloat="true" promptText="Password">
+          <JFXTextField fx:id="userInputField" labelFloat="true" promptText="Username" />
+          <JFXPasswordField fx:id="passwordInputField" labelFloat="true" promptText="Password">
           </JFXPasswordField>
           <VBox alignment="CENTER" spacing="10">
               <padding>
