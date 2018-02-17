@@ -1,10 +1,7 @@
 package network;
 
 import com.google.gson.JsonObject;
-import model.Report;
-import model.VehicleModel;
-import model.Violation;
-import model.ViolationType;
+import model.*;
 import net.sf.jasperreports.engine.JasperPrint;
 
 import java.io.InputStream;
@@ -62,6 +59,16 @@ public final class Callbacks {
     @FunctionalInterface
     public interface Jasper {
         void make(JasperPrint print, Exception e);
+    }
+
+    @FunctionalInterface
+    public interface Teams {
+        void make(ServerResponse response, List<Team> teams,Exception ex);
+    }
+
+    @FunctionalInterface
+    public interface Officers {
+        void make(ServerResponse response, List<Officer> officers,Exception ex);
     }
 
     //TODO: add needed interfaces.

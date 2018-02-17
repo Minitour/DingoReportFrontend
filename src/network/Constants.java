@@ -1,5 +1,7 @@
 package network;
 
+import com.sun.org.apache.bcel.internal.generic.GETFIELD;
+
 /**
  * Created By Tony on 14/02/2018
  */
@@ -47,7 +49,17 @@ final public class Constants {
         public static String createUser() {
             return getAddress() + "/createUser";
         }
+        public static String getTeams() {
+            return getAddress() + "/getTeams";
+        }
+        public static String getAllOfficers() {
+            return getAddress() + "/getAllOfficers" ;
+        }
+        public static String createTeam() {
+            return getAddress() + "/createTeam";
+        }
         public static String resource(String resource){ return getAddress() + "/"+ resource; }
+
 
 
     }

@@ -11,6 +11,6 @@ public class ViolationCell extends UIListViewCell<Violation,UIView> {
 
     @Override
     public UIView load(Violation item) {
-        return new ViolationViewCell().setViolation(item);
+        return new ViolationCellView().setViolation(item);
     }
 }

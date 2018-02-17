@@ -3,6 +3,7 @@ package network;
 import com.google.common.io.ByteStreams;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import com.sun.security.ntlm.Server;
 import javafx.application.Platform;
 import model.*;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -354,10 +355,25 @@ public class APIManager {
         s.start();
     }
 
+    /**
+     *
+     * @param from
+     * @param to
+     * @param callback
+     */
     public void getExportedReport(Date from, Date to, Callbacks.Jasper callback){
         getExportedReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,from,to,callback);
     }
 
+    /**
+     * Load jasper report from server in a given time frame.
+     *
+     * @param id The id of the current user.
+     * @param token The session token of the user.
+     * @param from The start date.
+     * @param to The end date.
+     * @param callback The callback containing the jasper print.
+     */
     public void getExportedReport(String id,String token,Date from,Date to,Callbacks.Jasper callback){
         Map<String,String> headers = new HashMap<>();
         headers.put("id",id);
@@ -381,6 +397,44 @@ public class APIManager {
         });
     }
 
+
+    public void getTeams(Callbacks.Teams callback){
+        getTeams(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    /**
+     * Get all teams from database.
+     *
+     * @param id The current user id.
+     * @param token The current session token.
+     * @param callback The callback response.
+     */
+    public void getTeams(String id,String token,Callbacks.Teams callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getTeams(), null, body, (json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Team> teams = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Team team = gson.fromJson(object, Team.class);
+                        teams.add(team);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,teams,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
 
     //TODO: add other methods here
 
@@ -556,6 +610,54 @@ public class APIManager {
         String[] parts = file.getPath().split("\\.");
         return parts[parts.length - 1];
     }
+
+    public void getAllOfficers(String id,String token, Callbacks.Officers callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+
+        makeRequest(Constants.Routes.getAllOfficers(),null,body,(json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if(exception == null){
+                List<Officer> officers = new ArrayList<>();
+                JsonArray array = gson.fromJson(json.get("data").getAsJsonArray(),JsonArray.class);
+
+                for(JsonElement object : array){
+                    try {
+                        Officer officer = gson.fromJson(object, Officer.class);
+                        officers.add(officer);
+                    }catch (Exception e){
+                        System.err.println(e.getMessage());
+                    }
+                }
+
+                callback.make(r,officers,null);
+            }else{
+                callback.make(r,null,exception);
+            }
+        });
+    }
+
+    public void getAllOfficers(Callbacks.Officers callback) {
+        getAllOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    public void createTeam(String id,String token,Team team, Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("team",toJson(team));
+
+        makeRequest(Constants.Routes.createTeam(),null,body,(json, exception) ->
+                callback.make(new ServerResponse(json),exception));
+    }
+
+    public void createTeam(Team team, Callbacks.General callback) {
+        createTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,team, callback);
+    }
+
+
+
 
     /**
      * Helper class for decoding/encoding Violation instances into/onto JSONs.

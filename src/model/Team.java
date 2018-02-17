@@ -12,7 +12,7 @@ import java.util.Collection;
 public class Team{
 
     @Expose
-    private String teamNum;
+    private Integer teamNum;
 
     @Expose
     private Officer leader;
@@ -20,15 +20,15 @@ public class Team{
     @Expose
     private Collection<Officer> officers;
 
-    public Team(String teamNum) {
+    public Team(Integer teamNum) {
         this.teamNum = teamNum;
     }
 
-    public String getTeamNum() {
+    public Integer getTeamNum() {
         return teamNum;
     }
 
-    public void setTeamNum(String teamNum) {
+    public void setTeamNum(Integer teamNum) {
         this.teamNum = teamNum;
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import ui.UIView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<UIView fx:id="root" xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        stylesheets="@../../ui/res/css/styles.css,@../css/style.css">
+    <VBox fx:id="pa" spacing="16">
+        <AnchorPane fx:id="tableHolder" VBox.vgrow="ALWAYS">
+
+        </AnchorPane>
+    </VBox>
+</UIView>

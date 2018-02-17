@@ -2,6 +2,7 @@ package ui;
 
 import com.sun.istack.internal.NotNull;
 import com.sun.istack.internal.Nullable;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -50,27 +51,37 @@ abstract public class UITableView<T> extends UIView {
      */
     private Callback<TableColumn.CellDataFeatures<T,String>, ObservableValue<T>> cellDataFactories[];
 
+    public UITableView() {
+        super("/ui/res/xml/tableview.fxml");
+    }
 
     @Override
     public void layoutSubviews(ResourceBundle bundle) {
+        tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         int size = numberOfColumns();
         columns = new TableColumn[size];
         bundleIds = new String[size];
         cellDataFactories = new Callback[size];
-        data = FXCollections.observableArrayList(dataSource());
-
-        for(int i = 0; i <size; i++){
-            String id = bundleIdForIndex(i);
-            bundleIds[i] = id;
-
-            String name = getSafeValueFromBundle(id,bundle);
-            columns[i] = new TableColumn(name);
-            cellDataFactories[i] = cellFactoryValueForIndex(i);
-            columns[i].setCellValueFactory(cellDataFactories[i]);
-            tableView.getColumns().add(columns[i]);
+        Collection<? extends T> dataSource = dataSource();
+        if(dataSource != null) {
+            data = FXCollections.observableArrayList(dataSource());
+        }else{
+            data = FXCollections.observableArrayList();
         }
 
-        tableView.setItems(data);
+
+            for (int i = 0; i < size; i++) {
+                String id = bundleIdForIndex(i);
+                bundleIds[i] = id;
+
+                String name = getSafeValueFromBundle(id, bundle);
+                columns[i] = new TableColumn(name);
+                cellDataFactories[i] = getCallback(cellValueForColumnAt(i));
+                columns[i].setCellValueFactory(cellDataFactories[i]);
+                tableView.getColumns().add(columns[i]);
+            }
+
+            tableView.setItems(data);
     }
 
     @Override
@@ -105,14 +116,14 @@ abstract public class UITableView<T> extends UIView {
      * @param index
      * @return
      */
-    public abstract Callback cellFactoryValueForIndex(int index);
+    public abstract TableColumnValue<T> cellValueForColumnAt(int index);
 
     public String dataForColumn(T data, int column){
         return null;
     }
 
     public void reloadData(){
-        data.removeAll(data);
+        data.clear();
         data.addAll(dataSource());
     }
 
@@ -149,6 +160,15 @@ abstract public class UITableView<T> extends UIView {
             }
         }
         return name;
+    }
+
+    public interface TableColumnValue<T>{
+        Object value(T object);
+    }
+
+    private <T>Callback getCallback(TableColumnValue<T> value){
+        return  (Callback<TableColumn.CellDataFeatures<T, String>, ObservableValue<String>>)
+                param -> new SimpleStringProperty(value.value(param.getValue()).toString());
     }
 
 }

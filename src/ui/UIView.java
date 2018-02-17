@@ -55,6 +55,7 @@ public class UIView extends StackPane implements Initializable, LocalizationMana
         try{
             load(fxml);
         }catch (IOException e){
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }

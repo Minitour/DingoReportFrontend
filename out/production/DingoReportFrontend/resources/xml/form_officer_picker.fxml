@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root stylesheets="@../../ui/res/css/styles.css" type="javafx.scene.layout.StackPane" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox spacing="16">
+        <ListView fx:id="officers_list" style="-fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
+    </VBox>
+
+</fx:root>

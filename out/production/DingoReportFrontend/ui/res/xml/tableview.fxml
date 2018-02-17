@@ -20,10 +20,6 @@
                AnchorPane.bottomAnchor="16.0"
                alignment="CENTER">
 
-<!---fx-background-color: rgb(26, 188, 156);-->
-
         </HBox>
     </AnchorPane>
-
-
 </fx:root>

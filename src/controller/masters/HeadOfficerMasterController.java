@@ -1,6 +1,8 @@
 package controller.masters;
 
 import controller.ExportReportsController;
+import controller.ManageTeamsController;
+import controller.UpdatePasswordController;
 import controller.report.ViewReportsController;
 import ui.UIView;
 import ui.UIViewController;
@@ -12,7 +14,11 @@ public class HeadOfficerMasterController extends MasterMenuController{
 
     private UIViewController[] controllers = {
             new ViewReportsController(),
-            new ExportReportsController()
+            new ExportReportsController(),
+            null,
+            null,
+            new ManageTeamsController(),
+            new UpdatePasswordController()
     };
 
     @Override
