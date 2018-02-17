@@ -774,7 +774,8 @@ public class APIManager {
             @Override
             public void onFailure(Call call, IOException e) {
                 if (callback != null)
-                    callback.make(null,e);
+                    Platform.runLater(()-> callback.make(null,e));
+
                 System.err.println( "onFailure: " + e.toString());
             }
             @Override

@@ -46,13 +46,19 @@ public class AppDelegate extends Application {
     public LoginController initLoginController(){
         LoginController controller = new LoginController();
         controller.setOnExit(event -> loginStage.close());
-        controller.setOnAuth(role -> {
+        controller.setOnAuth((role,ex)-> {
             if(role != -1) {
                 onLoginSuccess(role);
             }else{
                 DialogView dialog = new DialogView();
-                dialog.setTitle("Invalid Credentials");
-                dialog.setMessage("Incorrect email or password. Please try again.");
+                if(ex != null){
+                    dialog.setTitle("Error");
+                    dialog.setMessage(ex.getLocalizedMessage());
+                }else{
+                    dialog.setTitle("Invalid Credentials");
+                    dialog.setMessage("Incorrect email or password. Please try again.");
+                }
+
                 dialog.getPostiveButton().setText("Close");
                 dialog.setPostiveEventHandler(event -> dialog.close());
                 dialog.show(controller.view);

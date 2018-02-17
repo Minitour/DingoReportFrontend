@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="DingoReportClient:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="744aeb5d-3ebd-4fa5-87c6-38050abac926" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/DingoReportClient_jar.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/controller/LoginController.java" />
       <change beforePath="$PROJECT_DIR$/src/main/AppDelegate.java" afterPath="$PROJECT_DIR$/src/main/AppDelegate.java" />
+      <change beforePath="$PROJECT_DIR$/src/network/APIManager.java" afterPath="$PROJECT_DIR$/src/network/APIManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,15 +29,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="APIManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3">
+              <caret line="726" column="20" lean-forward="false" selection-start-line="726" selection-start-column="20" selection-end-line="726" selection-end-column="20" />
+              <folding>
+                <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
+                <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
+                <element signature="method#getAllOfficers#0;class#APIManager#0" expanded="false" />
+                <element signature="method#getUnassignedReports#0;class#APIManager#0" expanded="false" />
+                <element signature="method#getAccounts#0;class#APIManager#0" expanded="false" />
+                <element signature="method#makeRequest#0;class#APIManager#0" expanded="false" />
+                <element signature="method#requestResource#0;class#APIManager#0" expanded="false" />
+                <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+              <folding>
+                <element signature="e#2300#2301#0" expanded="true" />
+                <element signature="e#2352#2353#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Constants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/network/Constants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/view/DialogView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AppDelegate.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/AppDelegate.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="51" />
+            <state relative-caret-position="317">
+              <caret line="54" column="42" lean-forward="false" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
               <folding>
                 <element signature="e#452#453#0" expanded="true" />
                 <element signature="e#480#481#0" expanded="true" />
-                <element signature="method#initLoginController#0;class#AppDelegate#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -126,7 +187,6 @@
         <option value="$PROJECT_DIR$/src/model/Account.java" />
         <option value="$PROJECT_DIR$/src/controller/AddAnyUserController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_add_any_user.fxml" />
-        <option value="$PROJECT_DIR$/src/network/Constants.java" />
         <option value="$PROJECT_DIR$/src/controller/masters/AdminMasterController.java" />
         <option value="$PROJECT_DIR$/src/model/Decision.java" />
         <option value="$PROJECT_DIR$/src/model/Officer.java" />
@@ -139,17 +199,18 @@
         <option value="$PROJECT_DIR$/src/controller/report/ViewReportsController.java" />
         <option value="$PROJECT_DIR$/src/controller/masters/OfficerMasterController.java" />
         <option value="$PROJECT_DIR$/src/network/Callbacks.java" />
-        <option value="$PROJECT_DIR$/src/network/APIManager.java" />
-        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/controller/masters/MasterMenuController.java" />
         <option value="$PROJECT_DIR$/src/resources/xml/controller_login.fxml" />
+        <option value="$PROJECT_DIR$/src/network/Constants.java" />
+        <option value="$PROJECT_DIR$/src/network/APIManager.java" />
+        <option value="$PROJECT_DIR$/src/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/AppDelegate.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-20" />
-    <option name="y" value="189" />
+    <option name="x" value="-8" />
+    <option name="y" value="32" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -190,41 +251,13 @@
               <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="masters" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DingoReportFrontend" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DingoReportFrontend" type="b2602c69:ProjectViewProjectNode" />
@@ -243,7 +276,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15517241" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -386,7 +419,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24891305" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19021739" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -428,17 +461,11 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/model/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="59" column="5" lean-forward="false" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/report/ReportFillController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -622,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/Constants.java">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="73" column="47" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/model/Decision.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -671,6 +688,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="173" column="83" lean-forward="false" selection-start-line="173" selection-start-column="83" selection-end-line="173" selection-end-column="83" />
+          <folding>
+            <element signature="method#setVehicle#0;class#ReportViewController#0" expanded="false" />
+            <element signature="method#setReport#0;class#ReportViewController#0" expanded="false" />
+            <element signature="e#7799#7800#0" expanded="false" />
+            <element signature="e#7832#7833#0" expanded="false" />
+            <element signature="e#7887#7888#0" expanded="false" />
+            <element signature="e#7931#7932#0" expanded="false" />
+            <element signature="e#7997#7998#0" expanded="false" />
+            <element signature="e#8047#8048#0" expanded="false" />
+            <element signature="e#8092#8093#0" expanded="false" />
+            <element signature="e#8119#8120#0" expanded="false" />
+            <element signature="method#onViolationAdded#0;class#ReportViewController#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -778,32 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4845">
-          <caret line="303" column="45" lean-forward="false" selection-start-line="303" selection-start-column="45" selection-end-line="303" selection-end-column="45" />
-          <folding>
-            <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getAllOfficers#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getUnassignedReports#0;class#APIManager#0" expanded="false" />
-            <element signature="method#getAccounts#0;class#APIManager#0" expanded="false" />
-            <element signature="method#makeRequest#0;class#APIManager#0" expanded="false" />
-            <element signature="method#requestResource#0;class#APIManager#0" expanded="false" />
-            <element signature="method#makeOkHttpRequest#0;class#APIManager#0" expanded="false" />
-            <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="46" column="12" lean-forward="false" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/TeamTableView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="838">
@@ -847,14 +851,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/Constants.java">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="17" column="51" lean-forward="false" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/DialogView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network/APIManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="726" column="20" lean-forward="false" selection-start-line="726" selection-start-column="20" selection-end-line="726" selection-end-column="20" />
+          <folding>
+            <element signature="method#uploadAndModifyViolations#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getExportedReport#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getAllOfficers#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getUnassignedReports#0;class#APIManager#0" expanded="false" />
+            <element signature="method#getAccounts#0;class#APIManager#0" expanded="false" />
+            <element signature="method#makeRequest#0;class#APIManager#0" expanded="false" />
+            <element signature="method#requestResource#0;class#APIManager#0" expanded="false" />
+            <element signature="method#uploadFile#0;class#APIManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+          <folding>
+            <element signature="e#2300#2301#0" expanded="true" />
+            <element signature="e#2352#2353#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/AppDelegate.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="29" column="51" lean-forward="false" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="51" />
+        <state relative-caret-position="317">
+          <caret line="54" column="42" lean-forward="false" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
           <folding>
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#480#481#0" expanded="true" />
-            <element signature="method#initLoginController#0;class#AppDelegate#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -865,10 +915,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>DingoReportClient:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

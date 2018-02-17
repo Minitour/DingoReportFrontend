@@ -53,7 +53,7 @@ public class LoginController extends UIViewController {
                         passwordInputField.setText(null);
 
                     if (authentication != null)
-                        authentication.onAuth(roleId);
+                        authentication.onAuth(roleId,exception);
 
                 });
             }else{
@@ -73,7 +73,7 @@ public class LoginController extends UIViewController {
 
     @FunctionalInterface
     public interface Authentication{
-        void onAuth(int role);
+        void onAuth(int role,Exception e);
     }
 
     public void setOnAuth(Authentication authentication) {
