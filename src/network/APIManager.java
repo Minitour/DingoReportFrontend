@@ -296,7 +296,20 @@ public class APIManager {
     }
 
     public void makeDecision(String id,String token,Decision decision,Callbacks.General callback) {
+        JsonObject body = new JsonObject();
+        body.addProperty("id",id);
+        body.addProperty("sessionToken",token);
+        body.add("decision", toJson(decision));
 
+        makeRequest(Constants.Routes.makeDecision(), null, body, (json, exception) -> {
+            ServerResponse r = new ServerResponse(json);
+            if (exception == null) {
+                callback.make(r,null);
+            }
+            else {
+                callback.make(r, exception);
+            }
+        });
     }
 
     public void makeDecision(Decision decision,Callbacks.General callback) {

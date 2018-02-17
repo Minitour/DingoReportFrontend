@@ -19,6 +19,11 @@ public class Decision{
         this.decision = decision;
     }
 
+    public Decision(Officer officer) {
+        this(0);
+        setOfficer(officer);
+    }
+
     public Officer getOfficer() {
         return officer;
     }
@@ -41,5 +46,12 @@ public class Decision{
 
     public void setDecision(int decision) {
         this.decision = decision;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof Decision
+                && officer != null
+                && officer.getID().equals(((Decision)obj).getOfficer().getID());
     }
 }

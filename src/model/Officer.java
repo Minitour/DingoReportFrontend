@@ -14,12 +14,12 @@ public class Officer extends Account {
     private String phoneExtension;
 
     @Expose
-    private int rank;
+    private Integer rank;
 
     @Expose
     private Team team;
 
-    public Officer(String ID, String EMAIL, String badgeNum, String name, String phoneExtension, int rank) {
+    public Officer(String ID, String EMAIL, String badgeNum, String name, String phoneExtension, Integer rank) {
         super(ID, EMAIL, 2);
         this.badgeNum = badgeNum;
         this.name = name;
@@ -27,12 +27,16 @@ public class Officer extends Account {
         this.rank = rank;
     }
 
-    public Officer(String ID, String EMAIL, String password, String badgeNum, String name, String phoneExtension, int rank) {
+    public Officer(String ID, String EMAIL, String password, String badgeNum, String name, String phoneExtension, Integer rank) {
         super(ID, EMAIL, 2, password);
         this.badgeNum = badgeNum;
         this.name = name;
         this.phoneExtension = phoneExtension;
         this.rank = rank;
+    }
+
+    public Officer(String id) {
+        this(id,null,null,null,null,null);
     }
 
     public String getBadgeNum() {

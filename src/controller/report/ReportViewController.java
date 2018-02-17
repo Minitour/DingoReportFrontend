@@ -146,7 +146,8 @@ public class ReportViewController extends UIViewController {
         if(AutoSignIn.ROLE_ID == 1 || AutoSignIn.ROLE_ID == 2){
             dialogView.getNaturalButton().setText("Make Decision");
             dialogView.setNaturalEventHandler(event -> makeDecisionClicked(event,violation));
-            if(violation.getDecisions().contains(new Officer(AutoSignIn.ID,null,null,null,null,0))){
+            Officer officer = new Officer(AutoSignIn.ID);
+            if(violation.getDecisions().contains(new Decision(officer))){
                 dialogView.getNaturalButton().setDisable(true);
                 dialogView.getNaturalButton().setText("Voted");
             }
@@ -170,6 +171,7 @@ public class ReportViewController extends UIViewController {
         Callbacks.General callback = (response, exception) -> {
             button.setDisable(true);
             dialogView.close();
+            violation.getDecisions().add(new Decision(new Officer(AutoSignIn.ID)));
         };
 
         dialogView.setPostiveEventHandler(event -> {
