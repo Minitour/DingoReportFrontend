@@ -2,19 +2,15 @@ package network;
 
 import com.google.common.io.ByteStreams;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
-import com.sun.security.ntlm.Server;
 import javafx.application.Platform;
 import model.*;
 import net.sf.jasperreports.engine.JasperPrint;
 import okhttp3.*;
-import sun.rmi.runtime.Log;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.function.BiConsumer;
 
 /**
  * Created By Tony on 14/02/2018
@@ -24,17 +20,14 @@ public class APIManager {
     public static APIManager getInstance(){
         return manager;
     }
-    //singleton
     private final static APIManager manager = new APIManager();
     private final OkHttpClient client;
-    private final String TAG = "API-MANAGER";
-
     private static Gson gson;
 
     static {
-        GsonBuilder gsonBilder = new GsonBuilder();
-        gsonBilder.registerTypeAdapter(Violation.class, new AbstractElementAdapter());
-        gson = gsonBilder.create();
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Violation.class, new AbstractElementAdapter());
+        gson = gsonBuilder.create();
     }
 
     /**
@@ -101,6 +94,13 @@ public class APIManager {
                 callback.make(new ServerResponse(json),ex));
     }
 
+    /**
+     * Update password method.
+     *
+     * @param currentPassword The current password of the account.
+     * @param newPassword The new password the user wishes to set.
+     * @param callback The response callback.
+     */
     public void updatePassword(String currentPassword,String newPassword,Callbacks.General callback){
         updatePassword(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,currentPassword,newPassword,callback);
     }
@@ -139,6 +139,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get reports for current user.
+     *
+     * @param callback The callback response containing reports.
+     */
     public void getReports(Callbacks.Reports callback){
         getReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -177,6 +182,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all violation types from the server.
+     *
+     * @param callback The response callback containing violation types.
+     */
     public void getViolationTypes(Callbacks.ViolationTypes callback){
         getViolationTypes(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -215,6 +225,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all vehicle models from the server.
+     *
+     * @param callback The response callback.
+     */
     public void getVehicleModels(Callbacks.VehicleModels callback){
         getVehicleModels(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -234,6 +249,12 @@ public class APIManager {
         requestResource(Constants.Routes.resource(resource), headers, callback);
     }
 
+    /**
+     * Load a resource given a link.
+     *
+     * @param resource The resource url. must be in the format 'resource/{USER_ID}/{FILE}'
+     * @param callback The response callback - contains an input stream with the resource data if found.
+     */
     public void getResource(String resource,Callbacks.Resource callback){
         getResource(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,resource,callback);
     }
@@ -263,6 +284,14 @@ public class APIManager {
             }
         });
     }
+
+    /**
+     * Method used with context 3 (secretary).
+     * This method sends a request to the server to create an account with the given details and then attach it to a new volunteer instance.
+     *
+     * @param volunteer The volunteer object. only needs to contain the following(email,name,phone)
+     * @param callback The response callback.
+     */
     public void createVolunteer(Volunteer volunteer, Callbacks.General callback) {
         createVolunteer(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,volunteer,callback);
     }
@@ -291,6 +320,14 @@ public class APIManager {
             }
         });
     }
+
+    /**
+     * Superuser function
+     * Create any type of user.
+     *
+     * @param account The account containing all the details of the user.
+     * @param callback The callback response.
+     */
     public void createUser(Account account,Callbacks.General callback){
         createUser(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,account,callback);
     }
@@ -320,6 +357,12 @@ public class APIManager {
         });
     }
 
+    /**
+     * Use this method to vote on a violation. context level 1 and 2.
+     *
+     * @param decision The decision to vote on containing the voting officer.
+     * @param callback The response callback.
+     */
     public void makeDecision(Decision decision,Callbacks.General callback) {
         makeDecision(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,decision,callback);
     }
@@ -350,9 +393,11 @@ public class APIManager {
     }
 
     /**
+     * This function takes in a report object and sends it to the server.
+     * Before sending the report object it will iterate over the violations and then upload them synchronously.
      *
-     * @param report
-     * @param callback
+     * @param report The report object (raw)
+     * @param callback The callback.
      */
     public void submitReport(Report report,Callbacks.General callback){
         submitReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,callback);
@@ -378,16 +423,6 @@ public class APIManager {
             callback.make(violations);
         });
         s.start();
-    }
-
-    /**
-     *
-     * @param id The current user id.
-     * @param token The current session token.
-     * @param callback The callback response.
-     */
-    public void getExportedReport(Date from, Date to, Callbacks.Jasper callback){
-        getExportedReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,from,to,callback);
     }
 
     /**
@@ -422,9 +457,16 @@ public class APIManager {
         });
     }
 
-
-    public void getTeams(Callbacks.Teams callback){
-        getTeams(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    /**
+     *
+     * Load jasper report from server in a given time frame.
+     *
+     * @param from The start date.
+     * @param to The end date.
+     * @param callback The callback containing the jasper print.
+     */
+    public void getExportedReport(Date from, Date to, Callbacks.Jasper callback){
+        getExportedReport(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,from,to,callback);
     }
 
     /**
@@ -462,6 +504,15 @@ public class APIManager {
     }
 
     /**
+     * Get all teams from database. Context level 1
+     *
+     * @param callback The callback response.
+     */
+    public void getTeams(Callbacks.Teams callback){
+        getTeams(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
+    }
+
+    /**
      * Get all officers, context level 1.
      *
      * @param id The id of the current user.
@@ -495,6 +546,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all officers, context level 1.
+     *
+     * @param callback The response callback.
+     */
     public void getAllOfficers(Callbacks.Officers callback) {
         getAllOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -517,6 +573,12 @@ public class APIManager {
                 callback.make(new ServerResponse(json),exception));
     }
 
+    /**
+     * Use this method to create a new team with a team leader. context level 1.
+     *
+     * @param team The team, containing the team leader.
+     * @param callback The response callback.
+     */
     public void createTeam(Team team, Callbacks.General callback) {
         createTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,team, callback);
     }
@@ -541,6 +603,13 @@ public class APIManager {
                 callback.make(new ServerResponse(json),exception));
     }
 
+    /**
+     * Assign a report to a team.
+     *
+     * @param report The report object.
+     * @param team The team object
+     * @param callback The response callback.
+     */
     public void addReportToTeam(Report report,Team team,Callbacks.General callback){
         addReportToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,report,team,callback);
     }
@@ -565,6 +634,13 @@ public class APIManager {
                 callback.make(new ServerResponse(json),exception));
     }
 
+    /**
+     * Use this method to assign an officer to a team. context level 1.
+     *
+     * @param officer The officer to assign.
+     * @param team The team to assign the officer to.
+     * @param callback The response callback.
+     */
     public void addOfficerToTeam(Officer officer,Team team,Callbacks.General callback){
         addOfficerToTeam(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,officer,team,callback);
     }
@@ -603,6 +679,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all reports that were not assigned to a team (context level 1)
+     *
+     * @param callback The response callback.
+     */
     public void getUnassignedReports(Callbacks.Reports callback){
         getUnassignedReports(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -641,6 +722,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Get all un-assigned officers. (context level 1)
+     *
+     * @param callback The response callback.
+     */
     public void getUnassignedOfficers(Callbacks.Officers callback){
         getUnassignedOfficers(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -679,6 +765,11 @@ public class APIManager {
         });
     }
 
+    /**
+     * Use this method to get all existing accounts (ID,Email,ROLE). context level 0.
+     *
+     * @param callback The response callback.
+     */
     public void getAccounts(Callbacks.Accounts callback){
         getAccounts(AutoSignIn.ID,AutoSignIn.SESSION_TOKEN,callback);
     }
@@ -859,10 +950,6 @@ public class APIManager {
     }
 
 
-
-
-
-
     /**
      * Helper class for decoding/encoding Violation instances into/onto JSONs.
      */
@@ -883,13 +970,30 @@ public class APIManager {
         }
     }
 
-    public static byte[] serialize(Object obj) throws IOException {
+    /**
+     * Method to serialize an object and convert it to a byte array.
+     *
+     * @param obj The object to convert.
+     * @return A byte array.
+     * @throws IOException
+     */
+    private static byte[] serialize(Object obj) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         ObjectOutputStream os = new ObjectOutputStream(out);
         os.writeObject(obj);
         return out.toByteArray();
     }
-    public static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
+
+    /**
+     * Method to deserialize a byte array and convert it to an object.
+     *
+     * @param data The byte array.
+     * @param <T> The type of the object.
+     * @return The object converted.
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
+    private static <T> T deserialize(byte[] data) throws IOException, ClassNotFoundException {
         ByteArrayInputStream in = new ByteArrayInputStream(data);
         ObjectInputStream is = new ObjectInputStream(in);
         return (T)is.readObject();
