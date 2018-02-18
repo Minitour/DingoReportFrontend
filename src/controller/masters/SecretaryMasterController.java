@@ -18,6 +18,7 @@ public class SecretaryMasterController extends MasterMenuController{
         switch (index){
             case 0:
                 AddUserController addUserController =  new AddUserController(AddUserController.UserType.VOLUNTEER){
+                    TextField pwField = getAccountFormView().getPasswordField();
                     @Override
                     public void onAccountReady(Account account) {
                         DialogView dialogView = makeDialog("Creating Account", "Loading...");
@@ -42,6 +43,8 @@ public class SecretaryMasterController extends MasterMenuController{
                             dialogView.getPostiveButton().setVisible(true);
 
                         });
+                        pwField.setText("****************");
+                        pwField.setDisable(true);
                     }
                 };
                 TextField pwField = addUserController.getAccountFormView().getPasswordField();

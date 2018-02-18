@@ -165,6 +165,7 @@ public class AddUserController extends UIViewController{
 
     public void reset() {
         accountFormView.reset();
+
         volunteerFormView.reset();
         officerFormView.reset();
     }
