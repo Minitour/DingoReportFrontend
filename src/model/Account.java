@@ -71,7 +71,7 @@ public class Account{
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Account && ((Account) obj).ID.equals(this.ID);
-
+        if(ID != null) return obj != null && obj instanceof Account && ((Account) obj).ID.equals(this.ID);
+        return super.equals(obj);
     }
 }

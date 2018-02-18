@@ -78,4 +78,9 @@ public class Officer extends Account {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj) || (badgeNum != null && obj instanceof Officer && ((Officer) obj).badgeNum.equals(badgeNum));
+    }
 }

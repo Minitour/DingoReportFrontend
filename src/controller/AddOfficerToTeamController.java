@@ -66,9 +66,13 @@ public class AddOfficerToTeamController extends UIViewController {
             JFXSnackbar bar = new JFXSnackbar(this.view);
             if (response.isOK()) {
                 bar.enqueue(new JFXSnackbar.SnackbarEvent("Assigned Officer "+officer.getName() + " to Team #"+toTeam.getTeamNum()));
-                from.getItems().remove(officer);
-                toTeam.getOfficers().add(officer);
-                to.refresh();
+                try {
+                    from.getItems().remove(officer);
+                    toTeam.getOfficers().add(officer);
+                    to.refresh();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
             else
                 bar.enqueue(new JFXSnackbar.SnackbarEvent("Something went wrong: "+response.getMessage()));
