@@ -2,6 +2,7 @@ package controller.masters;
 
 import controller.AddAnyUserController;
 import controller.AddUserController;
+import controller.UpdatePasswordController;
 import model.Account;
 import network.APIManager;
 import ui.UITableView;
@@ -17,7 +18,10 @@ import java.util.List;
  */
 public class AdminMasterController extends MasterMenuController{
 
-    private UIViewController[] controllers = {new AddAnyUserController()};
+    private UIViewController[] controllers = {
+            new AddAnyUserController(),
+            new UpdatePasswordController()
+    };
 
     private UITableView<Account> accountTableView = new UITableView<Account>() {
 
@@ -84,12 +88,14 @@ public class AdminMasterController extends MasterMenuController{
             case 1:
                 accountTableView.reloadData();
                 return accountTableView;
+            case 2:
+                return controllers[1].view;
         }
         return null;
     }
 
     @Override
     public String[] itemsForMenu() {
-        return new String[]{"Add User","Active Users"};
+        return new String[]{"Add User","Active Users","Update Password"};
     }
 }
