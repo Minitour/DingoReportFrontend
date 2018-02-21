@@ -245,7 +245,12 @@ public class ReportViewController extends UIViewController {
         if(vehicle != null){
             vd_licensePlate.setText(vehicle.getLicensePlate());
             vd_carColor.setText(vehicle.getColorHEX());
-            vd_carModel.setText(vehicle.getModel().getName());
+            try{
+                vd_carModel.setText(vehicle.getModel().getName());
+            }catch (Exception ignored){
+                vd_carModel.setText("NOT FOUND");
+            }
+
 
             Collection<VehicleOwner> owners = vehicle.getOwners();
             if(owners != null)
